@@ -1,0 +1,42 @@
+.titleBox {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+
+    img {
+        width: 30px;
+        height: auto;
+        margin-right: 20px;
+    }
+
+    h1 {
+        color: var(--primaryTitle);
+        font-weight: 900;
+    }
+}
+
+.mainContent {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow-y: scroll;
+
+    .whiteFade {
+        position: sticky;
+        top: 0;
+        left: 0;
+        background: linear-gradient(180deg, rgba(217,217,217,1), rgba(217,217,217,0) 5%, rgba(217,217,217,0) 95%, rgba(217,217,217,1) 100%);
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+    }
+
+    .mainFrame {
+        position: absolute;
+        top: 0;
+        left: 0;
+        margin-top: 20px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
