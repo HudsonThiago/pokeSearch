@@ -1,0 +1,71 @@
+.navButton {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  padding: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: none;
+  border-radius: 50px;
+  -webkit-box-shadow: 2px 2px 2px #00000099;
+          box-shadow: 2px 2px 2px #00000099;
+  cursor: pointer;
+}
+
+.navButton .titleDiv {
+  width: 60%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navButton .titleDiv p {
+  margin-left: 20px;
+  color: var(--secondaryTitle);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.navButton .imgDiv {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: var(--tertiary);
+  width: 40%;
+  height: 100%;
+  padding: 5px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  -webkit-clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navButton .imgDiv img {
+  width: auto;
+  height: 100%;
+}
+/*# sourceMappingURL=style.css.map */

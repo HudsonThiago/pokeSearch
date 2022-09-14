@@ -14,9 +14,9 @@ export default function Card({name, number, image, types}){
     return (
         <div className="card">
             <div className="cardTypes">
-                {types.map((t)=>{
+                {types.map((t, i)=>{
                     const type = t.type.name;
-                    return <div className="imgBox"><img src={require(`../../img/types/${type}.png`)} alt={type}/></div>
+                    return <div key={"type-"+i} className="imgBox"><img src={require(`../../img/types/${type}.png`)} alt={type}/></div>
                 })}
             </div>
             <div className="cardMain">

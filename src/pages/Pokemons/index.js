@@ -41,9 +41,9 @@ export default function Pokemons(){
                 <div className='mainContent'>
                     <div className='whiteFade'></div>
                     <div className='mainFrame'>
-                    {pokemons.map((p)=>{
+                    {pokemons.map((p, index)=>{
                         const image = p.sprites.other['official-artwork'].front_default;
-                        return <Card name={p.name} number={p.id} image={image} types={p.types}/>
+                        return <Card key={p.id} name={p.name} number={p.id} image={image} types={p.types}/>
                     })}
                     </div>
                 </div>
