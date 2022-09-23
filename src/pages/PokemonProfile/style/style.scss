@@ -74,7 +74,8 @@
 
     .c2 {
         margin-left: 5%;
-        width: 65%;
+        width: 63%;
+        padding-right: 2%;
         height: calc(100vh - 180px);
         overflow-y: scroll;
 
@@ -83,6 +84,18 @@
             font-size: 2rem;
             font-weight: 900;
             margin: 0px;
+        }
+
+        .grid3Columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 5px;
+        }
+
+        .grid2Columns {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            gap: 4px;
         }
     }
 }

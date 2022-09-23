@@ -83,7 +83,8 @@
 
 .pokemonProfile .c2 {
   margin-left: 5%;
-  width: 65%;
+  width: 63%;
+  padding-right: 2%;
   height: calc(100vh - 180px);
   overflow-y: scroll;
 }
@@ -93,5 +94,21 @@
   font-size: 2rem;
   font-weight: 900;
   margin: 0px;
+}
+
+.pokemonProfile .c2 .grid3Columns {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
+}
+
+.pokemonProfile .c2 .grid2Columns {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  gap: 4px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -1,0 +1,25 @@
+.ItemBodyContent {
+  width: 100%;
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.ItemBodyContent .ItemBodyHeaderContent {
+  width: 100%;
+}
+
+.ItemBodyContent .ItemBodyHeaderContent h3 {
+  color: var(--primaryTitle);
+  margin: 0px 0px 5px 0px;
+}
+
+.ItemBodyContent .ItemBodyMain {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */

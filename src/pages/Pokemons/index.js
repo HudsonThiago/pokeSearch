@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import getPokemonById from '../../services/pokemon/pokemonService';
+import {getPokemonById} from '../../services/pokemon/pokemonService';
 import Nav from '../../assets/components/Nav';
 import Body from '../../assets/components/Body';
 import Card from '../../assets/components/Card';
@@ -15,7 +15,7 @@ export default function Pokemons(){
     useEffect(() => {
         const getPokemons = async ()=> {
             let pokemonList = [];
-            for(let i=1;i<=20;i++){
+            for(let i=1;i<=151;i++){
                 try {
                     const response = await getPokemonById(i);
                     

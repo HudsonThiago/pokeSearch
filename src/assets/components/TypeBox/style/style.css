@@ -1,0 +1,40 @@
+.typeBox {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #ffffff;
+  width: 100%;
+  height: 30px;
+  padding: 4px;
+  border-radius: 25px;
+  -webkit-box-shadow: 1px 1px 2px #00000099;
+          box-shadow: 1px 1px 2px #00000099;
+}
+
+.typeBox .typeBoxGradient {
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.typeBox .typeImage {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: var(--tertiary);
+  height: 100%;
+  width: auto;
+  padding: 1px;
+  border-radius: 50%;
+}
+
+.typeBox p {
+  margin-left: 4px;
+  color: var(--secondaryTitle);
+  font-weight: 700;
+}
+/*# sourceMappingURL=style.css.map */

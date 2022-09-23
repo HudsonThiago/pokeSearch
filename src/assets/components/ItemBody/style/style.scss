@@ -1,0 +1,19 @@
+.ItemBodyContent {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+
+    .ItemBodyHeaderContent{
+        width: 100%;
+
+        h3 {
+            color: var(--primaryTitle);
+            margin: 0px 0px 5px 0px;
+        }
+    }
+
+    .ItemBodyMain {
+        width: 100%;
+    }
+}
