@@ -2,6 +2,7 @@ import React from 'react'
 import {HashRouter as Router, Routes, Route} from 'react-router-dom'
 import Pokemons from './pages/Pokemons'
 import PokemonProfile from './pages/PokemonProfile'
+import "./core.css";
 
 export default function App() {
   return (
@@ -12,7 +13,6 @@ export default function App() {
           <Route path='/pokemon/:pokemonId' element={<PokemonProfile/>} />
         </Routes>
       </Router>
-    </React.StrictMode>,
-    document.getElementById('root')
+    </React.StrictMode>
   );
 }
