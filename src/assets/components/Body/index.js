@@ -1,13 +1,22 @@
 import React from "react";
+import SearchBar from "../SearchBar";
 import './style/style.css'
 
-export default function Body({children}){
+export default function Body({pokemons, pokemonNameField, setPokemonNameField, filteredPokemons, setFilteredPokemons, children}){
     return (
         <>
             <header>
                 <div className="headerContainer">
-                    <div>aaaaaaa</div>
-                    <div>bbbbb</div>
+                    <div>
+                        <SearchBar
+                            pokemons={pokemons}
+                            pokemonNameField={pokemonNameField}
+                            setPokemonNameField={setPokemonNameField}
+                            filteredPokemons={filteredPokemons}
+                            setFilteredPokemons={setFilteredPokemons}
+                        />
+                    </div>
+                    <div>função B</div>
                 </div>
             </header>
             <main>

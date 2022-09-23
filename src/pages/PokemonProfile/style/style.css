@@ -1,0 +1,97 @@
+.titleContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.titleContainer .titleBox {
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.titleContainer .titleBox img {
+  width: 30px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.titleContainer .titleBox h1 {
+  color: var(--primaryTitle);
+  font-weight: 900;
+}
+
+.pokemonProfile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.pokemonProfile .c1 {
+  width: 30%;
+}
+
+.pokemonProfile .c1 .pokemonBox {
+  position: relative;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pokemonProfile .c1 .pokemonBox .pokemonImage {
+  position: absolute;
+  width: 80%;
+  height: auto;
+  z-index: 2;
+  -webkit-transform: translate(10%, 10%);
+          transform: translate(10%, 10%);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pokemonProfile .c1 .pokemonBox .pokemonCard {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  z-index: 1;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.pokemonProfile .c2 {
+  margin-left: 5%;
+  width: 65%;
+  height: calc(100vh - 180px);
+  overflow-y: scroll;
+}
+
+.pokemonProfile .c2 h2 {
+  color: var(--primaryTitle);
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0px;
+}
+/*# sourceMappingURL=style.css.map */

@@ -1,6 +1,7 @@
-import React from "react";
-import './style/style.css'
-import PokeballImage from '../../img/pokeball.svg'
+import React from 'react';
+import './style/style.css';
+import PokeballImage from '../../img/pokeball.svg';
+
 export default function NavButton({title}){
     return (
         <button className="navButton" type="button">

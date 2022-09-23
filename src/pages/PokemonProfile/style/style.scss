@@ -1,0 +1,88 @@
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .titleBox {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    
+        img {
+            width: 30px;
+            height: auto;
+            margin-right: 20px;
+        }
+    
+        h1 {
+            color: var(--primaryTitle);
+            font-weight: 900;
+        }
+    }
+
+    .turnBackBox {
+
+    }
+}
+
+.pokemonProfile {
+    display: flex;
+    width: 100%;
+
+    .c1 {
+        width: 30%;
+
+        .pokemonBox {
+            position: relative;
+            width: 100%;
+            align-items: center;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -khtml-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            .pokemonImage {
+                position: absolute;
+                width: 80%;
+                height: auto;
+                z-index: 2;
+                transform: translate(10%,10%);
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            .pokemonCard {
+                position: absolute;
+                width: 100%;
+                height: auto;
+                z-index: 1;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        }
+    }
+
+    .c2 {
+        margin-left: 5%;
+        width: 65%;
+        height: calc(100vh - 180px);
+        overflow-y: scroll;
+
+        h2 {
+            color: var(--primaryTitle);
+            font-size: 2rem;
+            font-weight: 900;
+            margin: 0px;
+        }
+    }
+}

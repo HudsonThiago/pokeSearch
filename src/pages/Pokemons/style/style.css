@@ -22,27 +22,14 @@
 .mainContent {
   position: relative;
   width: 100%;
-  height: 500px;
+  height: calc(70vh);
   overflow-y: scroll;
-}
-
-.mainContent .whiteFade {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  left: 0;
-  background: -webkit-gradient(linear, left top, left bottom, from(#d9d9d9), color-stop(5%, rgba(217, 217, 217, 0)), color-stop(95%, rgba(217, 217, 217, 0)), to(#d9d9d9));
-  background: linear-gradient(180deg, #d9d9d9, rgba(217, 217, 217, 0) 5%, rgba(217, 217, 217, 0) 95%, #d9d9d9 100%);
-  width: 100%;
-  height: 100%;
-  z-index: 9;
 }
 
 .mainContent .mainFrame {
   position: absolute;
   top: 0;
   left: 0;
-  margin-top: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

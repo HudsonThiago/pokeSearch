@@ -27,7 +27,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  cursor: pointer;
 }
 
 .card .cardTypes .imgBox {
@@ -57,7 +56,6 @@
 
 .card .cardTypes .imgBox:last-child {
   margin-right: 0;
-  cursor: pointer;
 }
 
 .card .cardMain {
@@ -85,7 +83,6 @@
   top: 0;
   right: 0;
   z-index: 3;
-  cursor: pointer;
 }
 
 .card .cardMain .pokemonImage {
@@ -96,7 +93,6 @@
   height: auto;
   margin-bottom: 15px;
   z-index: 2;
-  cursor: pointer;
 }
 
 .card .cardMain .cardImage {
@@ -106,7 +102,6 @@
   width: 140px;
   height: 140px;
   z-index: 1;
-  cursor: pointer;
 }
 
 .card .cardTitle {
@@ -115,9 +110,65 @@
 
 .card .cardTitle p {
   color: var(--secondaryTitle);
-  font-weight: 700;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  -webkit-transition: 0.5;
+  transition: 0.5;
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+.card:hover .cardTitle {
+  width: 100%;
+}
+
+.card:hover .cardTitle p {
+  color: var(--primaryTitle);
+  font-weight: 900;
   padding: 0;
   margin: 0;
   cursor: pointer;
+}
+
+@-webkit-keyframes pokemonImageAnimation {
+  0% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  25% {
+    -webkit-transform: translate(-5%, 0%);
+            transform: translate(-5%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(5%, 0%);
+            transform: translate(5%, 0%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@keyframes pokemonImageAnimation {
+  0% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  25% {
+    -webkit-transform: translate(-5%, 0%);
+            transform: translate(-5%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(5%, 0%);
+            transform: translate(5%, 0%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
 }
 /*# sourceMappingURL=style.css.map */
