@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/pokeSearch/static/css/main.3dff3067.css",
+    "main.js": "/pokeSearch/static/js/main.59f9d38d.js",
+    "static/js/787.e63902b9.chunk.js": "/pokeSearch/static/js/787.e63902b9.chunk.js",
+    "static/media/dragon.png": "/pokeSearch/static/media/dragon.79b052bca7eab6836767.png",
+    "static/media/psychic.png": "/pokeSearch/static/media/psychic.8b5de523a0f66546a4f0.png",
+    "static/media/grass.png": "/pokeSearch/static/media/grass.210bc83ccdaf8fe3825b.png",
+    "static/media/dark.png": "/pokeSearch/static/media/dark.2ba75ae68499125e14b2.png",
+    "static/media/poison.png": "/pokeSearch/static/media/poison.c04972cda154aa005796.png",
+    "static/media/bug.png": "/pokeSearch/static/media/bug.190b9d8dadde5d794656.png",
+    "static/media/normal.png": "/pokeSearch/static/media/normal.2e09e1c3d6cfefe8cb75.png",
+    "static/media/ghost.png": "/pokeSearch/static/media/ghost.4191449b694230c58cec.png",
+    "static/media/fire.png": "/pokeSearch/static/media/fire.18ae621a5479b71cb354.png",
+    "static/media/rock.png": "/pokeSearch/static/media/rock.20c1fd5647216368ff7c.png",
+    "static/media/fairy.png": "/pokeSearch/static/media/fairy.567cd96bb0f1ad04a75d.png",
+    "static/media/steel.png": "/pokeSearch/static/media/steel.7151eff9bf69bbfd1edb.png",
+    "static/media/water.png": "/pokeSearch/static/media/water.c676f85d90c1121cfa8b.png",
+    "static/media/flying.png": "/pokeSearch/static/media/flying.4cceed78b950812e8feb.png",
+    "static/media/ice.png": "/pokeSearch/static/media/ice.d733694aeabd3e4bc986.png",
+    "static/media/ground.png": "/pokeSearch/static/media/ground.a7180a2b1b931d54f152.png",
+    "static/media/electric.png": "/pokeSearch/static/media/electric.f26f361300015403932b.png",
+    "static/media/fighting.png": "/pokeSearch/static/media/fighting.369e0ec67ce5c409d513.png",
+    "index.html": "/pokeSearch/index.html",
+    "static/media/pokeball.svg": "/pokeSearch/static/media/pokeball.e13bd26458667ed84107b5c570afa0f2.svg",
+    "static/media/card.svg": "/pokeSearch/static/media/card.6e22bc144df7057be855de91720aa5c3.svg",
+    "static/media/card2.svg": "/pokeSearch/static/media/card2.33af2ed570c65a9054ad208aff585733.svg",
+    "main.3dff3067.css.map": "/pokeSearch/static/css/main.3dff3067.css.map",
+    "main.59f9d38d.js.map": "/pokeSearch/static/js/main.59f9d38d.js.map",
+    "787.e63902b9.chunk.js.map": "/pokeSearch/static/js/787.e63902b9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3dff3067.css",
+    "static/js/main.59f9d38d.js"
+  ]
+}
