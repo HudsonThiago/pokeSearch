@@ -1,0 +1,88 @@
+.abilityBox {
+    width: 100%;
+    margin-top: 5px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    min-height: 30px;
+
+    .abilityBoxTitleContent {
+        box-sizing: border-box;
+        background-color: #ffffff;
+        background: linear-gradient(90deg, #ffffff 0%, #4A4F63 100%);
+        width: 100%;
+        height: 30px;
+        padding: 4px;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 1px 1px 2px #00000099;
+        cursor: pointer;
+
+        .abilityIconBox {
+            display: flex;
+            align-items: center;
+
+            .abilityIconCircle {
+                background-color: var(--secondary);
+                height: 22px;
+                width: 22px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                img {
+                    width: 60%;
+                    height: 60%;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -khtml-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+            }
+
+            p {
+                margin-left: 4px;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .abilityBoxMain {
+        width: 100%;
+        padding: 0px 5px;
+
+        p {
+            text-align: justify;
+            display: none;
+            margin: 0px;
+            color: #4A4F6300;
+        }
+    }
+
+    .abilityBoxMain.active {
+        box-sizing: border-box;
+        padding: 10px 5px;
+        transition: 0.5s;
+
+        p {
+            display: block;
+            color: var(--secondaryTitle);
+        }
+    }
+}
+
+// @keyframes abilityBoxAnimation {
+//     0%   {padding: 0px 5px;}
+//     100% {padding: 10px 5px;}
+// }
+
+
+
+
+.abilityBox:first-child {
+    margin: 0px;
+}
