@@ -1,5 +1,6 @@
 import React from "react";
 import './style/style.css';
+import { upperCaseFirstLetter } from "../../../services/utils";
 
 export default function TypeBox({type}){
     let color = "4A4F63";
@@ -65,8 +66,8 @@ export default function TypeBox({type}){
     return (
         <div className="typeBox" style={{background: `linear-gradient(90deg, #ffffff 0%, #${color}99 100%)`}}>
             <div className="typeBoxGradient">
-                <img className="typeImage" src={require(`../../img/types/${type.name}.png`)} alt="{type.name}"/>
-                <p>{type.name}</p>
+                <img className="typeImage" src={require(`../../img/types/${type.name}.png`)} alt="{type.name}" draggable="false"/>
+                <p>{upperCaseFirstLetter(type.name)}</p>
             </div>
         </div>
     )

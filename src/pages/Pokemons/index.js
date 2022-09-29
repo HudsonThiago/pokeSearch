@@ -12,7 +12,7 @@ export default function Pokemons({pokemonList}){
         return (
             pokemons.map((p, index)=>{
                 const image = p.sprites.other['official-artwork'].front_default;
-                return <Card index={index} key={p.id} name={p.name} number={p.id} image={image} types={p.types}/>
+                return <Card id={p.id} index={index} key={p.id} name={p.name} number={p.id} image={image} types={p.types}/>
             })
         )
     }
@@ -21,7 +21,7 @@ export default function Pokemons({pokemonList}){
         return (
             filteredPokemons.map((p, index)=>{
                 const image = p.sprites.other['official-artwork'].front_default;
-                return <Card index={index} key={p.id} name={p.name} number={p.id} image={image} types={p.types}/>
+                return <Card id={p.id} index={index} key={p.id} name={p.name} number={p.id} image={image} types={p.types}/>
             })
         )
     }
@@ -29,7 +29,7 @@ export default function Pokemons({pokemonList}){
     return (
         <>
             <div className='titleBox'>
-                <img src={PokeballImg} alt='pokeball'/>
+                <img src={PokeballImg} alt='pokeball' draggable="false"/>
                 <h1>Pokemons</h1>
             </div>
             <div className='mainContent'>

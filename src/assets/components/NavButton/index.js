@@ -9,7 +9,7 @@ export default function NavButton({title}){
                 <p>{title}</p>
             </div>
             <div className="imgDiv">
-                <img src={PokeballImage} alt="pokeball"/>
+                <img src={PokeballImage} alt="pokeball" draggable="false"/>
             </div>
         </button>
     )

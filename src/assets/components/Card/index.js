@@ -2,14 +2,9 @@ import React from "react";
 import './style/style.css';
 import CardImage from '../../img/card.svg';
 import { Link } from "react-router-dom";
+import { upperCaseFirstLetter, convertNumber } from "../../../services/utils";
 
-export default function Card({index, name, number, image, types}){
-    
-    const numberConvert=(number)=>{
-        if (number < 10) return "00"+number;
-        else if (number >= 10 && number < 100) return "0"+number;
-        else return number;
-    }
+export default function Card({index, id, name, number, image, types}){
 
     const onMouseOverCard=()=>{
         const pokemonImage = document.getElementById("pokemon-"+index);
@@ -27,16 +22,16 @@ export default function Card({index, name, number, image, types}){
                 <div className="cardTypes">
                     {types.map((t, i)=>{
                         const type = t.type.name;
-                        return <div key={"type-"+i} className="imgBox"><img src={require(`../../img/types/${type}.png`)} alt={type}/></div>
+                        return <div key={"type-"+i} className="imgBox"><img src={require(`../../img/types/${type}.png`)} alt={type} draggable="false"/></div>
                     })}
                 </div>
                 <div className="cardMain">
-                    <p>Nº {numberConvert(number)}</p>
-                    <img className="cardImage" src={CardImage} alt="card"/>
-                    <img id={"pokemon-"+index} className="pokemonImage" src={image} alt="pokemon"/>
+                    <p>Nº {convertNumber(number)}</p>
+                    <img className="cardImage" src={CardImage} alt="card" draggable="false"/>
+                    <img id={"pokemon-"+index} className="pokemonImage" src={image} alt="pokemon" draggable="false"/>
                 </div>
                 <div className="cardTitle">
-                    <p>{name}</p>
+                    <p>{upperCaseFirstLetter(name)}</p>
                 </div>
             </div>
         </Link>

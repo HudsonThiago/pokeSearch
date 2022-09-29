@@ -1,9 +1,10 @@
 :root {
   --primary: #D9D9D9;
   --secondary: #4A4F63;
-  --tertiary: #2C2E3A;
+  --tertiary: #353746;
   --primaryTitle: #353746;
   --secondaryTitle: #4A4F63;
+  --tertiaryTitle: #A8ACBD;
   --font_08: 0.8rem;
 }
 
@@ -20,6 +21,14 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
+img {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
@@ -28,18 +37,18 @@ code {
 /* Track */
 ::-webkit-scrollbar-track {
   background-color: transparent;
-  margin: 20px 0px;
+  margin: 30px 0px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background-color: var(--secondary);
+  background-color: #BFBFBF;
   border-radius: 50px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--tertiary);
+  background-color: #B3B3B3;
   border-radius: 50px;
 }
 /*# sourceMappingURL=core.css.map */

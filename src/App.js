@@ -14,7 +14,7 @@ export default function App() {
   useEffect(() => {
     const getPokemons = async ()=> {
         let pokemonList = [];
-        for(let i=1;i<=150;i++){
+        for(let i=1;i<=151;i++){
             try {
                 const response = await getPokemonById(i);
                 

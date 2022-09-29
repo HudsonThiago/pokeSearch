@@ -1,6 +1,6 @@
 .abilityBox {
     width: 100%;
-    margin-top: 5px;
+    margin-top: 10px;
     background-color: #ffffff;
     border-radius: 10px;
     min-height: 30px;
@@ -35,12 +35,6 @@
                 img {
                     width: 60%;
                     height: 60%;
-                    -webkit-touch-callout: none;
-                    -webkit-user-select: none;
-                    -khtml-user-select: none;
-                    -moz-user-select: none;
-                    -ms-user-select: none;
-                    user-select: none;
                 }
             }
 
@@ -60,6 +54,8 @@
             display: none;
             margin: 0px;
             color: #4A4F6300;
+            font-size: 0.8rem;
+            font-weight: 500;
         }
     }
 

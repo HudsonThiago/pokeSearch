@@ -1,0 +1,140 @@
+.variantPokemonBox {
+  background-color: var(--tertiary);
+  border-radius: 10px;
+  width: 100%;
+  height: 0px;
+}
+
+.variantPokemonBox .variantPokemonButton {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+  background-color: var(--secondary);
+  width: 100%;
+  height: 35px;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  top: 0;
+  z-index: 3;
+  -webkit-box-shadow: 1px 1px 2px #00000099;
+          box-shadow: 1px 1px 2px #00000099;
+  cursor: pointer;
+}
+
+.variantPokemonBox .variantPokemonButton p {
+  color: var(--tertiaryTitle);
+}
+
+.variantPokemonBox .variantPokemonButton img {
+  width: 12px;
+  height: auto;
+  -webkit-animation: arrowDownAnimation 2s infinite;
+          animation: arrowDownAnimation 2s infinite;
+}
+
+.variantPokemonBox .variantNavbar {
+  background-color: var(--tertiary);
+  width: 100%;
+  height: 0%;
+  position: relative;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+  overflow-y: hidden;
+  visibility: hidden;
+  border-radius: 10px;
+}
+
+.variantPokemonBox .variantNavbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0px;
+}
+
+.variantPokemonBox .variantNavbar ul li {
+  padding: 4px 10px;
+  margin: 4px 0px;
+  cursor: pointer;
+}
+
+.variantPokemonBox .variantNavbar ul li p {
+  color: var(--tertiaryTitle);
+  font-size: 0.8rem;
+  font-weight: 300;
+  margin: 2px;
+}
+
+.variantPokemonBox .variantNavbar ul li:hover {
+  background-color: #51566C1A;
+}
+
+.variantPokemonBox .variantNavbar ul .navActive {
+  background-color: #51566C4D;
+}
+
+.variantPokemonBox .variantNavbar ul .navActive p {
+  color: var(--tertiaryTitle);
+  font-weight: 700;
+}
+
+.variantPokemonBox .variantNavbar ul .navActive:hover {
+  background-color: #51566C4D;
+}
+
+.variantPokemonBox.active {
+  height: auto;
+}
+
+.variantPokemonBox.active .variantNavbar {
+  height: auto;
+  max-height: 120px;
+  overflow-y: auto;
+  visibility: visible;
+}
+
+@-webkit-keyframes arrowDownAnimation {
+  0% {
+    -webkit-transform: translate(0, 0px);
+            transform: translate(0, 0px);
+  }
+  30% {
+    -webkit-transform: translate(0, 4px);
+            transform: translate(0, 4px);
+  }
+  60% {
+    -webkit-transform: translate(0, 0px);
+            transform: translate(0, 0px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0px);
+            transform: translate(0, 0px);
+  }
+}
+
+@keyframes arrowDownAnimation {
+  0% {
+    -webkit-transform: translate(0, 0px);
+            transform: translate(0, 0px);
+  }
+  30% {
+    -webkit-transform: translate(0, 4px);
+            transform: translate(0, 4px);
+  }
+  60% {
+    -webkit-transform: translate(0, 0px);
+            transform: translate(0, 0px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0px);
+            transform: translate(0, 0px);
+  }
+}
+/*# sourceMappingURL=style.css.map */
