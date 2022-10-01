@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/pokeSearch/static/css/main.98f53a14.css",
-    "main.js": "/pokeSearch/static/js/main.385e8c8a.js",
+    "main.css": "/pokeSearch/static/css/main.de70a3a0.css",
+    "main.js": "/pokeSearch/static/js/main.72b37788.js",
     "static/js/787.e63902b9.chunk.js": "/pokeSearch/static/js/787.e63902b9.chunk.js",
     "static/media/dragon.png": "/pokeSearch/static/media/dragon.79b052bca7eab6836767.png",
     "static/media/psychic.png": "/pokeSearch/static/media/psychic.8b5de523a0f66546a4f0.png",
@@ -31,12 +31,12 @@
     "static/media/arrowDown.svg": "/pokeSearch/static/media/arrowDown.bf01dfd868e1fae3697c1633484b765b.svg",
     "static/media/arrowUp.svg": "/pokeSearch/static/media/arrowUp.f2d131394e08840fba3b7b97f9506178.svg",
     "static/media/card2.svg": "/pokeSearch/static/media/card2.33af2ed570c65a9054ad208aff585733.svg",
-    "main.98f53a14.css.map": "/pokeSearch/static/css/main.98f53a14.css.map",
-    "main.385e8c8a.js.map": "/pokeSearch/static/js/main.385e8c8a.js.map",
+    "main.de70a3a0.css.map": "/pokeSearch/static/css/main.de70a3a0.css.map",
+    "main.72b37788.js.map": "/pokeSearch/static/js/main.72b37788.js.map",
     "787.e63902b9.chunk.js.map": "/pokeSearch/static/js/787.e63902b9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.98f53a14.css",
-    "static/js/main.385e8c8a.js"
+    "static/css/main.de70a3a0.css",
+    "static/js/main.72b37788.js"
   ]
 }
