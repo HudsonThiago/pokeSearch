@@ -1,0 +1,22 @@
+.titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .titleBox {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+    
+        img {
+            width: 30px;
+            height: auto;
+            margin-right: 20px;
+        }
+    
+        h1 {
+            color: var(--primaryTitle);
+            font-weight: 900;
+        }
+    }
+}

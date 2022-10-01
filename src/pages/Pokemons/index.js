@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import Card from '../../assets/components/Card';
-import PokeballImg from '../../assets/img/pokeball.svg';
+import Header from '../../assets/components/Header';
 import './style/style.css';
 
 export default function Pokemons({pokemonList}){
@@ -28,10 +28,7 @@ export default function Pokemons({pokemonList}){
 
     return (
         <>
-            <div className='titleBox'>
-                <img src={PokeballImg} alt='pokeball' draggable="false"/>
-                <h1>Pokemons</h1>
-            </div>
+            <Header title="Pokemons"/>
             <div className='mainContent'>
                 <div className='mainFrame'>
                 {

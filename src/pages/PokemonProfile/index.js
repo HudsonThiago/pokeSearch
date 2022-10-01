@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { getPokemonSpecieById, getPokemonById } from '../../services/pokemon/pokemonService';
 import Card2Img from '../../assets/img/card2.svg';
-import PokeballImg from '../../assets/img/pokeball.svg';
 import WeightImg from '../../assets/img/icons/weight.svg';
 import HeightImg from '../../assets/img/icons/height.svg';
 import VariantBox from '../../assets/components/variantBox';
+import Header from '../../assets/components/Header';
 import { Link, useParams } from 'react-router-dom';
 import './style/style.css';
 import ItemBody from '../../assets/components/ItemBody';
@@ -129,19 +129,9 @@ export default function PokemonProfile(){
         <>  
             {pokemon !== null &&
             specie !== null &&
-            pokemonDefault !== null &&
-            prevPokemonName !== null &&
-            nextPokemonName !== null && (
+            pokemonDefault !== null && (
                 <>
-                    <div className='titleContainer'>
-                        <div className='titleBox'>
-                            <img src={PokeballImg} alt='pokeball' draggable="false"/>
-                            <h1>Pokemons</h1>
-                        </div>
-                        <div className='turnBackBox'>
-                            <Link to="/"><p>Voltar</p></Link>
-                        </div>
-                    </div>
+                    <Header title="Pokemons" route="/"/>
                     <div className='pokemonProfile'>
                         <div className='c1'>
                             <div className='littleNavBox'>
