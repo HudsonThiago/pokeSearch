@@ -1,0 +1,19 @@
+.mainContent {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 190px);
+    overflow-y: scroll;
+    
+    .mainFrame {
+        width: 98%;
+        padding-right: 2%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 140px);
+        justify-content: space-between;
+        grid-gap: 5px;
+    }
+}
+

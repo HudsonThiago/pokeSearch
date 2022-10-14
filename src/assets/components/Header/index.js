@@ -1,6 +1,6 @@
 import React from "react";
 import './style/style.css';
-import PokeballImg from '../../img/pokeball.svg';
+import PokeballImg from '../../img/pokeball2.svg';
 import { Link } from "react-router-dom";
 import { upperCaseFirstLetter, convertNumber } from "../../../services/utils";
 

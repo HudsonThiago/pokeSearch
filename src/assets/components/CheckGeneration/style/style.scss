@@ -1,0 +1,44 @@
+.generationBox {
+    box-sizing: border-box;
+    background: linear-gradient(0deg, var(--button1), var(--button2));
+    width: 45px;
+    height: 20px;
+    padding: 2px;
+    margin-right: 8px;
+    border: 3px solid var(--button1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 1px 1px 2px #00000099;
+    transition: 0.2s;
+    cursor: pointer;
+
+    p {
+        font-size: 0.6rem;
+        color: var(--buttonTittle);
+        font-weight: 900;
+    }
+
+    input {
+        display: none;
+    }
+}
+
+.generationBox:last-child {
+    margin-right: 0px;
+}
+
+.overflow-x {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 4px 0px;
+    padding-right: 2px;
+    display: flex;
+    overflow-x: auto;
+}
+
+.generationBox.active{
+    background: linear-gradient(0deg, var(--activeButton1), var(--activeButton2));
+    border: 3px solid var(--activeButton1);
+}

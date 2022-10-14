@@ -1,0 +1,59 @@
+.generationBox {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: -webkit-gradient(linear, left bottom, left top, from(var(--button1)), to(var(--button2)));
+  background: linear-gradient(0deg, var(--button1), var(--button2));
+  width: 45px;
+  height: 20px;
+  padding: 2px;
+  margin-right: 8px;
+  border: 3px solid var(--button1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50px;
+  -webkit-box-shadow: 1px 1px 2px #00000099;
+          box-shadow: 1px 1px 2px #00000099;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.generationBox p {
+  font-size: 0.6rem;
+  color: var(--buttonTittle);
+  font-weight: 900;
+}
+
+.generationBox input {
+  display: none;
+}
+
+.generationBox:last-child {
+  margin-right: 0px;
+}
+
+.overflow-x {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  padding: 4px 0px;
+  padding-right: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow-x: auto;
+}
+
+.generationBox.active {
+  background: -webkit-gradient(linear, left bottom, left top, from(var(--activeButton1)), to(var(--activeButton2)));
+  background: linear-gradient(0deg, var(--activeButton1), var(--activeButton2));
+  border: 3px solid var(--activeButton1);
+}
+/*# sourceMappingURL=style.css.map */

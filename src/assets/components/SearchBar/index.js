@@ -4,24 +4,13 @@ import PokeballImage from '../../img/pokeball.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-export default function SearchBar({pokemons, pokemonNameField, setPokemonNameField, filteredPokemons, setFilteredPokemons}){
-
-    const handlePokemonNameField = (e) => {
-        let value = e.target.value;
-        setPokemonNameField(value);
-    }
-
-    const handlePokemonFilterButton=(e)=>{
-        e.preventDefault();
-        const filter = pokemons.filter((p)=>p.species.name.includes(pokemonNameField));
-        setFilteredPokemons(filter);
-    }
+export default function SearchBar({id, placeholder}){
 
     return (
         <div className="searchBox">
-            <form className="fieldDiv" onSubmit={(e)=>{handlePokemonFilterButton(e)}}>
+            <form className="fieldDiv">
                 <button type="submit" className="searchButton"><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
-                <input className="textField" type="text" onChange={(e)=>{handlePokemonNameField(e)}} value={pokemonNameField} placeholder="Search..." />
+                <input id={id} className="textField" type="text" placeholder={placeholder} maxLength="30" />
             </form>
             <div className="imgDiv">
                 <img src={PokeballImage} alt="pokeball"/>

@@ -1,0 +1,23 @@
+.mainContent {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 190px);
+  overflow-y: scroll;
+}
+
+.mainContent .mainFrame {
+  width: 98%;
+  padding-right: 2%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (140px)[auto-fill];
+      grid-template-columns: repeat(auto-fill, 140px);
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  grid-gap: 5px;
+}
+/*# sourceMappingURL=style.css.map */

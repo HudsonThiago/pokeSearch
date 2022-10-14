@@ -1,0 +1,155 @@
+.darkScreen {
+  position: absolute;
+  background-color: #00000099;
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 1000;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.darkScreen .modalContainer {
+  width: 600px;
+  height: 450px;
+  border-radius: 10px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 60px auto 60px;
+      grid-template-rows: 60px auto 60px;
+  -webkit-box-shadow: 2px 2px 5px #00000066, 1px 1px 2px #00000099;
+          box-shadow: 2px 2px 5px #00000066, 1px 1px 2px #00000099;
+}
+
+.darkScreen .modalContainer .modalHeader {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: -webkit-gradient(linear, right top, left top, from(var(--secondary)), to(var(--tertiary)));
+  background: linear-gradient(-90deg, var(--secondary), var(--tertiary));
+  width: 100%;
+  height: 100%;
+  padding: 0px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: 4px solid var(--comp1);
+}
+
+.darkScreen .modalContainer .modalHeader h3 {
+  color: var(--tertiaryTitle);
+  text-shadow: 2px 2px 4px var(--comp2);
+}
+
+.darkScreen .modalContainer .modalHeader .closeButton {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  margin: 0px;
+  padding: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.darkScreen .modalContainer .modalHeader .closeButton img {
+  width: 40%;
+  height: auto;
+  padding: 0px;
+  margin: 0px;
+}
+
+.darkScreen .modalContainer .modalBody {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: var(--primary);
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px;
+}
+
+.darkScreen .modalContainer .modalBody .modalMain {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.darkScreen .modalContainer .modalBody .modalMain .c1 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 60%;
+  max-height: 240px;
+  overflow-y: auto;
+  padding-right: 4px;
+  padding-bottom: 10px;
+}
+
+.darkScreen .modalContainer .modalBody .modalMain .c2 {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 40%;
+  height: 240px;
+  overflow-y: auto;
+  padding-right: 4px;
+  padding-bottom: 10px;
+}
+
+.darkScreen .modalContainer .modalFooter {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: var(--bw70);
+  width: 100%;
+  height: 100%;
+  padding: 0px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-top: 4px solid var(--bw60);
+}
+
+.openModal {
+  visibility: visible;
+  opacity: 1;
+}
+/*# sourceMappingURL=style.css.map */

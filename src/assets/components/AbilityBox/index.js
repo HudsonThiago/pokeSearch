@@ -11,13 +11,13 @@ export default function AbilityBox({ability, index}){
 
     const handleClickAbilityBox=()=>{
         const content = document.getElementById(`main-${index}`);
-        content.classList.toggle("active");
+        content.classList.toggle("activeAbility");
     }
 
     const verifyBox=()=>{
         let box = document.getElementById(`main-${index}`);
-        if(box.classList.contains("active")){
-            box.classList.remove("active");
+        if(box.classList.contains("activeAbility")){
+            box.classList.remove("activeAbility");
         }
     }
 

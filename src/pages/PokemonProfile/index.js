@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import Body from '../../assets/components/Body';
 import { getPokemonSpecieById, getPokemonById } from '../../services/pokemon/pokemonService';
 import Card2Img from '../../assets/img/card2.svg';
 import WeightImg from '../../assets/img/icons/weight.svg';
@@ -13,15 +14,13 @@ import AbilityBox from '../../assets/components/AbilityBox';
 import WeaknessBox from '../../assets/components/WeaknessBox';
 import StatBox from '../../assets/components/StatBox';
 import {
-    upperCaseFirstLetter,
     removeSpecialCharacters,
     convertUnit,
     convertName,
     convertNumber,
-    setLocalStorage,
 } from '../../services/utils';
 
-export default function PokemonProfile(){
+export default function PokemonProfile({pokemonList}){
     
     const [pokemon, setPokemon] = useState(null);
     const [specie, setSpecie] = useState(null);
@@ -126,7 +125,7 @@ export default function PokemonProfile(){
 
 
     return (
-        <>  
+        <Body pokemonList={pokemonList}>
             {pokemon !== null &&
             specie !== null &&
             pokemonDefault !== null && (
@@ -135,9 +134,9 @@ export default function PokemonProfile(){
                     <div className='pokemonProfile'>
                         <div className='c1'>
                             <div className='littleNavBox'>
-                                <Link to={`/${prevPokemonName}`}><div className='prevBox'><p>{convertNumber(Number(pokemonDefault.id)-1)}</p></div></Link>
+                                <Link to={`/pokemon/${prevPokemonName}`}><div className='prevBox'><p>{convertNumber(Number(pokemonDefault.id)-1)}</p></div></Link>
                                 <div className='centerBox'><p>{convertNumber(pokemonDefault.id)}</p></div>
-                                <Link to={`/${nextPokemonName}`}><div className='nextBox'><p>{convertNumber(Number(pokemonDefault.id)+1)}</p></div></Link>
+                                <Link to={`/pokemon/${nextPokemonName}`}><div className='nextBox'><p>{convertNumber(Number(pokemonDefault.id)+1)}</p></div></Link>
                             </div>
                             <div className='pokemonBox'>
                                 <img className="pokemonImage" src={pokemonImage} alt="pokemon" draggable="false"/>
@@ -186,6 +185,6 @@ export default function PokemonProfile(){
                     </div>
                 </>
             )}
-        </>
+        </Body>
     )
 }

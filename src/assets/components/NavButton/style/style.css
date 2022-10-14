@@ -1,16 +1,15 @@
 .navButton {
+  background-color: var(--bw100);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
   height: 40px;
   margin-top: 20px;
   padding: 0px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto 120px;
+      grid-template-columns: auto 120px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -22,8 +21,8 @@
 }
 
 .navButton .titleDiv {
-  width: 60%;
-  height: 100%;
+  width: 100%;
+  height: 40px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,8 +36,8 @@
 
 .navButton .titleDiv p {
   margin-left: 20px;
-  color: var(--secondaryTitle);
-  font-weight: 700;
+  color: var(--primaryTitle);
+  font-weight: 900;
   font-size: 1rem;
 }
 
@@ -46,8 +45,8 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: var(--tertiary);
-  width: 40%;
-  height: 100%;
+  width: 100%;
+  height: 40px;
   padding: 5px;
   border-top-right-radius: 50px;
   border-bottom-right-radius: 50px;
@@ -67,5 +66,19 @@
 .navButton .imgDiv img {
   width: auto;
   height: 100%;
+}
+
+.navButton.wip {
+  cursor: initial;
+}
+
+.navButton.wip .titleDiv p {
+  color: var(--disablePrimaryTitle);
+}
+
+.navButton.wip .titleDiv span {
+  margin-left: 10px;
+  color: var(--button1);
+  font-size: 0.6rem;
 }
 /*# sourceMappingURL=style.css.map */

@@ -62,3 +62,14 @@ export const setLocalStorage=(id, name)=>{
     localStorage.setItem("specieId",id);
     localStorage.setItem("specie",name);
 }
+
+
+export const openModal =(id)=> {
+  const modal = document.getElementById(`modal-${id}`)
+  modal.classList.add("openModal")
+}
+
+export const closeModal =(id)=> {
+  const modal = document.getElementById(`modal-${id}`)
+  modal.classList.remove("openModal")
+}

@@ -1,0 +1,25 @@
+.genericButton {
+    box-sizing: border-box;
+    background: linear-gradient(0deg, var(--button1), var(--button2));
+    height: 30px;
+    padding: 2px;
+    padding-left: 10px;
+    border: 3px solid var(--button1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    box-shadow: 1px 1px 2px #00000099;
+    cursor: pointer;
+
+    p {
+        color: var(--buttonTittle);
+        font-weight: 900;
+    }
+
+    img {
+        height: 100%;
+        width: auto;
+        margin-left: 40px;
+    }
+}

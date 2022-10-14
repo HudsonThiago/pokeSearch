@@ -1,10 +1,10 @@
 import React from "react";
 import './style/style.css';
 
-export default function ItemBody({title, children}){
+export default function ItemBody({title, children, className}){
 
     return (
-        <div className="ItemBodyContent">
+        <div className={`ItemBodyContent ${className}`}>
             <div className="ItemBodyHeaderContent">
                 <h3>{title}</h3>
             </div>

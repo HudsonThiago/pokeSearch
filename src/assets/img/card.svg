@@ -2,12 +2,12 @@
 <path d="M47.5059 12.0076C48.8712 6.70565 53.6519 3 59.1268 3H196.649C204.49 3 210.225 10.3982 208.27 17.9922L164.498 187.992C163.133 193.294 158.352 197 152.877 197H15.3518C7.51004 197 1.77543 189.602 3.7309 182.008L47.5059 12.0076Z" fill="url(#paint0_linear_4_5)" stroke="url(#paint1_linear_4_5)" stroke-width="6"/>
 <defs>
 <linearGradient id="paint0_linear_4_5" x1="106" y1="0" x2="106" y2="200" gradientUnits="userSpaceOnUse">
-<stop stop-color="#51566C"/>
+<stop stop-color="#324E67"/>
 <stop offset="1" stop-color="white"/>
 </linearGradient>
 <linearGradient id="paint1_linear_4_5" x1="96" y1="0" x2="96" y2="200" gradientUnits="userSpaceOnUse">
-<stop stop-color="#3C4050" stop-opacity="0"/>
-<stop offset="1" stop-color="#3C4050"/>
+<stop stop-color="#324E67" stop-opacity="0"/>
+<stop offset="1" stop-color="#324E67"/>
 </linearGradient>
 </defs>
 </svg>

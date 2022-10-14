@@ -41,7 +41,7 @@ export default function VariantBox({pokemon, specie}){
                                 <div key={index}>
                                     {name === v.pokemon.name
                                         ?(<li className="navActive"><p>{convertName(v.pokemon.name, true)}</p></li>)
-                                        :(<Link to={"/"+v.pokemon.name}><li><p>{convertName(v.pokemon.name, true)}</p></li></Link>)
+                                        :(<Link to={"/pokemon/"+v.pokemon.name}><li><p>{convertName(v.pokemon.name, true)}</p></li></Link>)
                                     }
                                 </div>
                             ))}

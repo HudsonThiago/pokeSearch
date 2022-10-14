@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import './style/style.css';
-import PokeballImg from "../../img/pokeball2.svg";
+import PokeballImg from "../../img/pokeball.svg";
 
 export default function AbilityBox({stat}){
 

@@ -17,7 +17,7 @@ export default function Card({index, id, name, number, image, types}){
     }
 
     return (
-        <Link to={"/"+name}>
+        <Link to={"/pokemon/"+name}>
             <div className="card" onMouseOver={onMouseOverCard}  onMouseOut={onMouseOutCard}>
                 <div className="cardTypes">
                     {types.map((t, i)=>{

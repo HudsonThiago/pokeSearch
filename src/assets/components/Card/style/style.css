@@ -62,6 +62,10 @@
 
 .card .cardMain p {
   position: absolute;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   color: white;
   text-shadow: 1px 1px 2px #2C2E3A;
   font-weight: 300;
@@ -106,10 +110,6 @@
   -webkit-transition: 0.5;
   transition: 0.5;
   cursor: pointer;
-}
-
-a {
-  text-decoration: none;
 }
 
 .card:hover .cardTitle {

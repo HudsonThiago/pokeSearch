@@ -73,11 +73,11 @@
 }
 
 .variantPokemonBox .variantNavbar ul li:hover {
-  background-color: #51566C1A;
+  background-color: #51566C4D;
 }
 
 .variantPokemonBox .variantNavbar ul .navActive {
-  background-color: #51566C4D;
+  background-color: #51566C99;
 }
 
 .variantPokemonBox .variantNavbar ul .navActive p {
@@ -86,7 +86,7 @@
 }
 
 .variantPokemonBox .variantNavbar ul .navActive:hover {
-  background-color: #51566C4D;
+  background-color: #51566C99;
 }
 
 .variantPokemonBox.active {

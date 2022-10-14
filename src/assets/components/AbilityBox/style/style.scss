@@ -8,7 +8,7 @@
     .abilityBoxTitleContent {
         box-sizing: border-box;
         background-color: #ffffff;
-        background: linear-gradient(90deg, #ffffff 0%, #4A4F63 100%);
+        background: linear-gradient(90deg, var(--bw100) 0%, var(--tertiary) 100%);
         width: 100%;
         height: 30px;
         padding: 4px;
@@ -24,7 +24,7 @@
             align-items: center;
 
             .abilityIconCircle {
-                background-color: var(--secondary);
+                background-color: var(--tertiary);
                 height: 22px;
                 width: 22px;
                 border-radius: 50%;
@@ -59,7 +59,7 @@
         }
     }
 
-    .abilityBoxMain.active {
+    .abilityBoxMain.activeAbility {
         box-sizing: border-box;
         padding: 10px 5px;
         transition: 0.5s;

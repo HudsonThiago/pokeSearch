@@ -13,10 +13,10 @@ export default function Nav(){
 
                 </div>
                 <div className="buttonArea">
-                    <NavButton title="Pokemons"/>
-                    <NavButton title="Items"/>
-                    <NavButton title="Berries"/>
-                    <NavButton title="Team maker"/>
+                    <NavButton link="/" title="Pokemons"/>
+                    <NavButton wip={true} title="Items"/>
+                    <NavButton wip={true} title="Berries"/>
+                    <NavButton link="/team-maker" title="Team maker"/>
                 </div>
             </div>
         </nav>
