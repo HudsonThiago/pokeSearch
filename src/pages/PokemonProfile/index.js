@@ -20,10 +20,11 @@ import {
     convertNumber,
 } from '../../services/utils';
 
-export default function PokemonProfile({pokemonList}){
+export default function PokemonProfile(){
     
     const [pokemon, setPokemon] = useState(null);
     const [specie, setSpecie] = useState(null);
+    const [pokemonDescription, setPokemonDescription] = useState(null);
     const [pokemonDefault, setPokemonDefault] = useState(null);
     const [prevPokemonName, setPrevPokemonName] = useState(null);
     const [nextPokemonName, setNextPokemonName] = useState(null);
@@ -50,7 +51,12 @@ export default function PokemonProfile({pokemonList}){
         try {
             const response = await getPokemonSpecieById(localStorage.getItem("name"));
             if (response.status === 200) {
-                setSpecie(response.data);
+                const specie = response.data;
+                setSpecie(specie);
+
+                    
+                const translatedAbilities = specie.flavor_text_entries.filter((t)=>t.language.name==="en")
+                setPokemonDescription(translatedAbilities.at(-1));
             }
         } catch (error) {
 
@@ -125,7 +131,7 @@ export default function PokemonProfile({pokemonList}){
 
 
     return (
-        <Body pokemonList={pokemonList}>
+        <Body>
             {pokemon !== null &&
             specie !== null &&
             pokemonDefault !== null && (
@@ -146,7 +152,7 @@ export default function PokemonProfile({pokemonList}){
                         </div>
                         <div className='c2'>
                             <h2>{convertName(pokemon.name, true)}</h2>
-                            <p>{removeSpecialCharacters(specie.flavor_text_entries[0].flavor_text)}</p>
+                            <p>{removeSpecialCharacters(pokemonDescription.flavor_text)}</p>
                             <ItemBody title="Type">
                                 <div className='grid3Columns'>
                                     {pokemon.types.map((t, index)=>{

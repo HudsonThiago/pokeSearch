@@ -16,7 +16,7 @@ import icon6 from '../../img/icons/hisuianIcon.svg';
 
 import './style/style.css'
 
-export default function Body({pokemonList, children}){
+export default function Body({children}){
     return (
         <>
             <Nav/>

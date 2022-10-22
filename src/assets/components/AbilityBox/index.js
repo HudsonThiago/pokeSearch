@@ -8,17 +8,11 @@ import { convertName } from "../../../services/utils";
 export default function AbilityBox({ability, index}){
 
     const [abilityObject, setAbilityObject] = useState(null);
+    const [abilityText, setAbilityText] = useState("");
 
     const handleClickAbilityBox=()=>{
         const content = document.getElementById(`main-${index}`);
         content.classList.toggle("activeAbility");
-    }
-
-    const verifyBox=()=>{
-        let box = document.getElementById(`main-${index}`);
-        if(box.classList.contains("activeAbility")){
-            box.classList.remove("activeAbility");
-        }
     }
 
     useEffect(()=>{
@@ -31,15 +25,18 @@ export default function AbilityBox({ability, index}){
                 const response = await getPokemonAbility(abilityId);
 
                 if (response.status === 200) {
-                    setAbilityObject(response.data);
+                    const ability = response.data;
+                    setAbilityObject(ability);
+                    
+                    const translatedAbilities = ability.flavor_text_entries.filter((t, index)=>t.language.name==="en")
+                    setAbilityText(translatedAbilities.at(-1));
                 }
             } catch (error) {
-
             }
         }
         
         getAbility();
-    }, [])
+    }, [ability])
 
     return (
         <>
@@ -56,7 +53,7 @@ export default function AbilityBox({ability, index}){
                         </div>
                     </div>
                     <div id={`main-${index}`} className="abilityBoxMain">
-                        <p>{abilityObject.flavor_text_entries[0].flavor_text}</p>
+                        <p>{abilityText.flavor_text}</p>
                     </div>
                 </div>
             )}

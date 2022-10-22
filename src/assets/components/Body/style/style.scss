@@ -72,3 +72,11 @@ main {
         }
     }
 }
+
+@media only screen and (max-width: 600px) {
+    .grid3Columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+}

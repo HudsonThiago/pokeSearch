@@ -7,7 +7,7 @@
   height: 20px;
   padding: 2px;
   margin-right: 8px;
-  border: 3px solid var(--button1);
+  border: 2px solid var(--button1);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -54,6 +54,6 @@
 .generationBox.active {
   background: -webkit-gradient(linear, left bottom, left top, from(var(--activeButton1)), to(var(--activeButton2)));
   background: linear-gradient(0deg, var(--activeButton1), var(--activeButton2));
-  border: 3px solid var(--activeButton1);
+  border: 2px solid var(--activeButton1);
 }
 /*# sourceMappingURL=style.css.map */
