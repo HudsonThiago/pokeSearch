@@ -23,27 +23,25 @@ code {
     monospace;
 }
 
+  /* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: transparent;
+    margin: 20px 0px;
+}
 
-    /* width */
-    ::-webkit-scrollbar {
-      width: 5px;
-  }
-  
-  /* Track */
-  ::-webkit-scrollbar-track {
-      background-color: transparent;
-      margin: 20px 0px;
-  }
-  
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-      background-color: var(--secondary);
-      border-radius: 50px;
-  }
-  
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--tertiary);
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondary);
     border-radius: 50px;
-  }
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--tertiary);
+  border-radius: 50px;
+}
