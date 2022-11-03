@@ -36,5 +36,9 @@
   margin-left: 4px;
   color: var(--primaryTitle);
   font-weight: 700;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 /*# sourceMappingURL=style.css.map */

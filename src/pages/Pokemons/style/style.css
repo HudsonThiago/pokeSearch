@@ -1,11 +1,11 @@
-.mainContent {
+.pokemonsContent {
   position: relative;
   width: 100%;
-  height: calc(100vh - 190px);
+  height: 100%;
   overflow-y: scroll;
 }
 
-.mainContent .mainFrame {
+.pokemonsContent .mainFrame {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 98%;
@@ -24,9 +24,9 @@
   grid-gap: 5px;
 }
 
-.mainContent .gradient {
-  background: -webkit-gradient(linear, left bottom, left top, from(#E6E6E6), color-stop(1%, #E6E6E699), color-stop(3%, #E6E6E600), color-stop(97%, #E6E6E600), color-stop(99%, #E6E6E699), to(#E6E6E6));
-  background: linear-gradient(0deg, #E6E6E6 0%, #E6E6E699 1%, #E6E6E600 3%, #E6E6E600 97%, #E6E6E699 99%, #E6E6E6 100%);
+.pokemonsContent .gradient {
+  background: -webkit-gradient(linear, left bottom, left top, from(#e6e6e6), color-stop(1%, #e6e6e699), color-stop(3%, #e6e6e600), color-stop(97%, #e6e6e600), color-stop(99%, #e6e6e699), to(#e6e6e6));
+  background: linear-gradient(0deg, #e6e6e6 0%, #e6e6e699 1%, #e6e6e600 3%, #e6e6e600 97%, #e6e6e699 99%, #e6e6e6 100%);
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -35,5 +35,31 @@
   height: 100%;
   z-index: 5;
   pointer-events: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .pokemonsContent {
+    position: relative;
+    width: 100%;
+    overflow-y: scroll;
+  }
+  .pokemonsContent .mainFrame {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 98%;
+    padding-top: 10px;
+    padding-right: 2%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (140px)[auto-fill];
+        grid-template-columns: repeat(auto-fill, 140px);
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    grid-gap: 5px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

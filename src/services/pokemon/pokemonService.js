@@ -12,6 +12,10 @@ export async function getPokemonAbility(id){
   return await api.get(`ability/${id}`);
 }
 
+export async function getTypes(){
+  return await api.get(`type/`);
+}
+
 export async function getTypeById(id){
   return await api.get(`type/${id}`);
 }

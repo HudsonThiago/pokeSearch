@@ -29,6 +29,10 @@
   font-size: 0.6rem;
   color: var(--buttonTittle);
   font-weight: 900;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .generationBox input {

@@ -1,99 +1,201 @@
 .variantPokemonBox {
-    background-color: var(--tertiary);
-    border-radius: 10px;
-    width: 100%;
-    height: 0px;
+  background-color: var(--tertiary);
+  border-radius: 10px;
+  width: 100%;
+  height: 0px;
 
-    .variantPokemonButton {
-        box-sizing: border-box;
-        position: relative;
-        background-color: var(--secondary);
-        width: 100%;
-        height: 35px;
-        padding: 0 10px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: 10px;
-        top: 0;
-        z-index: 3;
-        box-shadow: 1px 1px 2px #00000099;
+  .variantPokemonButton {
+    box-sizing: border-box;
+    position: relative;
+    background-color: var(--secondary);
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 10px;
+    top: 0;
+    z-index: 3;
+    box-shadow: 1px 1px 2px #00000099;
+    cursor: pointer;
+
+    p {
+      color: var(--tertiaryTitle);
+    }
+
+    img {
+      width: 12px;
+      height: auto;
+      animation: arrowDownAnimation 2s infinite;
+    }
+  }
+
+  .variantNavbar {
+    background-color: var(--tertiary);
+    width: 100%;
+    height: 0%;
+    position: relative;
+    transition: 0.8s;
+    overflow-y: hidden;
+    visibility: hidden;
+    border-radius: 10px;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0px;
+
+      li {
+        padding: 4px 10px;
+        margin: 4px 0px;
         cursor: pointer;
 
         p {
-            color: var(--tertiaryTitle);
+          color: var(--tertiaryTitle);
+          font-size: 0.8rem;
+          font-weight: 300;
+          margin: 2px;
         }
+      }
 
-        img {
-            width: 12px;
-            height: auto;
-            animation: arrowDownAnimation 2s infinite;
+      li:hover {
+        background-color: #51566c4d;
+      }
+
+      .navActive {
+        background-color: #51566c99;
+
+        p {
+          color: var(--tertiaryTitle);
+          font-weight: 700;
         }
+      }
+
+      .navActive:hover {
+        background-color: #51566c99;
+      }
     }
-
-    .variantNavbar {
-        background-color: var(--tertiary);
-        width: 100%;
-        height: 0%;
-        position: relative;
-        transition: 0.8s;
-        overflow-y: hidden;
-        visibility: hidden;
-        border-radius: 10px;
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0px;
-
-            li {
-                padding: 4px 10px;
-                margin: 4px 0px;
-                cursor: pointer;
-
-                p {
-                    color: var(--tertiaryTitle);
-                    font-size: 0.8rem;
-                    font-weight: 300;
-                    margin: 2px;
-                }
-            }
-
-            li:hover {
-                background-color: #51566C4D;
-            }
-
-            .navActive {
-                background-color: #51566C99;
-
-                p {
-                    color: var(--tertiaryTitle);
-                    font-weight: 700;
-                }
-            }
-
-            .navActive:hover {
-                background-color: #51566C99;
-            }
-        }
-    }
-    
+  }
 }
 
-.variantPokemonBox.active{
-    height: auto;
+.variantPokemonBox.active {
+  height: auto;
 
-    .variantNavbar {
-        height: auto;
-        max-height: 120px;
-        overflow-y: auto;
-        visibility: visible;
-    }
+  .variantNavbar {
+    height: auto;
+    max-height: 120px;
+    overflow-y: auto;
+    visibility: visible;
+  }
 }
 
 @keyframes arrowDownAnimation {
-    0%   {transform: translate(0, -0px);}
-    30%  {transform: translate(0, 4px);}
-    60%  {transform: translate(0, -0px);}
-    100% {transform: translate(0, -0px);}
+  0% {
+    transform: translate(0, -0px);
+  }
+  30% {
+    transform: translate(0, 4px);
+  }
+  60% {
+    transform: translate(0, -0px);
+  }
+  100% {
+    transform: translate(0, -0px);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .variantPokemonBox {
+    background-color: var(--tertiary);
+    border-radius: 10px;
+    width: 100%;
+    height: 35px;
+    margin-bottom: 10px;
+
+    .variantPokemonButton {
+      box-sizing: border-box;
+      position: relative;
+      background-color: var(--secondary);
+      width: 100%;
+      height: 35px;
+      padding: 0 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 10px;
+      top: 0;
+      z-index: 3;
+      box-shadow: 1px 1px 2px #00000099;
+      cursor: pointer;
+
+      p {
+        color: var(--tertiaryTitle);
+      }
+
+      img {
+        width: 12px;
+        height: auto;
+        animation: arrowDownAnimation 2s infinite;
+      }
+    }
+
+    .variantNavbar {
+      background-color: var(--tertiary);
+      width: 100%;
+      height: 0%;
+      position: relative;
+      transition: 0.8s;
+      overflow-y: hidden;
+      visibility: hidden;
+      border-radius: 10px;
+
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0px;
+
+        li {
+          padding: 4px 10px;
+          margin: 4px 0px;
+          cursor: pointer;
+
+          p {
+            color: var(--tertiaryTitle);
+            font-size: 0.8rem;
+            font-weight: 300;
+            margin: 2px;
+          }
+        }
+
+        li:hover {
+          background-color: #51566c4d;
+        }
+
+        .navActive {
+          background-color: #51566c99;
+
+          p {
+            color: var(--tertiaryTitle);
+            font-weight: 700;
+          }
+        }
+
+        .navActive:hover {
+          background-color: #51566c99;
+        }
+      }
+    }
+  }
+
+  .variantPokemonBox.active {
+    height: auto;
+
+    .variantNavbar {
+      height: auto;
+      max-height: 120px;
+      overflow-y: auto;
+      visibility: visible;
+    }
+  }
 }

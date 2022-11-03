@@ -37,7 +37,7 @@ main {
 main .bodyContainer {
   width: 80%;
   margin: 0 10%;
-  margin-top: 20px;
+  height: calc(100vh - 140px);
 }
 
 .grid3Columns {
@@ -74,8 +74,8 @@ main .bodyContainer {
             justify-content: flex-end;
   }
   header .headerContainer {
-    width: 80%;
-    margin: 0px 10%;
+    width: 94%;
+    margin: 0px 3%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -93,19 +93,57 @@ main .bodyContainer {
     padding-left: 0px;
   }
   main .bodyContainer {
-    width: 80%;
-    margin: 0px 10%;
-    margin-top: 20px;
+    width: 94%;
+    margin: 0px 3%;
+    height: calc(100vh - 140px);
   }
 }
 
 @media only screen and (max-width: 600px) {
+  header {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background-color: var(--secondary);
+    width: 100%;
+    height: 40px;
+    padding-left: 0px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+  }
+  header .headerContainer {
+    width: 94%;
+    margin: 0px 3%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
   .grid3Columns {
     display: -ms-grid;
     display: grid;
     -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr;
     gap: 10px;
+  }
+  main {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    width: 100%;
+    padding-left: 0px;
+  }
+  main .bodyContainer {
+    width: 94%;
+    margin: 0px 3%;
+    height: calc(100vh - 100px);
   }
 }
 /*# sourceMappingURL=style.css.map */

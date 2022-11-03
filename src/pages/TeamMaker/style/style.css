@@ -5,7 +5,7 @@
   overflow-y: scroll;
 }
 
-.mainContent .mainFrame {
+.mainContent .teamMakerMainFrame {
   width: 98%;
   padding-right: 2%;
   position: absolute;
@@ -13,11 +13,30 @@
   left: 0;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (140px)[auto-fill];
-      grid-template-columns: repeat(auto-fill, 140px);
+  -ms-grid-columns: 400px 1fr;
+      grid-template-columns: 400px 1fr;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
   grid-gap: 5px;
+}
+
+.mainContent .teamMakerMainFrame .c1 {
+  background-color: red;
+}
+
+.mainContent .teamMakerMainFrame .c1 .frame {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: var(--secondary);
+  border: 12px solid var(--tertiary);
+  width: 400px;
+  height: 400px;
+  position: relative;
+}
+
+.mainContent .teamMakerMainFrame .c1 .frame .imagebg {
+  width: 100%;
+  height: 100%;
 }
 /*# sourceMappingURL=style.css.map */

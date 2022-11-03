@@ -47,7 +47,7 @@
 }
 
 .statBox .statBoxMain .statBoxOutBar {
-  background-color: #324E6799;
+  background-color: #324e6799;
   width: 100%;
   height: 15px;
   border-radius: 4px;
@@ -67,5 +67,11 @@
 
 .statBox:last-child {
   margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .statBox:last-child {
+    margin-bottom: 20px;
+  }
 }
 /*# sourceMappingURL=style.css.map */

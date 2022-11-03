@@ -48,6 +48,12 @@
   margin-left: 5px;
   width: 100%;
   border: none;
+  color: var(--text);
+}
+
+.searchBox .fieldDiv .textField:focus {
+  outline: none;
+  border-bottom: 1px solid var(--bw80);
 }
 
 .searchBox .imgDiv {

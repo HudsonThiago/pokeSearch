@@ -38,6 +38,10 @@
   text-align: right;
   font-size: 0.7rem;
   font-weight: 700;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .inputContainer .inputLabel img {
