@@ -2,30 +2,40 @@ import React, { useState, useEffect } from "react";
 import Body from "../../assets/components/Body";
 import Card from "../../assets/components/Card";
 import Header from "../../assets/components/Header";
-import { getPokemonById } from "../../services/pokemon/pokemonService";
+import { getPokemonsByInterval } from "../../services/pokemon/pokemonService";
 import "./style/style.css";
 
-export default function Pokemons() {
+let a = true;
+
+export default function Pokemons({ pokemonList, amount }) {
   const [pokemons, setPokemons] = useState([]);
+  const [control, setControl] = useState(true);
+  const [initialAmout, setInitialAmout] = useState(amount.initialAmount);
+  const [finalAmout, setFinalAmout] = useState(amount.finalAmount);
+
+  const setConfig = () => {
+    setControl(false);
+    setInitialAmout(initialAmout + 30);
+    setFinalAmout(finalAmout + 30);
+  };
+
+  const getPokemons = async () => {
+    let interval = await getPokemonsByInterval(initialAmout, finalAmout);
+
+    interval.forEach((p) => {
+      pokemonList.push(p);
+    });
+
+    setPokemons(pokemonList);
+    setControl(true);
+  };
 
   useEffect(() => {
-    const getPokemons = async () => {
-      let pokemonList = [];
-      for (let i = 1; i <= 30; i++) {
-        try {
-          const response = await getPokemonById(i);
-
-          if (response.status === 200) {
-            pokemonList.push(response.data);
-          }
-        } catch (error) {
-          console.log(error);
-        }
-      }
-      setPokemons(pokemonList);
-    };
-
-    getPokemons();
+    if (a === true) {
+      a = false;
+      setConfig();
+      getPokemons();
+    }
   }, []);
 
   const allPokemonList = () => {
@@ -45,15 +55,17 @@ export default function Pokemons() {
     });
   };
 
-  const scrolling = () => {
+  const scrolling = async () => {
     const mainContent = document.getElementById("mainContent");
-
     const scrollTop = Math.ceil(mainContent.scrollTop);
     const offsetHeight = Math.ceil(mainContent.offsetHeight);
     const scrollHeight = Math.ceil(mainContent.scrollHeight);
 
-    if (offsetHeight + scrollTop + 1 >= scrollHeight) {
-      console.log("FIM");
+    if (offsetHeight + scrollTop >= scrollHeight) {
+      if (control === true) {
+        await setConfig();
+        await getPokemons();
+      }
     }
   };
 
