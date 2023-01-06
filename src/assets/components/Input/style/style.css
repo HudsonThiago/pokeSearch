@@ -20,6 +20,11 @@
   cursor: pointer;
 }
 
+.inputContainer input[type="radio"] {
+  margin-top: 0px;
+  padding-top: 0px;
+}
+
 .inputContainer .inputLabel {
   height: 100%;
   display: -webkit-box;

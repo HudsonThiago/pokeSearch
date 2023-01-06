@@ -1,0 +1,124 @@
+.cardMobile {
+  background-color: white;
+  position: relative;
+  width: 100%;
+  height: 80px;
+  margin-bottom: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-shadow: 1px 1px 5px #00000099;
+          box-shadow: 1px 1px 5px #00000099;
+}
+
+.cardMobile .halfone {
+  position: absolute;
+  height: 100%;
+  width: auto;
+  right: 0;
+  z-index: 1;
+}
+
+.cardMobile .pokemonImg {
+  position: absolute;
+  height: 100%;
+  width: auto;
+  right: 0;
+  -webkit-transform: translate(-20px);
+          transform: translate(-20px);
+  z-index: 2;
+}
+
+.cardMobile .pokemonNameBox {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.cardMobile .pokemonNameBox h3 {
+  color: var(--primaryTitle);
+  margin: 0px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.cardMobile .pokemonNameBox .tinyTypeBox {
+  height: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.cardMobile .pokemonNameBox .tinyTypeBox .tinyImg {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: var(--tertiary);
+  height: 100%;
+  width: auto;
+  padding: 1px;
+  border-radius: 50%;
+}
+
+.cardMobile .pokemonNameBox .tinyTypeBox p {
+  margin-left: 4px;
+  color: var(--text);
+}
+
+.card:hover .cardTitle {
+  width: 100%;
+}
+
+.card:hover .cardTitle p {
+  color: var(--primaryTitle);
+  font-weight: 900;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+@-webkit-keyframes pokemonImageAnimation {
+  0% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  25% {
+    -webkit-transform: translate(-5%, 0%);
+            transform: translate(-5%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(5%, 0%);
+            transform: translate(5%, 0%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
+@keyframes pokemonImageAnimation {
+  0% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+  25% {
+    -webkit-transform: translate(-5%, 0%);
+            transform: translate(-5%, 0%);
+  }
+  50% {
+    -webkit-transform: translate(5%, 0%);
+            transform: translate(5%, 0%);
+  }
+  100% {
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+/*# sourceMappingURL=style.css.map */

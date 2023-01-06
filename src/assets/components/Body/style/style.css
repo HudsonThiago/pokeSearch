@@ -115,8 +115,8 @@ main .bodyContainer {
             justify-content: flex-end;
   }
   header .headerContainer {
-    width: 94%;
-    margin: 0px 3%;
+    width: 90%;
+    margin: 0px 5%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

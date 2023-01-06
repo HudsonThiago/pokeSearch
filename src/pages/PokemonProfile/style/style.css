@@ -460,8 +460,8 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    width: 97%;
-    padding-right: 3%;
+    width: 96%;
+    padding: 0 2%;
     height: calc(100vh - 100px);
     display: flex;
     -ms-flex-wrap: wrap;

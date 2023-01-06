@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import SearchBar from "../SearchBar";
 import {
-  openModal,
-  asyncGetAllTypes,
-  selectPokemonGroup,
+    openModal,
+    asyncGetAllTypes,
+    selectPokemonGroup,
 } from "../../../services/utils";
 import { allPokemons } from "../../../services/data";
 import { getPokemonById } from "../../../services/pokemon/pokemonService";
@@ -24,144 +24,174 @@ import icon6 from "../../img/icons/hisuianIcon.svg";
 import "./style/style.css";
 
 export default function Body({ setPokemons, children }) {
-  const modalAction = async () => {
-    const types = await asyncGetAllTypes();
-    let filteredPokemons = selectPokemonGroup();
+    const modalAction = async () => {
+        const types = await asyncGetAllTypes();
+        let filteredPokemons = selectPokemonGroup();
 
-    types.forEach((type) => {
-      const selectedType = localStorage.getItem(type.name) || null;
+        types.forEach((type) => {
+            const selectedType = localStorage.getItem(type.name) || null;
 
-      if (selectedType) {
-        const pokemonsByType = filteredPokemons.filter((p) => {
-          let isType = false;
+            if (selectedType) {
+                const pokemonsByType = filteredPokemons.filter((p) => {
+                    let isType = false;
 
-          p.types.forEach((t) => {
-            if (t.type.name.includes(type.name)) {
-              isType = true;
+                    p.types.forEach((t) => {
+                        if (t.type.name.includes(type.name)) {
+                            isType = true;
+                        }
+                    });
+
+                    if (isType === true) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                });
+
+                const pokemonsNotEqual = pokemonsByType.filter((pokemon) => {
+                    if (
+                        filteredPokemons.find(
+                            (filtered) => filtered.id === pokemon.id
+                        )
+                    ) {
+                        return false;
+                    }
+                    return true;
+                });
+
+                filteredPokemons = filteredPokemons.concat(pokemonsNotEqual);
             }
-          });
-
-          if (isType === true) {
-            return true;
-          } else {
-            return false;
-          }
         });
 
-        const pokemonsNotEqual = pokemonsByType.filter((pokemon) => {
-          if (filteredPokemons.find((filtered) => filtered.id === pokemon.id)) {
-            return false;
-          }
-          return true;
+        let pokemonList = [];
+
+        const getFilteredPokemons = async () => {
+            filteredPokemons.forEach(async (p) => {
+                try {
+                    const response = await getPokemonById(p.id);
+                    pokemonList.push(response.data);
+                } catch (error) {
+                    console.log(error);
+                }
+            });
+        };
+
+        getFilteredPokemons().then(() => {
+            setTimeout(() => setPokemons(pokemonList), 2000);
         });
-
-        filteredPokemons = filteredPokemons.concat(pokemonsNotEqual);
-      }
-    });
-
-    let pokemonList = [];
-
-    const getFilteredPokemons = async () => {
-      filteredPokemons.forEach(async (p) => {
-        try {
-          const response = await getPokemonById(p.id);
-          pokemonList.push(response.data);
-        } catch (error) {
-          console.log(error);
-        }
-      });
     };
 
-    getFilteredPokemons().then(() => {
-      setTimeout(() => setPokemons(pokemonList), 2000);
-    });
-  };
-
-  return (
-    <>
-      <Nav />
-      <Modal id={1} action={modalAction}>
-        <SearchBar id="modalSearch" placeholder="Search" />
-        <div className="modalColumns">
-          <div className="c1">
-            <ItemBody className="mt-1" title="Generation">
-              <div className="overflow-x">
-                <CheckGeneration id="1" title="I" value="1" />
-                <CheckGeneration id="2" title="II" value="2" />
-                <CheckGeneration id="3" title="III" value="3" />
-                <CheckGeneration id="4" title="IV" value="4" />
-                <CheckGeneration id="5" title="V" value="5" />
-                <CheckGeneration id="6" title="VI" value="6" />
-                <CheckGeneration id="7" title="VII" value="7" />
-                <CheckGeneration id="8" title="VIII" value="8" />
-              </div>
-            </ItemBody>
-            <ItemBody className="mt-1" id="modal-search" title="Forms">
-              <div className="grid2Columns">
-                <div>
-                  <Input id="gigantamaxGroup" icon={icon1} name="form">
-                    Gigantamax
-                  </Input>
+    return (
+        <>
+            <Nav />
+            <Modal id={1} action={modalAction}>
+                <SearchBar id="modalSearch" placeholder="Search" />
+                <div className="modalColumns">
+                    <div className="c1">
+                        <ItemBody className="mt-1" title="Generation">
+                            <div className="overflow-x">
+                                <CheckGeneration id="1" title="I" value="1" />
+                                <CheckGeneration id="2" title="II" value="2" />
+                                <CheckGeneration id="3" title="III" value="3" />
+                                <CheckGeneration id="4" title="IV" value="4" />
+                                <CheckGeneration id="5" title="V" value="5" />
+                                <CheckGeneration id="6" title="VI" value="6" />
+                                <CheckGeneration id="7" title="VII" value="7" />
+                                <CheckGeneration
+                                    id="8"
+                                    title="VIII"
+                                    value="8"
+                                />
+                            </div>
+                        </ItemBody>
+                        <ItemBody
+                            className="mt-1"
+                            id="modal-search"
+                            title="Forms"
+                        >
+                            <div className="grid2Columns">
+                                <div>
+                                    <Input
+                                        id="gigantamaxGroup"
+                                        title={"Gigantamax"}
+                                        icon={icon1}
+                                        name="form"
+                                    />
+                                </div>
+                                <div>
+                                    <Input
+                                        id="megaEvolutionGroup"
+                                        title={"Mega evolution"}
+                                        icon={icon2}
+                                        name="form"
+                                    />
+                                </div>
+                                <div>
+                                    <Input
+                                        id="babiesGroup"
+                                        title={"Babies"}
+                                        icon={icon3}
+                                        name="form"
+                                    />
+                                </div>
+                                <div>
+                                    <Input
+                                        id="alolanGroup"
+                                        title={"Alolan forms"}
+                                        icon={icon4}
+                                        name="form"
+                                    />
+                                </div>
+                                <div>
+                                    <Input
+                                        id="galarianGroup"
+                                        title={"Galarian forms"}
+                                        icon={icon5}
+                                        name="form"
+                                    />
+                                </div>
+                                <div>
+                                    <Input
+                                        id="hisuianGroup"
+                                        title={"Hisuian forms"}
+                                        icon={icon6}
+                                        name="form"
+                                    />
+                                </div>
+                            </div>
+                        </ItemBody>
+                    </div>
+                    <div className="c2">
+                        <ItemBody className="mt-1" title="Types">
+                            <TypeInputList />
+                        </ItemBody>
+                    </div>
                 </div>
-                <div>
-                  <Input id="megaEvolutionGroup" icon={icon2} name="form">
-                    Mega evolution
-                  </Input>
-                </div>
-                <div>
-                  <Input id="babiesGroup" icon={icon3} name="form">
-                    Babies
-                  </Input>
-                </div>
-                <div>
-                  <Input id="alolanGroup" icon={icon4} name="form">
-                    Alolan forms
-                  </Input>
-                </div>
-                <div>
-                  <Input id="galarianGroup" icon={icon5} name="form">
-                    Galarian forms
-                  </Input>
-                </div>
-                <div>
-                  <Input id="hisuianGroup" icon={icon6} name="form">
-                    Hisuian forms
-                  </Input>
-                </div>
-              </div>
-            </ItemBody>
-          </div>
-          <div className="c2">
-            <ItemBody className="mt-1" title="Types">
-              <TypeInputList />
-            </ItemBody>
-          </div>
-        </div>
-      </Modal>
-      <header>
-        <div className="headerContainer">
-          <div>
-            Search
-            {/* <SearchBar
+            </Modal>
+            <header>
+                <div className="headerContainer">
+                    <div>
+                        Search
+                        {/* <SearchBar
                             pokemons={pokemons}
                             pokemonNameField={pokemonNameField}
                             setPokemonNameField={setPokemonNameField}
                             filteredPokemons={filteredPokemons}
                             setFilteredPokemons={setFilteredPokemons}
                         /> */}
-          </div>
-          <Button
-            onClick={() => {
-              openModal(1);
-            }}
-          >
-            Advanced search
-          </Button>
-        </div>
-      </header>
-      <main>
-        <section className="bodyContainer">{children}</section>
-      </main>
-    </>
-  );
+                    </div>
+                    <Button
+                        onClick={() => {
+                            openModal(1);
+                        }}
+                    >
+                        Advanced search
+                    </Button>
+                </div>
+            </header>
+            <main>
+                <section className="bodyContainer">{children}</section>
+            </main>
+        </>
+    );
 }

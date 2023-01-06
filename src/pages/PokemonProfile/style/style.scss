@@ -368,8 +368,8 @@
 @media only screen and (max-width: 600px) {
   .pokemonProfile {
     display: flex;
-    width: 97%;
-    padding-right: 3%;
+    width: 96%;
+    padding: 0 2%;
     height: calc(100vh - 100px);
     display: flex;
     flex-wrap: wrap;

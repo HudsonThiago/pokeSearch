@@ -5,24 +5,33 @@ import PokemonProfile from "./pages/PokemonProfile";
 import TeamMaker from "./pages/TeamMaker";
 import Nomes from "./pages/Nomes";
 import "./coreStyle/core.css";
+import { pokemonPerRequest } from "./services/utils";
 
 let pokemonList = [];
-let amount = { initialAmount: 1, finalAmount: 30 };
+let amount = { initialAmount: 1, finalAmount: pokemonPerRequest };
 
 export default function App() {
-  return (
-    <React.StrictMode>
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={<Pokemons pokemonList={pokemonList} amount={amount} />}
-          />
-          <Route path="/pokemon/:pokemonId" element={<PokemonProfile />} />
-          <Route path="/team-maker" element={<TeamMaker />} />
-          <Route path="/nomes" element={<Nomes />} />
-        </Routes>
-      </Router>
-    </React.StrictMode>
-  );
+    return (
+        <React.StrictMode>
+            <Router>
+                <Routes>
+                    <Route
+                        path="/"
+                        element={
+                            <Pokemons
+                                pokemonList={pokemonList}
+                                amount={amount}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/pokemon/:pokemonId"
+                        element={<PokemonProfile />}
+                    />
+                    <Route path="/team-maker" element={<TeamMaker />} />
+                    <Route path="/nomes" element={<Nomes />} />
+                </Routes>
+            </Router>
+        </React.StrictMode>
+    );
 }

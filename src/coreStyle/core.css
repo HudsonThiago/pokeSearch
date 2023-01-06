@@ -62,6 +62,26 @@ button {
   margin-top: 10px;
 }
 
+.mobile-600 {
+  display: none;
+}
+
+.desktop-600 {
+  display: -ms-grid;
+  display: grid;
+}
+
+@media only screen and (max-width: 600px) {
+  .mobile-600 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .desktop-600 {
+    display: none;
+  }
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
