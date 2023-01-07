@@ -143,7 +143,7 @@ main .bodyContainer {
   main .bodyContainer {
     width: 94%;
     margin: 0px 3%;
-    height: calc(100vh - 100px);
+    height: calc(120vh - 100px);
   }
 }
 /*# sourceMappingURL=style.css.map */

@@ -16,102 +16,70 @@
           flex-direction: column;
 }
 
-.pokemonProfile .c1 .littleNavBox {
-  background-color: var(--tertiary);
-  width: 100%;
-  height: 35px;
-  margin-bottom: 5px;
-  border-radius: 10px;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 60px auto 60px;
-      grid-template-columns: 60px auto 60px;
-  -webkit-box-shadow: 1px 1px 2px #00000099;
-          box-shadow: 1px 1px 2px #00000099;
-}
-
-.pokemonProfile .c1 .littleNavBox .prevBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100%;
-  border-radius: 10px;
-  background-color: var(--secondary);
-  cursor: pointer;
-}
-
-.pokemonProfile .c1 .littleNavBox .centerBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-shadow: inset 1 1 2px #000000;
-          box-shadow: inset 1 1 2px #000000;
-}
-
-.pokemonProfile .c1 .littleNavBox .nextBox {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100%;
-  border-radius: 10px;
-  background-color: var(--secondary);
-  cursor: pointer;
-}
-
-.pokemonProfile .c1 .littleNavBox p {
-  color: var(--tertiaryTitle);
-  margin: 0;
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-.pokemonProfile .c1 .pokemonBox {
+.pokemonProfile .c1 .pokemonContainer {
   position: relative;
   width: 100%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-.pokemonProfile .c1 .pokemonBox .pokemonImage {
-  position: absolute;
-  width: 80%;
-  height: auto;
-  z-index: 2;
-  -webkit-transform: translate(10%, 10%);
-          transform: translate(10%, 10%);
-}
-
-.pokemonProfile .c1 .pokemonBox .pokemonCard {
-  position: relative;
+.pokemonProfile .c1 .pokemonContainer .halftoneShadow {
   width: 100%;
   height: auto;
   z-index: 1;
+}
+
+.pokemonProfile .c1 .pokemonContainer .pokemonImage {
+  position: absolute;
+  width: 60%;
+  margin: 20% 20%;
+  height: auto;
+  z-index: 2;
+}
+
+.pokemonProfile .c1 .pokemonContainer .changePokemonButton {
+  position: absolute;
+  background-color: var(--bw100);
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  -webkit-box-shadow: 1px 1px 2px #00000099;
+          box-shadow: 1px 1px 2px #00000099;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--primaryTitle);
+  font-size: 1rem;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.pokemonProfile .c1 .pokemonContainer .left {
+  left: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+
+.pokemonProfile .c1 .pokemonContainer .right {
+  right: 0;
+  top: 50%;
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
 }
 
 .pokemonProfile .c2 {
   margin-left: 5%;
   width: 64%;
   padding-right: 1%;
-  height: calc(100vh - 190px);
+  height: calc(100vh - 140px);
   overflow-y: scroll;
 }
 
@@ -175,89 +143,6 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-  }
-  .pokemonProfile .c1 .littleNavBox {
-    background-color: var(--tertiary);
-    width: 100%;
-    height: 35px;
-    margin-bottom: 5px;
-    border-radius: 10px;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 60px auto 60px;
-        grid-template-columns: 60px auto 60px;
-    -webkit-box-shadow: 1px 1px 2px #00000099;
-            box-shadow: 1px 1px 2px #00000099;
-  }
-  .pokemonProfile .c1 .littleNavBox .prevBox {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 100%;
-    border-radius: 10px;
-    background-color: var(--secondary);
-    cursor: pointer;
-  }
-  .pokemonProfile .c1 .littleNavBox .centerBox {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-shadow: inset 1 1 2px #000000;
-            box-shadow: inset 1 1 2px #000000;
-  }
-  .pokemonProfile .c1 .littleNavBox .nextBox {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 100%;
-    border-radius: 10px;
-    background-color: var(--secondary);
-    cursor: pointer;
-  }
-  .pokemonProfile .c1 .littleNavBox p {
-    color: var(--tertiaryTitle);
-    margin: 0;
-    font-size: 0.8rem;
-    cursor: pointer;
-  }
-  .pokemonProfile .c1 .pokemonBox {
-    position: relative;
-    width: 100%;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .pokemonProfile .c1 .pokemonBox .pokemonImage {
-    position: absolute;
-    width: 80%;
-    height: auto;
-    z-index: 2;
-    -webkit-transform: translate(10%, 10%);
-            transform: translate(10%, 10%);
-  }
-  .pokemonProfile .c1 .pokemonBox .pokemonCard {
-    position: relative;
-    width: 100%;
-    height: auto;
-    z-index: 1;
   }
   .pokemonProfile .c2 {
     margin-left: 5%;
@@ -323,89 +208,6 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-  }
-  .pokemonProfile .c1 .littleNavBox {
-    background-color: var(--tertiary);
-    width: 100%;
-    height: 35px;
-    margin-bottom: 5px;
-    border-radius: 10px;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 60px auto 60px;
-        grid-template-columns: 60px auto 60px;
-    -webkit-box-shadow: 1px 1px 2px #00000099;
-            box-shadow: 1px 1px 2px #00000099;
-  }
-  .pokemonProfile .c1 .littleNavBox .prevBox {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 100%;
-    border-radius: 10px;
-    background-color: var(--secondary);
-    cursor: pointer;
-  }
-  .pokemonProfile .c1 .littleNavBox .centerBox {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-shadow: inset 1 1 2px #000000;
-            box-shadow: inset 1 1 2px #000000;
-  }
-  .pokemonProfile .c1 .littleNavBox .nextBox {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 100%;
-    border-radius: 10px;
-    background-color: var(--secondary);
-    cursor: pointer;
-  }
-  .pokemonProfile .c1 .littleNavBox p {
-    color: var(--tertiaryTitle);
-    margin: 0;
-    font-size: 0.8rem;
-    cursor: pointer;
-  }
-  .pokemonProfile .c1 .pokemonBox {
-    position: relative;
-    width: 100%;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-  .pokemonProfile .c1 .pokemonBox .pokemonImage {
-    position: absolute;
-    width: 80%;
-    height: auto;
-    z-index: 2;
-    -webkit-transform: translate(10%, 10%);
-            transform: translate(10%, 10%);
-  }
-  .pokemonProfile .c1 .pokemonBox .pokemonCard {
-    position: relative;
-    width: 100%;
-    height: auto;
-    z-index: 1;
   }
   .pokemonProfile .c2 {
     margin-left: 5%;
@@ -473,99 +275,22 @@
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .pokemonProfile .c1 .littleNavBox {
-    background-color: var(--tertiary);
-    width: 100%;
-    height: 35px;
-    margin-bottom: 5px;
-    border-radius: 10px;
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 60px auto 60px;
-        grid-template-columns: 60px auto 60px;
-    -webkit-box-shadow: 1px 1px 2px #00000099;
-            box-shadow: 1px 1px 2px #00000099;
-  }
-  .pokemonProfile .c1 .littleNavBox .prevBox {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 100%;
-    border-radius: 10px;
-    background-color: var(--secondary);
-    cursor: pointer;
-  }
-  .pokemonProfile .c1 .littleNavBox .centerBox {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-shadow: inset 1 1 2px #000000;
-            box-shadow: inset 1 1 2px #000000;
-  }
-  .pokemonProfile .c1 .littleNavBox .nextBox {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    height: 100%;
-    border-radius: 10px;
-    background-color: var(--secondary);
-    cursor: pointer;
-  }
-  .pokemonProfile .c1 .littleNavBox p {
-    color: var(--tertiaryTitle);
-    margin: 0;
-    font-size: 0.8rem;
-    cursor: pointer;
-  }
-  .pokemonProfile .c1 .pokemonBox {
+  .pokemonProfile .c1 .pokemonContainer {
     position: relative;
     width: 100%;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
-  .pokemonProfile .c1 .pokemonBox .pokemonImage {
-    position: initial;
-    width: 50%;
-    margin: 0px 25%;
-    height: auto;
-    z-index: 2;
-    -webkit-transform: initial;
-            transform: initial;
-  }
-  .pokemonProfile .c1 .pokemonBox .pokemonCard {
-    display: none;
-    position: relative;
-    width: 80%;
-    height: auto;
-    margin: 0px 10%;
-    z-index: 1;
+  .pokemonProfile .c1 .pokemonContainer .changePokemonButton {
+    font-size: 1.4rem;
+    width: 45px;
+    height: 45px;
   }
   .pokemonProfile .c2 {
     margin-left: 0%;

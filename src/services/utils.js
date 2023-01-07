@@ -3,6 +3,10 @@ import { allPokemons } from "./data";
 
 export const pokemonPerRequest = 15;
 
+export const minPokemonCount = 0;
+
+export const maxPokemonCount = 905;
+
 export const upperCaseFirstLetter = (string) => {
     const upperString = string[0].toUpperCase() + string.substr(1);
     return upperString;
