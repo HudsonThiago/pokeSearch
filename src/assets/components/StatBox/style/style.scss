@@ -1,59 +1,59 @@
 .statBox {
-  box-sizing: border-box;
-  width: 100%;
-  height: 60px;
-  padding: 10px;
-  margin-top: 10px;
-  background: linear-gradient(90deg, var(--bw100) 0%, var(--tertiary) 100%);
-  border-radius: 10px;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  display: grid;
-  grid-template-columns: 60px auto;
-  grid-template-rows: 40px;
-  box-shadow: 1px 1px 2px #00000099;
-
-  img {
-    height: 100%;
-    width: auto;
-  }
-
-  .statBoxMain {
+    box-sizing: border-box;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    height: 60px;
+    padding: 10px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, var(--bw100) 0%, var(--tertiary) 100%);
+    border-radius: 10px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    display: grid;
+    grid-template-columns: 60px auto;
+    grid-template-rows: 40px;
+    box-shadow: 1px 1px 2px #00000099;
 
-    h3 {
-      margin: 0px;
-      color: var(--secondaryTitle);
-      font-size: 1rem;
-      font-weight: 700;
-    }
-
-    .statBoxOutBar {
-      background-color: #324e6799;
-      width: 100%;
-      height: 15px;
-      border-radius: 4px;
-      box-shadow: inset 0 0 2px #000000;
-      display: flex;
-
-      .statBoxBar {
+    img {
         height: 100%;
-        border-radius: 4px;
-        box-shadow: inset 0 0 2px #000000;
-      }
+        width: auto;
     }
-  }
+
+    .statBoxMain {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        h3 {
+            margin: 0px;
+            color: var(--secondaryTitle);
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .statBoxOutBar {
+            background-color: #324e6799;
+            width: 100%;
+            height: 15px;
+            border-radius: 4px;
+            box-shadow: inset 0 0 2px #000000;
+            display: flex;
+
+            .statBoxBar {
+                height: 100%;
+                border-radius: 4px;
+                box-shadow: inset 0 0 2px #000000;
+            }
+        }
+    }
 }
 
 .statBox:last-child {
-  margin-bottom: 30px;
+    margin-bottom: 30px;
 }
 
 @media only screen and (max-width: 600px) {
-  .statBox:last-child {
-    margin-bottom: 20px;
-  }
+    .statBox:last-child {
+        margin-bottom: 0px;
+    }
 }

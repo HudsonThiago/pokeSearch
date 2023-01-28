@@ -71,7 +71,7 @@
 
 @media only screen and (max-width: 600px) {
   .statBox:last-child {
-    margin-bottom: 20px;
+    margin-bottom: 0px;
   }
 }
 /*# sourceMappingURL=style.css.map */

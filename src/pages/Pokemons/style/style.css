@@ -42,8 +42,8 @@
 }
 
 .pokemonsContent .gradient {
-  background: -webkit-gradient(linear, left bottom, left top, from(#e6e6e6), color-stop(1%, #e6e6e699), color-stop(3%, #e6e6e600), color-stop(97%, #e6e6e600), color-stop(99%, #e6e6e699), to(#e6e6e6));
-  background: linear-gradient(0deg, #e6e6e6 0%, #e6e6e699 1%, #e6e6e600 3%, #e6e6e600 97%, #e6e6e699 99%, #e6e6e6 100%);
+  background: -webkit-gradient(linear, left bottom, left top, from(#f2f2f2), color-stop(1%, #f2f2f299), color-stop(3%, #f2f2f200), color-stop(97%, #f2f2f200), color-stop(99%, #f2f2f299), to(#f2f2f2));
+  background: linear-gradient(0deg, #f2f2f2 0%, #f2f2f299 1%, #f2f2f200 3%, #f2f2f200 97%, #f2f2f299 99%, #f2f2f2 100%);
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -58,6 +58,7 @@
   .pokemonsContent {
     position: relative;
     width: 100%;
+    height: calc(100vh - 100px);
     overflow-y: scroll;
   }
   .pokemonsContent .mainFrameDesktop {
@@ -83,7 +84,7 @@
             box-sizing: border-box;
     width: 98%;
     padding-top: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 0px;
     padding-right: 2%;
     position: absolute;
     top: 0;

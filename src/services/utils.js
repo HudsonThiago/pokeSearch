@@ -74,9 +74,6 @@ export const getTypeColor = (type) => {
         case "dragon":
             color = "006FC9";
             break;
-        case "bug":
-            color = "83C300";
-            break;
         case "electric":
             color = "FBD100";
             break;

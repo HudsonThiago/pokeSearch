@@ -15,29 +15,19 @@ export default function Pokemons({ pokemonList, amount }) {
     const [initialAmout, setInitialAmout] = useState(amount.initialAmount);
     const [finalAmout, setFinalAmout] = useState(amount.finalAmount);
 
-    const setConfig = () => {
-        setControl(false);
-        setInitialAmout(initialAmout + pokemonPerRequest);
-        setFinalAmout(finalAmout + pokemonPerRequest);
-    };
-
     const getPokemons = async () => {
         let interval = await getPokemonsByInterval(initialAmout, finalAmout);
 
-        interval.forEach((p) => {
-            pokemonList.push(p);
-        });
+        // interval.forEach((p) => {
+        //     pokemonList.push(p);
+        // });
 
-        setPokemons(pokemonList);
+        setPokemons(interval);
         setControl(true);
     };
 
     useEffect(() => {
-        if (a === true) {
-            a = false;
-            setConfig();
-            getPokemons();
-        }
+        getPokemons();
     }, []);
 
     const allPokemonListDesktop = () => {
@@ -47,7 +37,6 @@ export default function Pokemons({ pokemonList, amount }) {
                 <Card
                     id={p.id}
                     index={index}
-                    key={p.id}
                     name={p.name}
                     number={p.id}
                     image={image}
@@ -64,7 +53,6 @@ export default function Pokemons({ pokemonList, amount }) {
                 <CardMobile
                     id={p.id}
                     index={index}
-                    key={p.id}
                     name={p.name}
                     number={p.id}
                     image={image}
@@ -74,30 +62,12 @@ export default function Pokemons({ pokemonList, amount }) {
         });
     };
 
-    const scrolling = async () => {
-        const mainContent = document.getElementById("mainContent");
-        const scrollTop = Math.ceil(mainContent.scrollTop);
-        const offsetHeight = Math.ceil(mainContent.offsetHeight);
-        const scrollHeight = Math.ceil(mainContent.scrollHeight);
-
-        if (offsetHeight + scrollTop >= scrollHeight) {
-            if (control === true) {
-                await setConfig();
-                await getPokemons();
-            }
-        }
-    };
-
     return (
         <Body setPokemons={setPokemons} pokemons={pokemons}>
             <Header title="Pokemons" />
             {pokemons && (
                 <>
-                    <div
-                        id="mainContent"
-                        className="pokemonsContent"
-                        onScroll={scrolling}
-                    >
+                    <div id="mainContent" className="pokemonsContent">
                         <div className="gradient"></div>
                         <div id="mainFrameDesktop" className="mainFrameDesktop">
                             {allPokemonListDesktop()}

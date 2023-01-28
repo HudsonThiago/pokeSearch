@@ -8,7 +8,7 @@ import {
     getTypeColor,
 } from "../../../services/utils";
 import TypeBox from "../TypeBox";
-import halftoneImg from "../../img/halftone5.png";
+import halftoneImg from "../../img/halftone3.png";
 
 export default function CardMobile({ index, id, name, number, image, types }) {
     const onMouseOverCard = () => {
@@ -27,10 +27,11 @@ export default function CardMobile({ index, id, name, number, image, types }) {
                 className="cardMobile"
                 onMouseOver={onMouseOverCard}
                 onMouseOut={onMouseOutCard}
+                key={`mobile-${index}`}
                 style={{
                     background: `linear-gradient(30deg, #ffffff 40%, #${getTypeColor(
                         types[0].type
-                    )}B3 100%)`,
+                    )}99 100%)`,
                 }}
             >
                 <div className="pokemonNameBox">

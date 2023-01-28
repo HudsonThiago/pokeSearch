@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import Body from "../../assets/components/Body";
 import {
     getPokemonSpecieById,
@@ -7,13 +8,13 @@ import {
 import WeightImg from "../../assets/img/icons/weight.svg";
 import HeightImg from "../../assets/img/icons/height.svg";
 import Header from "../../assets/components/Header";
-import { Link, useParams } from "react-router-dom";
 import "./style/style.css";
 import ItemBody from "../../assets/components/ItemBody";
 import TypeBox from "../../assets/components/TypeBox";
 import AbilityBox from "../../assets/components/AbilityBox";
 import WeaknessBox from "../../assets/components/WeaknessBox";
 import StatBox from "../../assets/components/StatBox";
+import Modal from "../../assets/components/Modal";
 import {
     removeSpecialCharacters,
     convertUnit,
@@ -21,11 +22,16 @@ import {
     convertNumber,
     minPokemonCount,
     maxPokemonCount,
+    openModal,
 } from "../../services/utils";
 import halftone from "../../assets/img/halftone6.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
+import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
+import Modal2 from "../../assets/components/Modal/Modal/Modal2";
 
 export default function PokemonProfile() {
     const [pokemon, setPokemon] = useState(null);
@@ -34,23 +40,33 @@ export default function PokemonProfile() {
     const [prevPokemonName, setPrevPokemonName] = useState(null);
     const [nextPokemonName, setNextPokemonName] = useState(null);
     const [pokemonImage, setPokemonImage] = useState("");
+    const [favorite, setFavorite] = useState(false);
+    let navigate = useNavigate();
+
     const { pokemonId } = useParams();
 
-    const getPokemon = async () => {
+    const getPokemon = async (pokemonId) => {
         try {
             const response = await getPokemonById(pokemonId);
 
             if (response.status === 200) {
-                setPokemon(response.data);
-                getPrevPokemon(response.data);
-                getNextPokemon(response.data);
-                getSpecie(response.data);
-                setPokemonImage(
-                    response.data.sprites.other["official-artwork"]
-                        .front_default
+                let pokemonDto = response.data;
+                setPokemon(pokemonDto);
+
+                getPrevPokemon(pokemonDto);
+                getNextPokemon(pokemonDto);
+                getSpecie(pokemonDto);
+                setFavorite(
+                    localStorage.getItem(`favorite-${pokemonDto.id}`)
+                        ? true
+                        : false
                 );
-                if (response.data.is_default === true) {
-                    localStorage.setItem("id", response.data.id);
+
+                setPokemonImage(
+                    pokemonDto.sprites.other["official-artwork"].front_default
+                );
+                if (pokemonDto.is_default === true) {
+                    localStorage.setItem("id", pokemonDto.id);
                 }
             }
         } catch (error) {
@@ -74,7 +90,7 @@ export default function PokemonProfile() {
     };
 
     const getPrevPokemon = async (pokemon) => {
-        if (pokemon.id - 1 >= 0) {
+        if (pokemon.id - 1 > 0) {
             try {
                 const response = await getPokemonById(pokemon.id - 1);
 
@@ -101,8 +117,34 @@ export default function PokemonProfile() {
         }
     };
 
+    const favoritePokemon = () => {
+        if (localStorage.getItem(`favorite-${pokemon.id}`)) {
+            localStorage.removeItem(`favorite-${pokemon.id}`);
+            setFavorite(false);
+        } else {
+            localStorage.setItem(`favorite-${pokemon.id}`, pokemon.id);
+            setFavorite(true);
+            openModal(2);
+        }
+    };
+
+    const keyPress = (e) => {
+        if (prevPokemonName && nextPokemonName) {
+            if (e.keyCode === 37) {
+                //arrow left
+                console.log("A");
+                navigate(`/pokemon/${prevPokemonName}`);
+            } else if (e.keyCode === 39) {
+                //arrow right
+                console.log("B");
+                navigate(`/pokemon/${nextPokemonName}`);
+            }
+        }
+    };
+
     useEffect(() => {
         getPokemon(pokemonId);
+        //document.addEventListener("keydown", keyPress, true);
     }, [pokemon]);
 
     return (
@@ -110,6 +152,9 @@ export default function PokemonProfile() {
             {pokemon !== null && specie !== null && (
                 <>
                     <Header title="Pokemons" route="/" />
+                    <Modal id={2} title="Pokemon favorito">
+                        <Modal2 id={2} pokemonName={pokemon.name} />
+                    </Modal>
                     <div className="pokemonProfile">
                         <div className="c1">
                             <div className="pokemonContainer">
@@ -123,6 +168,33 @@ export default function PokemonProfile() {
                                     src={pokemonImage}
                                     draggable="false"
                                 />
+                                <p className="pokemonId">
+                                    #{convertNumber(pokemon.id)}
+                                </p>
+                                <div className="additionsContainer">
+                                    {specie.varieties.length > 1 ? (
+                                        <div className="additionsBox">
+                                            <FontAwesomeIcon icon={faPlus} />
+                                        </div>
+                                    ) : null}
+                                    <div
+                                        className="additionsBox"
+                                        onClick={() => {
+                                            favoritePokemon();
+                                        }}
+                                    >
+                                        {favorite ? (
+                                            <FontAwesomeIcon
+                                                className="star"
+                                                icon={solidStar}
+                                            />
+                                        ) : (
+                                            <FontAwesomeIcon
+                                                icon={regularStar}
+                                            />
+                                        )}
+                                    </div>
+                                </div>
                                 {pokemon.id - 1 > minPokemonCount ? (
                                     <Link to={`/pokemon/${prevPokemonName}`}>
                                         <div className="changePokemonButton left">

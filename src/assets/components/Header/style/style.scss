@@ -20,6 +20,16 @@
             font-weight: 900;
         }
     }
+
+    .turnBackBox {
+        display: flex;
+        align-items: center;
+        color: var(--text);
+
+        p {
+            margin-left: 8px;
+        }
+    }
 }
 
 @media only screen and (max-width: 600px) {

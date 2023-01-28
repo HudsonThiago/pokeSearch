@@ -36,12 +36,12 @@
     .gradient {
         background: linear-gradient(
             0deg,
-            #e6e6e6 0%,
-            #e6e6e699 1%,
-            #e6e6e600 3%,
-            #e6e6e600 97%,
-            #e6e6e699 99%,
-            #e6e6e6 100%
+            #f2f2f2 0%,
+            #f2f2f299 1%,
+            #f2f2f200 3%,
+            #f2f2f200 97%,
+            #f2f2f299 99%,
+            #f2f2f2 100%
         );
         position: sticky;
         top: 0;
@@ -57,6 +57,7 @@
     .pokemonsContent {
         position: relative;
         width: 100%;
+        height: calc(100vh - 100px);
         overflow-y: scroll;
 
         .mainFrameDesktop {
@@ -73,12 +74,12 @@
             justify-content: space-between;
             grid-gap: 5px;
         }
-    
+
         .mainFrameMobile {
             box-sizing: border-box;
             width: 98%;
             padding-top: 10px;
-            padding-bottom: 50px;
+            padding-bottom: 0px;
             padding-right: 2%;
             position: absolute;
             top: 0;
@@ -88,6 +89,5 @@
             flex-wrap: wrap;
             grid-gap: 5px;
         }
-    
     }
 }
