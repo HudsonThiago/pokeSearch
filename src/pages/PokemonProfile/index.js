@@ -53,9 +53,9 @@ export default function PokemonProfile() {
                 let pokemonDto = response.data;
                 setPokemon(pokemonDto);
 
-                getPrevPokemon(pokemonDto);
-                getNextPokemon(pokemonDto);
-                getSpecie(pokemonDto);
+                await getPrevPokemon(pokemonDto);
+                await getNextPokemon(pokemonDto);
+                await getSpecie(pokemonDto);
                 setFavorite(
                     localStorage.getItem(`favorite-${pokemonDto.id}`)
                         ? true
@@ -86,7 +86,9 @@ export default function PokemonProfile() {
                 );
                 setPokemonDescription(translatedAbilities.at(-1));
             }
-        } catch (error) {}
+        } catch (error) {
+            console.log("error");
+        }
     };
 
     const getPrevPokemon = async (pokemon) => {
@@ -145,136 +147,160 @@ export default function PokemonProfile() {
     useEffect(() => {
         getPokemon(pokemonId);
         //document.addEventListener("keydown", keyPress, true);
-    }, [pokemon]);
+    }, [pokemonId]);
+
+    const imageAnimation = (e) => {
+        if (e.classList.contains("animation")) {
+            e.classList.remove("animation");
+        }
+        setTimeout(() => {
+            e.classList.add("animation");
+        }, 10);
+    };
 
     return (
         <Body>
-            {pokemon !== null && specie !== null && (
+            {pokemon && specie && (
                 <>
                     <Header title="Pokemons" route="/" />
                     <Modal id={2} title="Pokemon favorito">
                         <Modal2 id={2} pokemonName={pokemon.name} />
                     </Modal>
                     <div className="pokemonProfile">
-                        <div className="c1">
-                            <div className="pokemonContainer">
-                                <img
-                                    className="halftoneShadow"
-                                    src={halftone}
-                                    draggable="false"
-                                />
-                                <img
-                                    className="pokemonImage"
-                                    src={pokemonImage}
-                                    draggable="false"
-                                />
-                                <p className="pokemonId">
-                                    #{convertNumber(pokemon.id)}
-                                </p>
-                                <div className="additionsContainer">
-                                    {specie.varieties.length > 1 ? (
-                                        <div className="additionsBox">
-                                            <FontAwesomeIcon icon={faPlus} />
+                        <div className="gradient"></div>
+                        <div className="profileInterface">
+                            <div className="c1">
+                                <div className="pokemonContainer">
+                                    <img
+                                        className="halftoneShadow"
+                                        src={halftone}
+                                        draggable="false"
+                                    />
+                                    <img
+                                        className="pokemonImage"
+                                        src={pokemonImage}
+                                        draggable="false"
+                                        onLoad={(e) => imageAnimation(e.target)}
+                                    />
+                                    <p className="pokemonId">
+                                        #{convertNumber(pokemon.id)}
+                                    </p>
+                                    <div className="additionsContainer">
+                                        {specie.varieties.length > 1 ? (
+                                            <div className="additionsBox">
+                                                <FontAwesomeIcon
+                                                    icon={faPlus}
+                                                />
+                                            </div>
+                                        ) : null}
+                                        <div
+                                            className="additionsBox"
+                                            onClick={() => {
+                                                favoritePokemon();
+                                            }}
+                                        >
+                                            {favorite ? (
+                                                <FontAwesomeIcon
+                                                    className="star"
+                                                    icon={solidStar}
+                                                />
+                                            ) : (
+                                                <FontAwesomeIcon
+                                                    icon={regularStar}
+                                                />
+                                            )}
                                         </div>
-                                    ) : null}
-                                    <div
-                                        className="additionsBox"
-                                        onClick={() => {
-                                            favoritePokemon();
-                                        }}
-                                    >
-                                        {favorite ? (
-                                            <FontAwesomeIcon
-                                                className="star"
-                                                icon={solidStar}
-                                            />
-                                        ) : (
-                                            <FontAwesomeIcon
-                                                icon={regularStar}
-                                            />
-                                        )}
                                     </div>
+                                    {pokemon.id - 1 > minPokemonCount ? (
+                                        <Link
+                                            to={`/pokemon/${prevPokemonName}`}
+                                        >
+                                            <div className="changePokemonButton left">
+                                                <FontAwesomeIcon
+                                                    icon={faArrowLeft}
+                                                />
+                                            </div>
+                                        </Link>
+                                    ) : null}
+                                    {pokemon.id + 1 <= maxPokemonCount ? (
+                                        <Link
+                                            to={`/pokemon/${nextPokemonName}`}
+                                        >
+                                            <div className="changePokemonButton right">
+                                                <FontAwesomeIcon
+                                                    icon={faArrowRight}
+                                                />
+                                            </div>
+                                        </Link>
+                                    ) : null}
                                 </div>
-                                {pokemon.id - 1 > minPokemonCount ? (
-                                    <Link to={`/pokemon/${prevPokemonName}`}>
-                                        <div className="changePokemonButton left">
-                                            <FontAwesomeIcon
-                                                icon={faArrowLeft}
-                                            />
-                                        </div>
-                                    </Link>
-                                ) : null}
-                                {pokemon.id + 1 <= maxPokemonCount ? (
-                                    <Link to={`/pokemon/${nextPokemonName}`}>
-                                        <div className="changePokemonButton right">
-                                            <FontAwesomeIcon
-                                                icon={faArrowRight}
-                                            />
-                                        </div>
-                                    </Link>
-                                ) : null}
                             </div>
-                        </div>
-                        <div className="c2">
-                            <h2>{convertName(pokemon.name, true)}</h2>
-                            <p>
-                                {removeSpecialCharacters(
-                                    pokemonDescription.flavor_text
-                                )}
-                            </p>
-                            <ItemBody title="Type">
-                                <div className="grid3Columns">
-                                    {pokemon.types.map((t, index) => {
+                            <div className="c2">
+                                <h2>{convertName(pokemon.name, true)}</h2>
+                                <p>
+                                    {removeSpecialCharacters(
+                                        pokemonDescription.flavor_text
+                                    )}
+                                </p>
+                                <ItemBody title="Type">
+                                    <div className="grid3Columns">
+                                        {pokemon.types.map((t, index) => {
+                                            return (
+                                                <TypeBox
+                                                    key={`type-${index}`}
+                                                    type={t.type}
+                                                />
+                                            );
+                                        })}
+                                    </div>
+                                </ItemBody>
+                                <ItemBody title="Abilities">
+                                    {pokemon.abilities.map((a, index) => {
                                         return (
-                                            <TypeBox
-                                                key={`type-${index}`}
-                                                type={t.type}
+                                            <AbilityBox
+                                                key={`ability-${index}`}
+                                                index={index}
+                                                ability={a.ability}
                                             />
                                         );
                                     })}
-                                </div>
-                            </ItemBody>
-                            <ItemBody title="Abilities">
-                                {pokemon.abilities.map((a, index) => {
-                                    return (
-                                        <AbilityBox
-                                            key={`ability-${index}`}
-                                            index={index}
-                                            ability={a.ability}
-                                        />
-                                    );
-                                })}
-                            </ItemBody>
-                            <div className="grid2Columns">
-                                <ItemBody title="Weight">
-                                    <div className="measurementBox">
-                                        <img
-                                            src={WeightImg}
-                                            draggable="false"
-                                        />
-                                        <h3>
-                                            {convertUnit(pokemon.weight)} Kg
-                                        </h3>
-                                    </div>
                                 </ItemBody>
-                                <ItemBody title="Height">
-                                    <div className="measurementBox">
-                                        <img
-                                            src={HeightImg}
-                                            draggable="false"
+                                <div className="grid2Columns">
+                                    <ItemBody title="Weight">
+                                        <div className="measurementBox">
+                                            <img
+                                                src={WeightImg}
+                                                draggable="false"
+                                            />
+                                            <h3>
+                                                {convertUnit(pokemon.weight)} Kg
+                                            </h3>
+                                        </div>
+                                    </ItemBody>
+                                    <ItemBody title="Height">
+                                        <div className="measurementBox">
+                                            <img
+                                                src={HeightImg}
+                                                draggable="false"
+                                            />
+                                            <h3>
+                                                {convertUnit(pokemon.height)} m
+                                            </h3>
+                                        </div>
+                                    </ItemBody>
+                                </div>
+                                <ItemBody title="Weakness">
+                                    <WeaknessBox pokemon={pokemon} />
+                                </ItemBody>
+                                <ItemBody title="Base Stats">
+                                    {pokemon.stats.map((s, index) => (
+                                        <StatBox
+                                            key={`stat-${index}`}
+                                            stat={s}
                                         />
-                                        <h3>{convertUnit(pokemon.height)} m</h3>
-                                    </div>
+                                    ))}
                                 </ItemBody>
                             </div>
-                            <ItemBody title="Weakness">
-                                <WeaknessBox pokemon={pokemon} />
-                            </ItemBody>
-                            <ItemBody title="Base Stats">
-                                {pokemon.stats.map((s, index) => (
-                                    <StatBox key={`stat-${index}`} stat={s} />
-                                ))}
-                            </ItemBody>
                         </div>
                     </div>
                 </>

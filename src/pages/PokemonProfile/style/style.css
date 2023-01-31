@@ -1,11 +1,30 @@
 .pokemonProfile {
+  position: relative;
+  width: 100%;
+}
+
+.pokemonProfile .gradient {
+  background: -webkit-gradient(linear, left bottom, left top, from(#f2f2f2), color-stop(1%, #f2f2f299), color-stop(3%, #f2f2f200), color-stop(97%, #f2f2f200), color-stop(99%, #f2f2f299), to(#f2f2f2));
+  background: linear-gradient(0deg, #f2f2f2 0%, #f2f2f299 1%, #f2f2f200 3%, #f2f2f200 97%, #f2f2f299 99%, #f2f2f2 100%);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.pokemonProfile .profileInterface {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  position: absolute;
 }
 
-.pokemonProfile .c1 {
+.pokemonProfile .profileInterface .c1 {
   width: 30%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -16,7 +35,7 @@
           flex-direction: column;
 }
 
-.pokemonProfile .c1 .pokemonContainer {
+.pokemonProfile .profileInterface .c1 .pokemonContainer {
   position: relative;
   width: 100%;
   display: -webkit-box;
@@ -24,20 +43,78 @@
   display: flex;
 }
 
-.pokemonProfile .c1 .pokemonContainer .halftoneShadow {
+.pokemonProfile .profileInterface .c1 .pokemonContainer .halftoneShadow {
   width: 100%;
   height: auto;
 }
 
-.pokemonProfile .c1 .pokemonContainer .pokemonImage {
+.pokemonProfile .profileInterface .c1 .pokemonContainer .pokemonImage {
   position: absolute;
   width: 60%;
   margin: 20% 20%;
+  opacity: 0;
   height: auto;
   z-index: 2;
 }
 
-.pokemonProfile .c1 .pokemonContainer .pokemonId {
+.pokemonProfile .profileInterface .c1 .pokemonContainer .pokemonImage.animation {
+  -webkit-animation: pokemonImage 1s ease-out 0s forwards;
+          animation: pokemonImage 1s ease-out 0s forwards;
+}
+
+@-webkit-keyframes pokemonImage {
+  0% {
+    width: 40%;
+    margin: 30% 30%;
+    opacity: 0;
+    -webkit-filter: contrast(0%) brightness(200%);
+            filter: contrast(0%) brightness(200%);
+  }
+  50% {
+    -webkit-filter: contrast(0%) brightness(200%);
+            filter: contrast(0%) brightness(200%);
+  }
+  80% {
+    opacity: 1;
+    width: 70%;
+    margin: 15% 15%;
+  }
+  100% {
+    width: 60%;
+    margin: 20% 20%;
+    opacity: 1;
+    -webkit-filter: contrast(100%) brightness(100%);
+            filter: contrast(100%) brightness(100%);
+  }
+}
+
+@keyframes pokemonImage {
+  0% {
+    width: 40%;
+    margin: 30% 30%;
+    opacity: 0;
+    -webkit-filter: contrast(0%) brightness(200%);
+            filter: contrast(0%) brightness(200%);
+  }
+  50% {
+    -webkit-filter: contrast(0%) brightness(200%);
+            filter: contrast(0%) brightness(200%);
+  }
+  80% {
+    opacity: 1;
+    width: 70%;
+    margin: 15% 15%;
+  }
+  100% {
+    width: 60%;
+    margin: 20% 20%;
+    opacity: 1;
+    -webkit-filter: contrast(100%) brightness(100%);
+            filter: contrast(100%) brightness(100%);
+  }
+}
+
+.pokemonProfile .profileInterface .c1 .pokemonContainer .pokemonId {
   font-weight: 700;
   color: var(--primaryTitle);
   font-size: 1rem;
@@ -48,7 +125,7 @@
           transform: translate(-50%, 0);
 }
 
-.pokemonProfile .c1 .pokemonContainer .changePokemonButton {
+.pokemonProfile .profileInterface .c1 .pokemonContainer .changePokemonButton {
   position: absolute;
   background-color: var(--bw100);
   width: 30px;
@@ -71,21 +148,21 @@
   cursor: pointer;
 }
 
-.pokemonProfile .c1 .pokemonContainer .left {
+.pokemonProfile .profileInterface .c1 .pokemonContainer .left {
   left: 0;
   top: 50%;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
 }
 
-.pokemonProfile .c1 .pokemonContainer .right {
+.pokemonProfile .profileInterface .c1 .pokemonContainer .right {
   right: 0;
   top: 50%;
   -webkit-transform: translate(0, -50%);
           transform: translate(0, -50%);
 }
 
-.pokemonProfile .c1 .pokemonContainer .additionsContainer {
+.pokemonProfile .profileInterface .c1 .pokemonContainer .additionsContainer {
   position: absolute;
   left: 50%;
   bottom: 0;
@@ -99,7 +176,7 @@
           align-items: center;
 }
 
-.pokemonProfile .c1 .pokemonContainer .additionsContainer .additionsBox {
+.pokemonProfile .profileInterface .c1 .pokemonContainer .additionsContainer .additionsBox {
   background-color: var(--bw100);
   width: 30px;
   height: 30px;
@@ -121,11 +198,11 @@
   cursor: pointer;
 }
 
-.pokemonProfile .c1 .pokemonContainer .additionsContainer .additionsBox .star {
+.pokemonProfile .profileInterface .c1 .pokemonContainer .additionsContainer .additionsBox .star {
   color: var(--select);
 }
 
-.pokemonProfile .c2 {
+.pokemonProfile .profileInterface .c2 {
   margin-left: 5%;
   width: 64%;
   padding-right: 1%;
@@ -133,19 +210,19 @@
   overflow-y: scroll;
 }
 
-.pokemonProfile .c2 p {
+.pokemonProfile .profileInterface .c2 p {
   text-align: justify;
   color: var(--text);
 }
 
-.pokemonProfile .c2 h2 {
+.pokemonProfile .profileInterface .c2 h2 {
   color: var(--primaryTitle);
   font-size: 2rem;
   font-weight: 900;
   margin: 0px;
 }
 
-.pokemonProfile .c2 .measurementBox {
+.pokemonProfile .profileInterface .c2 .measurementBox {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   background-color: white;
@@ -166,12 +243,12 @@
           box-shadow: 1px 1px 2px #00000099;
 }
 
-.pokemonProfile .c2 .measurementBox img {
+.pokemonProfile .profileInterface .c2 .measurementBox img {
   height: 100%;
   width: auto;
 }
 
-.pokemonProfile .c2 .measurementBox h3 {
+.pokemonProfile .profileInterface .c2 .measurementBox h3 {
   color: var(--secondaryTitle);
   font-size: 1.4rem;
   font-weight: 700;
@@ -179,12 +256,15 @@
 
 @media only screen and (max-width: 1000px) {
   .pokemonProfile {
+    width: 100%;
+  }
+  .pokemonProfile .profileInterface {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     width: 100%;
   }
-  .pokemonProfile .c1 {
+  .pokemonProfile .profileInterface .c1 {
     width: 30%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -194,24 +274,24 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .pokemonProfile .c2 {
+  .pokemonProfile .profileInterface .c2 {
     margin-left: 5%;
     width: 64%;
     padding-right: 1%;
     height: calc(100vh - 140px);
     overflow-y: scroll;
   }
-  .pokemonProfile .c2 p {
+  .pokemonProfile .profileInterface .c2 p {
     text-align: justify;
     color: var(--text);
   }
-  .pokemonProfile .c2 h2 {
+  .pokemonProfile .profileInterface .c2 h2 {
     color: var(--primaryTitle);
     font-size: 2rem;
     font-weight: 900;
     margin: 0px;
   }
-  .pokemonProfile .c2 .measurementBox {
+  .pokemonProfile .profileInterface .c2 .measurementBox {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     background-color: white;
@@ -231,11 +311,11 @@
     -webkit-box-shadow: 1px 1px 2px #00000099;
             box-shadow: 1px 1px 2px #00000099;
   }
-  .pokemonProfile .c2 .measurementBox img {
+  .pokemonProfile .profileInterface .c2 .measurementBox img {
     height: 100%;
     width: auto;
   }
-  .pokemonProfile .c2 .measurementBox h3 {
+  .pokemonProfile .profileInterface .c2 .measurementBox h3 {
     color: var(--secondaryTitle);
     font-size: 1.4rem;
     font-weight: 700;
@@ -249,7 +329,10 @@
     display: flex;
     width: 100%;
   }
-  .pokemonProfile .c1 {
+  .pokemonProfile .profileInterface {
+    width: 100%;
+  }
+  .pokemonProfile .profileInterface .c1 {
     width: 40%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -259,24 +342,24 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .pokemonProfile .c2 {
+  .pokemonProfile .profileInterface .c2 {
     margin-left: 5%;
     width: 54%;
     padding-right: 1%;
-    height: calc(100vh - 140px);
+    height: calc(100vh - 200px);
     overflow-y: scroll;
   }
-  .pokemonProfile .c2 p {
+  .pokemonProfile .profileInterface .c2 p {
     text-align: justify;
     color: var(--text);
   }
-  .pokemonProfile .c2 h2 {
+  .pokemonProfile .profileInterface .c2 h2 {
     color: var(--primaryTitle);
     font-size: 2rem;
     font-weight: 900;
     margin: 0px;
   }
-  .pokemonProfile .c2 .measurementBox {
+  .pokemonProfile .profileInterface .c2 .measurementBox {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
     background-color: white;
@@ -296,11 +379,11 @@
     -webkit-box-shadow: 1px 1px 2px #00000099;
             box-shadow: 1px 1px 2px #00000099;
   }
-  .pokemonProfile .c2 .measurementBox img {
+  .pokemonProfile .profileInterface .c2 .measurementBox img {
     height: 100%;
     width: auto;
   }
-  .pokemonProfile .c2 .measurementBox h3 {
+  .pokemonProfile .profileInterface .c2 .measurementBox h3 {
     color: var(--secondaryTitle);
     font-size: 1.2rem;
     font-weight: 700;
@@ -309,18 +392,23 @@
 
 @media only screen and (max-width: 600px) {
   .pokemonProfile {
+    width: 100%;
+    height: calc(100vh - 160px);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    overflow-y: scroll;
+  }
+  .pokemonProfile .profileInterface {
     width: 96%;
     padding: 0 2%;
-    height: calc(100vh - 100px);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    overflow-y: scroll;
   }
-  .pokemonProfile .c1 {
+  .pokemonProfile .profileInterface .c1 {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -330,36 +418,36 @@
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .pokemonProfile .c1 .pokemonContainer {
+  .pokemonProfile .profileInterface .c1 .pokemonContainer {
     position: relative;
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
   }
-  .pokemonProfile .c1 .pokemonContainer .pokemonId {
+  .pokemonProfile .profileInterface .c1 .pokemonContainer .pokemonId {
     font-size: 1.2rem;
   }
-  .pokemonProfile .c1 .pokemonContainer .changePokemonButton {
+  .pokemonProfile .profileInterface .c1 .pokemonContainer .changePokemonButton {
     font-size: 1.2rem;
     width: 40px;
     height: 40px;
   }
-  .pokemonProfile .c2 {
+  .pokemonProfile .profileInterface .c2 {
     margin-left: 0%;
     width: 99%;
     padding-right: 1%;
-    padding-bottom: 20px;
+    margin-bottom: 40px;
     height: -webkit-max-content;
     height: -moz-max-content;
     height: max-content;
     overflow-y: initial;
   }
-  .pokemonProfile .c2 p {
+  .pokemonProfile .profileInterface .c2 p {
     text-align: justify;
     color: var(--text);
   }
-  .pokemonProfile .c2 h2 {
+  .pokemonProfile .profileInterface .c2 h2 {
     color: var(--primaryTitle);
     font-size: 2rem;
     font-weight: 900;

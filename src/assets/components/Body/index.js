@@ -106,6 +106,9 @@ export default function Body({ setPokemons, children }) {
             <main>
                 <section className="bodyContainer">{children}</section>
             </main>
+            <div className="mobileNav">
+                <div className="navCircleContainer"></div>
+            </div>
         </>
     );
 }

@@ -57,7 +57,7 @@
     .pokemonsContent {
         position: relative;
         width: 100%;
-        height: calc(100vh - 100px);
+        height: calc(100vh - 160px);
         overflow-y: scroll;
 
         .mainFrameDesktop {
@@ -79,7 +79,7 @@
             box-sizing: border-box;
             width: 98%;
             padding-top: 10px;
-            padding-bottom: 0px;
+            padding-bottom: 40px;
             padding-right: 2%;
             position: absolute;
             top: 0;

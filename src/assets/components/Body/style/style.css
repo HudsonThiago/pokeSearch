@@ -58,33 +58,13 @@ main .bodyContainer {
   gap: 10px;
 }
 
+.mobileNav {
+  display: none;
+}
+
 @media only screen and (max-width: 1000px) {
   header {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    background-color: var(--secondary);
-    width: 100%;
-    height: 60px;
-    padding-left: 0px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-  }
-  header .headerContainer {
-    width: 94%;
-    margin: 0px 3%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    display: none;
   }
   main {
     -webkit-box-sizing: border-box;
@@ -95,37 +75,37 @@ main .bodyContainer {
   main .bodyContainer {
     width: 94%;
     margin: 0px 3%;
-    height: calc(100vh - 140px);
+    height: calc(100vh - 60px);
+  }
+  .mobileNav {
+    background-color: var(--bw100);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    z-index: 5;
+    -webkit-filter: drop-shadow(0px 0px 3px #00000033) drop-shadow(0px 0px 15px #00000033);
+            filter: drop-shadow(0px 0px 3px #00000033) drop-shadow(0px 0px 15px #00000033);
+  }
+  .mobileNav .navCircleContainer {
+    background-color: var(--bw100);
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -30px);
+            transform: translate(-50%, -30px);
+    position: relative;
+    z-index: 4;
   }
 }
 
 @media only screen and (max-width: 600px) {
   header {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    background-color: var(--secondary);
-    width: 100%;
-    height: 40px;
-    padding-left: 0px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-        -ms-flex-pack: end;
-            justify-content: flex-end;
-  }
-  header .headerContainer {
-    width: 90%;
-    margin: 0px 5%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    display: none;
   }
   .grid3Columns {
     display: -ms-grid;
@@ -143,7 +123,7 @@ main .bodyContainer {
   main .bodyContainer {
     width: 94%;
     margin: 0px 3%;
-    height: calc(120vh - 100px);
+    height: calc(100vh - 60px);
   }
 }
 /*# sourceMappingURL=style.css.map */
