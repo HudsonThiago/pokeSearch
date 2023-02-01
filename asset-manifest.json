@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/pokeSearch/static/css/main.0ba48f3d.css",
+    "main.css": "/pokeSearch/static/css/main.a822a784.css",
     "main.js": "/pokeSearch/static/js/main.309a2101.js",
     "static/js/787.e63902b9.chunk.js": "/pokeSearch/static/js/787.e63902b9.chunk.js",
     "static/media/halftone.png": "/pokeSearch/static/media/halftone.b5a99e4677782ae8ac0a.png",
@@ -42,12 +42,12 @@
     "static/media/card.svg": "/pokeSearch/static/media/card.3ed57c82c02cc190e339df97a3d4de2f.svg",
     "static/media/galarianIcon.svg": "/pokeSearch/static/media/galarianIcon.5909ad082faeafb4bb99dc6d56411476.svg",
     "static/media/close.svg": "/pokeSearch/static/media/close.c24dabfeba7ec8f61354f1b6352890f2.svg",
-    "main.0ba48f3d.css.map": "/pokeSearch/static/css/main.0ba48f3d.css.map",
+    "main.a822a784.css.map": "/pokeSearch/static/css/main.a822a784.css.map",
     "main.309a2101.js.map": "/pokeSearch/static/js/main.309a2101.js.map",
     "787.e63902b9.chunk.js.map": "/pokeSearch/static/js/787.e63902b9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ba48f3d.css",
+    "static/css/main.a822a784.css",
     "static/js/main.309a2101.js"
   ]
 }
