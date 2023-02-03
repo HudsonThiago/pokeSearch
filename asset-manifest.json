@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pokeSearch/static/css/main.c95783d6.css",
-    "main.js": "/pokeSearch/static/js/main.8be186b9.js",
+    "main.js": "/pokeSearch/static/js/main.e24bc272.js",
     "static/js/787.e63902b9.chunk.js": "/pokeSearch/static/js/787.e63902b9.chunk.js",
     "static/media/pokemonSFX.mp3": "/pokeSearch/static/media/pokemonSFX.8980d27832ebedd5665a.mp3",
     "static/media/halftone.png": "/pokeSearch/static/media/halftone.b5a99e4677782ae8ac0a.png",
@@ -28,15 +28,15 @@
     "static/media/halftone2.png": "/pokeSearch/static/media/halftone2.79b96f615c1ecaef7e81.png",
     "static/media/megaEvolutionIcon.svg": "/pokeSearch/static/media/megaEvolutionIcon.b21ad94b4dc8d54e4354f016b1c8595a.svg",
     "static/media/alolanIcon.svg": "/pokeSearch/static/media/alolanIcon.031aa956308f566f7b1f8e04f3eb2aa9.svg",
+    "static/media/mobilePokeballIcon2.svg": "/pokeSearch/static/media/mobilePokeballIcon2.f3066eede9945636e8d351b7f70bafb6.svg",
     "static/media/babiesIcon.svg": "/pokeSearch/static/media/babiesIcon.189ff8a39cb6605bf6aaf9f6d780c5b5.svg",
     "static/media/weight.svg": "/pokeSearch/static/media/weight.db1bee673924eaf5867ddaa84554ccd2.svg",
     "static/media/hisuianIcon.svg": "/pokeSearch/static/media/hisuianIcon.8f731060488b1b1f59f7cc4d50b3b516.svg",
     "static/media/gigantamaxIcon.svg": "/pokeSearch/static/media/gigantamaxIcon.423eb2b3154c72a14bc9c3bb6e5766b7.svg",
-    "static/media/mobilePokeballIcon.svg": "/pokeSearch/static/media/mobilePokeballIcon.17858c4dd11801e1beb435c891e64b4c.svg",
-    "static/media/mobileHomeIcon.svg": "/pokeSearch/static/media/mobileHomeIcon.ba5ee79a707dfe28bc6f9b725075b087.svg",
+    "static/media/mobileHomeIcon.svg": "/pokeSearch/static/media/mobileHomeIcon.ac448d5f96eb452ad27444b8acccb78b.svg",
     "index.html": "/pokeSearch/index.html",
+    "static/media/mobileMagnifyingGlassIcon.svg": "/pokeSearch/static/media/mobileMagnifyingGlassIcon.1526600a6a4f086f418779260ee9a28f.svg",
     "static/media/height.svg": "/pokeSearch/static/media/height.c73df2d8187f1ed596a929b6ff4dbdd2.svg",
-    "static/media/mobileMagnifyingGlassIcon.svg": "/pokeSearch/static/media/mobileMagnifyingGlassIcon.b8fb7482a59db74af859b8e259e8e6e6.svg",
     "static/media/pokeball.svg": "/pokeSearch/static/media/pokeball.2e012bd2897114950ef99991247c31f8.svg",
     "static/media/question.svg": "/pokeSearch/static/media/question.29a606aa83e77d45c0cbe61f5532d0f2.svg",
     "static/media/pokeball2.svg": "/pokeSearch/static/media/pokeball2.b24061e7fca59c6e99a875e7c1441feb.svg",
@@ -44,11 +44,11 @@
     "static/media/galarianIcon.svg": "/pokeSearch/static/media/galarianIcon.5909ad082faeafb4bb99dc6d56411476.svg",
     "static/media/close.svg": "/pokeSearch/static/media/close.c24dabfeba7ec8f61354f1b6352890f2.svg",
     "main.c95783d6.css.map": "/pokeSearch/static/css/main.c95783d6.css.map",
-    "main.8be186b9.js.map": "/pokeSearch/static/js/main.8be186b9.js.map",
+    "main.e24bc272.js.map": "/pokeSearch/static/js/main.e24bc272.js.map",
     "787.e63902b9.chunk.js.map": "/pokeSearch/static/js/787.e63902b9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c95783d6.css",
-    "static/js/main.8be186b9.js"
+    "static/js/main.e24bc272.js"
   ]
 }
