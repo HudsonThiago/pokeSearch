@@ -1,9 +1,8 @@
 {
   "files": {
-    "main.css": "/pokeSearch/static/css/main.c95783d6.css",
-    "main.js": "/pokeSearch/static/js/main.e24bc272.js",
+    "main.css": "/pokeSearch/static/css/main.e42fb51f.css",
+    "main.js": "/pokeSearch/static/js/main.69462386.js",
     "static/js/787.e63902b9.chunk.js": "/pokeSearch/static/js/787.e63902b9.chunk.js",
-    "static/media/pokemonSFX.mp3": "/pokeSearch/static/media/pokemonSFX.8980d27832ebedd5665a.mp3",
     "static/media/halftone.png": "/pokeSearch/static/media/halftone.b5a99e4677782ae8ac0a.png",
     "static/media/halftone6.png": "/pokeSearch/static/media/halftone6.8b1bc819e3e4f36b8aa9.png",
     "static/media/dragon.png": "/pokeSearch/static/media/dragon.79b052bca7eab6836767.png",
@@ -43,12 +42,12 @@
     "static/media/card.svg": "/pokeSearch/static/media/card.3ed57c82c02cc190e339df97a3d4de2f.svg",
     "static/media/galarianIcon.svg": "/pokeSearch/static/media/galarianIcon.5909ad082faeafb4bb99dc6d56411476.svg",
     "static/media/close.svg": "/pokeSearch/static/media/close.c24dabfeba7ec8f61354f1b6352890f2.svg",
-    "main.c95783d6.css.map": "/pokeSearch/static/css/main.c95783d6.css.map",
-    "main.e24bc272.js.map": "/pokeSearch/static/js/main.e24bc272.js.map",
+    "main.e42fb51f.css.map": "/pokeSearch/static/css/main.e42fb51f.css.map",
+    "main.69462386.js.map": "/pokeSearch/static/js/main.69462386.js.map",
     "787.e63902b9.chunk.js.map": "/pokeSearch/static/js/787.e63902b9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c95783d6.css",
-    "static/js/main.e24bc272.js"
+    "static/css/main.e42fb51f.css",
+    "static/js/main.69462386.js"
   ]
 }
