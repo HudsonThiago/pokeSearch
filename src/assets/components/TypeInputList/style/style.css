@@ -1,12 +1,16 @@
 .typeInputList {
   width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-bottom: 10px;
   display: -ms-grid;
   display: grid;
   gap: 6px;
 }
 
 .typeInputList .TypeRow {
-  width: 100%;
+  width: 96%;
   display: -ms-grid;
   display: grid;
   -webkit-box-align: center;
@@ -15,6 +19,7 @@
   -ms-grid-columns: auto 1fr;
       grid-template-columns: auto 1fr;
   gap: 4px;
+  padding-right: 4%;
 }
 
 .typeInputList .TypeRow .checkTypeContent {

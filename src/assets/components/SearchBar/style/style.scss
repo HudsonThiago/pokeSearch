@@ -1,64 +1,65 @@
 .searchBox {
-  box-sizing: border-box;
-  background-color: #ffffff;
-  width: 100%;
-  height: 30px;
-  padding: 0px;
-  display: grid;
-  grid-template-columns: auto 80px;
-  align-items: center;
-  border: none;
-  border-radius: 50px;
-  box-shadow: 2px 2px 2px #00000099;
-
-  .fieldDiv {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .searchButton {
-      background-color: var(--primaryTitle);
-      width: 22px;
-      height: 22px;
-      color: #ffffff;
-      margin-left: 4px;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      font-size: 0.6rem;
-    }
-
-    .textField {
-      margin-left: 5px;
-      width: 100%;
-      border: none;
-      color: var(--text);
-    }
-
-    .textField:focus {
-      outline: none;
-      border-bottom: 1px solid var(--bw80);
-    }
-  }
-
-  .imgDiv {
     box-sizing: border-box;
-    background-color: var(--tertiary);
-    height: 30.5px;
-    padding: 5px;
-    margin-right: -2px;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
-    display: flex;
-    justify-content: flex-end;
+    background-color: #ffffff;
+    width: 100%;
+    height: 30px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: auto 80px;
     align-items: center;
+    border: none;
+    border-radius: 50px;
+    box-shadow: 2px 2px 2px #00000099;
 
-    img {
-      width: auto;
-      height: 100%;
+    .fieldDiv {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .searchButton {
+            background-color: var(--primaryTitle);
+            width: 22px;
+            height: 22px;
+            color: #ffffff;
+            margin-left: 4px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.6rem;
+        }
+
+        .textField {
+            margin-left: 10px;
+            margin-right: 10px;
+            width: 100%;
+            border: none;
+            color: var(--text);
+        }
+
+        .textField:focus {
+            outline: none;
+            border-bottom: 1px solid var(--bw80);
+        }
     }
-  }
+
+    .imgDiv {
+        box-sizing: border-box;
+        background-color: var(--tertiary);
+        height: 30.5px;
+        padding: 5px;
+        margin-right: -2px;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+        clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        img {
+            width: auto;
+            height: 100%;
+        }
+    }
 }

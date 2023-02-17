@@ -16,7 +16,8 @@
 
     --button1: #e79533;
     --button2: #f3d156;
-    --select: #f59c2a;
+    --select: #f1b55a;
+    --heart: #e94e70;
     --activeButton1: #edbf89;
     --activeButton2: #fef0be;
     --buttonTittle: #00000066;
@@ -34,11 +35,17 @@
 
 body {
     margin: 0;
+    height: 100vh;
     background-color: var(--primary);
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overscroll-behavior-y: none;
     overflow: hidden;
+}
+
+#root {
+    height: 100vh;
 }
 
 input {
@@ -74,25 +81,15 @@ button {
     display: grid;
 }
 
-@media only screen and (max-width: 600px) {
-    .mobile-600 {
-        display: flex;
-    }
-
-    .desktop-600 {
-        display: none;
-    }
-}
-
 /* width */
 ::-webkit-scrollbar {
-    width: 3px;
+    width: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
     background-color: transparent;
-    margin-bottom: 30px;
+    margin-bottom: 120px;
 }
 
 /* Handle */
@@ -105,4 +102,19 @@ button {
 ::-webkit-scrollbar-thumb:hover {
     background-color: #b3b3b3;
     border-radius: 50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile-600 {
+        display: flex;
+    }
+
+    .desktop-600 {
+        display: none;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 3px;
+    }
 }

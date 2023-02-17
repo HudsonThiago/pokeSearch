@@ -10,6 +10,7 @@
   border-radius: 5px;
   -webkit-box-shadow: 1px 1px 5px #00000099;
           box-shadow: 1px 1px 5px #00000099;
+  cursor: pointer;
 }
 
 .cardMobile .halfone {

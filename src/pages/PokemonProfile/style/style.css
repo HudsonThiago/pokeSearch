@@ -22,6 +22,7 @@
   display: flex;
   width: 100%;
   position: absolute;
+  /* Track */
 }
 
 .pokemonProfile .profileInterface .c1 {
@@ -202,6 +203,15 @@
   color: var(--select);
 }
 
+.pokemonProfile .profileInterface .c1 .pokemonContainer .additionsContainer .additionsBox .heart {
+  color: var(--heart);
+}
+
+.pokemonProfile .profileInterface ::-webkit-scrollbar-track {
+  margin-top: 56px;
+  margin-bottom: 30px;
+}
+
 .pokemonProfile .profileInterface .c2 {
   margin-left: 5%;
   width: 64%;
@@ -256,7 +266,11 @@
 
 @media only screen and (max-width: 1000px) {
   .pokemonProfile {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
     width: 100%;
+    height: calc(100vh - 280px);
   }
   .pokemonProfile .profileInterface {
     display: -webkit-box;
@@ -278,7 +292,7 @@
     margin-left: 5%;
     width: 64%;
     padding-right: 1%;
-    height: calc(100vh - 140px);
+    height: calc(100vh - 280px);
     overflow-y: scroll;
   }
   .pokemonProfile .profileInterface .c2 p {
@@ -328,6 +342,7 @@
     display: -ms-flexbox;
     display: flex;
     width: 100%;
+    height: calc(100vh - 280px);
   }
   .pokemonProfile .profileInterface {
     width: 100%;
@@ -346,7 +361,7 @@
     margin-left: 5%;
     width: 54%;
     padding-right: 1%;
-    height: calc(100vh - 200px);
+    height: calc(100vh - 280px);
     overflow-y: scroll;
   }
   .pokemonProfile .profileInterface .c2 p {
@@ -393,7 +408,7 @@
 @media only screen and (max-width: 600px) {
   .pokemonProfile {
     width: 100%;
-    height: calc(100vh - 160px);
+    height: calc(100vh - 220px);
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

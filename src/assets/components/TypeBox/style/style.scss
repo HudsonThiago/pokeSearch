@@ -13,21 +13,47 @@
         border-radius: 25px;
         display: flex;
         align-items: center;
-    }
+        justify-content: space-between;
 
-    .typeImage {
-        box-sizing: border-box;
-        background-color: var(--tertiary);
+        .weaknessTag {
+            background-color: var(--secondary);
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .weakNessTagText {
+                padding: 0;
+                margin: 0;
+                color: white;
+                font-size: 0.6rem;
+            }
+        }
+    }
+    .typeTitleBox {
+        display: flex;
         height: 100%;
-        width: auto;
-        padding: 1px;
-        border-radius: 50%;
-    }
+        align-items: center;
 
-    p {
-        margin-left: 4px;
-        color: var(--primaryTitle);
-        font-weight: 700;
-        user-select: none;
+        .typeImage {
+            box-sizing: border-box;
+            background-color: var(--tertiary);
+            height: 100%;
+            width: auto;
+            padding: 1px;
+            border-radius: 50%;
+        }
+
+        p {
+            padding: 0;
+            margin: 0;
+            margin-left: 4px;
+            color: var(--primaryTitle);
+            font-weight: 700;
+            font-size: 0.8rem;
+            user-select: none;
+        }
     }
 }

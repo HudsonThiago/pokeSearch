@@ -32,40 +32,4 @@
   width: auto;
   margin-left: 40px;
 }
-
-@media only screen and (max-width: 600px) {
-  .genericButton {
-    -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-    background: -webkit-gradient(linear, left bottom, left top, from(var(--button1)), to(var(--button2)));
-    background: linear-gradient(0deg, var(--button1), var(--button2));
-    height: 20px;
-    padding: 2px;
-    padding-left: 10px;
-    border: 2px solid var(--button1);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    border-radius: 50px;
-    -webkit-box-shadow: 1px 1px 2px #00000099;
-            box-shadow: 1px 1px 2px #00000099;
-    cursor: pointer;
-  }
-  .genericButton p {
-    color: var(--buttonTittle);
-    font-weight: 900;
-    font-size: 0.6rem;
-  }
-  .genericButton img {
-    height: 100%;
-    width: auto;
-    margin-left: 20px;
-  }
-}
 /*# sourceMappingURL=style.css.map */

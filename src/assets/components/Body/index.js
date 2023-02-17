@@ -4,71 +4,30 @@ import {
     asyncGetAllTypes,
     selectPokemonGroup,
 } from "../../../services/utils";
+import { useNavigate } from "react-router-dom";
 import { allPokemons } from "../../../services/data";
 import { getPokemonById } from "../../../services/pokemon/pokemonService";
 import Nav from "../Nav";
 import Modal from "../Modal";
 import Button from "../Button";
 import Modal1 from "../Modal/Modal/Modal1";
-
+import MobileMagnifyingGlassIcon from "../../img/icons/mobileMagnifyingGlassIcon.svg";
+import MobilePokeballIcon from "../../img/icons/mobilePokeballIcon2.svg";
+import MobileHomeIcon from "../../img/icons/mobileHomeIcon.svg";
 import "./style/style.css";
 
-export default function Body({ setPokemons, children }) {
-    const modalAction = async () => {
-        const types = await asyncGetAllTypes();
-        let filteredPokemons = selectPokemonGroup();
+export default function Body({
+    getPokemons = () => {},
+    setInitialAmout = () => {},
+    setFinalAmout = () => {},
+    pokemons,
+    children,
+}) {
+    const navigate = useNavigate();
 
-        types.forEach((type) => {
-            const selectedType = localStorage.getItem(type.name) || null;
-
-            if (selectedType) {
-                const pokemonsByType = filteredPokemons.filter((p) => {
-                    let isType = false;
-
-                    p.types.forEach((t) => {
-                        if (t.type.name.includes(type.name)) {
-                            isType = true;
-                        }
-                    });
-
-                    if (isType === true) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                });
-
-                const pokemonsNotEqual = pokemonsByType.filter((pokemon) => {
-                    if (
-                        filteredPokemons.find(
-                            (filtered) => filtered.id === pokemon.id
-                        )
-                    ) {
-                        return false;
-                    }
-                    return true;
-                });
-
-                filteredPokemons = filteredPokemons.concat(pokemonsNotEqual);
-            }
-        });
-
-        let pokemonList = [];
-
-        const getFilteredPokemons = async () => {
-            filteredPokemons.forEach(async (p) => {
-                try {
-                    const response = await getPokemonById(p.id);
-                    pokemonList.push(response.data);
-                } catch (error) {
-                    console.log(error);
-                }
-            });
-        };
-
-        getFilteredPokemons().then(() => {
-            setTimeout(() => setPokemons(pokemonList), 2000);
-        });
+    const modalAction = () => {
+        setInitialAmout(0);
+        getPokemons(true);
     };
 
     return (
@@ -108,6 +67,29 @@ export default function Body({ setPokemons, children }) {
             </main>
             <div className="mobileNav">
                 <div className="navCircleContainer"></div>
+                <div className="mobileIconContainer">
+                    <div className="mobileIconBox">
+                        <img
+                            src={MobileMagnifyingGlassIcon}
+                            alt="MobileMagnifyingGlassIcon"
+                        />
+                        <p>Search</p>
+                    </div>
+                    <div className="mobileIconBox">
+                        <img
+                            className="mobileMenuIcon"
+                            src={MobilePokeballIcon}
+                            alt="MobilePokeballIcon"
+                        />
+                    </div>
+                    <div
+                        className="mobileIconBox"
+                        onClick={() => navigate("/")}
+                    >
+                        <img src={MobileHomeIcon} alt="MobileHomeIcon" />
+                        <p>Home</p>
+                    </div>
+                </div>
             </div>
         </>
     );

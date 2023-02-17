@@ -15,21 +15,24 @@ import "./style/style.css";
 export default function Modal1() {
     return (
         <>
-            <SearchBar id="modalSearch" placeholder="Search" />
+            <SearchBar id="modalSearch" placeholder="Search" button={false} />
+            <div className="mainC">
+                <ItemBody className="mt-1" title="Generation">
+                    <div className="overflow-x">
+                        <CheckGeneration id="1" title="I" value="1" />
+                        <CheckGeneration id="2" title="II" value="2" />
+                        <CheckGeneration id="3" title="III" value="3" />
+                        <CheckGeneration id="4" title="IV" value="4" />
+                        <CheckGeneration id="5" title="V" value="5" />
+                        <CheckGeneration id="6" title="VI" value="6" />
+                        <CheckGeneration id="7" title="VII" value="7" />
+                        <CheckGeneration id="8" title="VIII" value="8" />
+                        <CheckGeneration id="9" title="IX" value="9" />
+                    </div>
+                </ItemBody>
+            </div>
             <div className="modalColumns">
                 <div className="c1">
-                    <ItemBody className="mt-1" title="Generation">
-                        <div className="overflow-x">
-                            <CheckGeneration id="1" title="I" value="1" />
-                            <CheckGeneration id="2" title="II" value="2" />
-                            <CheckGeneration id="3" title="III" value="3" />
-                            <CheckGeneration id="4" title="IV" value="4" />
-                            <CheckGeneration id="5" title="V" value="5" />
-                            <CheckGeneration id="6" title="VI" value="6" />
-                            <CheckGeneration id="7" title="VII" value="7" />
-                            <CheckGeneration id="8" title="VIII" value="8" />
-                        </div>
-                    </ItemBody>
                     <ItemBody className="mt-1" id="modal-search" title="Forms">
                         <div className="grid2Columns">
                             <div>
@@ -85,7 +88,10 @@ export default function Modal1() {
                 </div>
                 <div className="c2">
                     <ItemBody className="mt-1" title="Types">
-                        <TypeInputList />
+                        <div className="selectTypeContainer">
+                            <div className="gradient"></div>
+                            <TypeInputList />
+                        </div>
                     </ItemBody>
                 </div>
             </div>

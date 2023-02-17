@@ -7,23 +7,12 @@ import Nomes from "./pages/Nomes";
 import "./coreStyle/core.css";
 import { pokemonPerRequest } from "./services/utils";
 
-let pokemonList = [];
-let amount = { initialAmount: 1, finalAmount: pokemonPerRequest };
-
 export default function App() {
     return (
         <React.StrictMode>
             <Router>
                 <Routes>
-                    <Route
-                        path="/"
-                        element={
-                            <Pokemons
-                                pokemonList={pokemonList}
-                                amount={amount}
-                            />
-                        }
-                    />
+                    <Route path="/" element={<Pokemons />} />
                     <Route
                         path="/pokemon/:pokemonId"
                         element={<PokemonProfile />}

@@ -4,7 +4,7 @@ import CardImage from "../../img/card.svg";
 import { Link } from "react-router-dom";
 import { upperCaseFirstLetter, convertNumber } from "../../../services/utils";
 
-export default function Card({ index, id, name, number, image, types }) {
+export default function Card({ index, id, name, url, image, types }) {
     const onMouseOverCard = () => {
         const pokemonImage = document.getElementById("pokemon-" + index);
         pokemonImage.style.animation = "pokemonImageAnimation 0.5s";
@@ -16,18 +16,17 @@ export default function Card({ index, id, name, number, image, types }) {
     };
 
     return (
-        <Link to={"/pokemon/" + name}>
+        <Link to={"/pokemon/" + url}>
             <div
                 className="card"
                 onMouseOver={onMouseOverCard}
                 onMouseOut={onMouseOutCard}
-                key={`mobile-${index}`}
             >
                 <div className="cardTypes">
                     {types.map((t, i) => {
                         const type = t.type.name;
                         return (
-                            <div key={"type-" + i} className="imgBox">
+                            <div key={`type-${id}-${i}`} className="imgBox">
                                 <img
                                     src={require(`../../img/types/${type}.png`)}
                                     alt={type}
@@ -38,7 +37,7 @@ export default function Card({ index, id, name, number, image, types }) {
                     })}
                 </div>
                 <div className="cardMain">
-                    <p>Nº {convertNumber(number)}</p>
+                    <p>Nº {convertNumber(id)}</p>
                     <img
                         className="cardImage"
                         src={CardImage}

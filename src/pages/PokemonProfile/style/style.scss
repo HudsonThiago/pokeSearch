@@ -140,9 +140,19 @@
                         .star {
                             color: var(--select);
                         }
+
+                        .heart {
+                            color: var(--heart);
+                        }
                     }
                 }
             }
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            margin-top: 56px;
+            margin-bottom: 30px;
         }
 
         .c2 {
@@ -193,7 +203,9 @@
 
 @media only screen and (max-width: 1000px) {
     .pokemonProfile {
+        display: flex;
         width: 100%;
+        height: calc(100vh - 280px);
 
         .profileInterface {
             display: flex;
@@ -209,7 +221,7 @@
                 margin-left: 5%;
                 width: 64%;
                 padding-right: 1%;
-                height: calc(100vh - 140px);
+                height: calc(100vh - 280px);
                 overflow-y: scroll;
 
                 p {
@@ -256,6 +268,7 @@
     .pokemonProfile {
         display: flex;
         width: 100%;
+        height: calc(100vh - 280px);
 
         .profileInterface {
             width: 100%;
@@ -270,7 +283,7 @@
                 margin-left: 5%;
                 width: 54%;
                 padding-right: 1%;
-                height: calc(100vh - 200px);
+                height: calc(100vh - 280px);
                 overflow-y: scroll;
 
                 p {
@@ -316,7 +329,7 @@
 @media only screen and (max-width: 600px) {
     .pokemonProfile {
         width: 100%;
-        height: calc(100vh - 160px);
+        height: calc(100vh - 220px);
         display: flex;
         overflow-y: scroll;
 

@@ -5,7 +5,7 @@ export const pokemonPerRequest = 15;
 
 export const minPokemonCount = 0;
 
-export const maxPokemonCount = 905;
+export const maxPokemonCount = 1008;
 
 export const upperCaseFirstLetter = (string) => {
     const upperString = string[0].toUpperCase() + string.substr(1);
@@ -33,29 +33,51 @@ export const convertUnit = (string) => {
     return returnString;
 };
 
-export const convertName = (string, split = false) => {
+export const convertName = (string, split = true) => {
     let splitString = string.split("-");
     let stringTotal = "";
 
-    if (split === true) {
-        if (splitString.length >= 2) {
+    splitString.forEach((name) => {
+        if (name === "gmax") {
+            //GIGANTAMAX
             let aux = splitString[0];
-            splitString[0] = splitString[1];
+            splitString[0] = "gigantamax";
+            splitString[1] = aux;
+        } else if (name === "mega") {
+            //MEGA
+            let aux = splitString[0];
+            splitString[0] = "mega";
+            splitString[1] = aux;
+        } else if (name === "alola") {
+            //ALOLAN
+            let aux = splitString[0];
+            splitString[0] = "alolan";
+            splitString[1] = aux;
+        } else if (name === "galar") {
+            //GALARIAN
+            let aux = splitString[0];
+            splitString[0] = "galarian";
+            splitString[1] = aux;
+        } else if (name === "hisui") {
+            //HISUIAN
+            let aux = splitString[0];
+            splitString[0] = "hisuian";
+            splitString[1] = aux;
+        } else if (name === "aria") {
+            //ARIA MELOETTA
+            let aux = splitString[0];
+            splitString[0] = "Aria";
+            splitString[1] = aux;
+        } else if (name === "pirouette") {
+            //PIROUETTE MELOETTA
+            let aux = splitString[0];
+            splitString[0] = "Pirouette";
             splitString[1] = aux;
         }
-    }
+    });
 
-    splitString.forEach((e) => {
-        if (e === "gmax") {
-            e = "gigantamax";
-        }
-        if (e === "alola") {
-            e = "alolan";
-        }
-        if (e === "galar") {
-            e = "galarian";
-        }
-        stringTotal += upperCaseFirstLetter(e) + " ";
+    splitString.forEach((name) => {
+        stringTotal += upperCaseFirstLetter(name) + " ";
     });
 
     return stringTotal;

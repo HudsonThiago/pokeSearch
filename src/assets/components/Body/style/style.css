@@ -31,6 +31,7 @@ main {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
+  height: 100%;
   padding-left: 400px;
 }
 
@@ -66,6 +67,13 @@ main .bodyContainer {
   header {
     display: none;
   }
+  .grid3Columns {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
   main {
     -webkit-box-sizing: border-box;
             box-sizing: border-box;
@@ -92,27 +100,66 @@ main .bodyContainer {
   }
   .mobileNav .navCircleContainer {
     background-color: var(--bw100);
-    width: 90px;
-    height: 90px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     left: 50%;
-    -webkit-transform: translate(-50%, -30px);
-            transform: translate(-50%, -30px);
+    -webkit-transform: translate(-50%, -25px);
+            transform: translate(-50%, -25px);
+    position: absolute;
+    z-index: 5;
+  }
+  .mobileNav .mobileIconContainer {
     position: relative;
-    z-index: 4;
+    width: 100%;
+    height: 100%;
+    margin: 0px 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    z-index: 5;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+  .mobileNav .mobileIconContainer .mobileIconBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: 10px;
+  }
+  .mobileNav .mobileIconContainer .mobileIconBox img {
+    height: 26px;
+    width: auto;
+  }
+  .mobileNav .mobileIconContainer .mobileIconBox .mobileMenuIcon {
+    height: 50px;
+    width: auto;
+  }
+  .mobileNav .mobileIconContainer .mobileIconBox p {
+    margin: 0;
+    margin-top: 2px;
+    color: var(--text);
+    font-size: 0.6rem;
   }
 }
 
 @media only screen and (max-width: 600px) {
   header {
     display: none;
-  }
-  .grid3Columns {
-    display: -ms-grid;
-    display: grid;
-    -ms-grid-columns: 1fr 1fr;
-        grid-template-columns: 1fr 1fr;
-    gap: 10px;
   }
   main {
     -webkit-box-sizing: border-box;

@@ -13,14 +13,20 @@ export default function TypeBox({ type }) {
             }}
         >
             <div className="typeBoxGradient">
-                <img
-                    className="typeImage"
-                    src={require(`../../img/types/${type.name}.png`)}
-                    alt={type.name}
-                    draggable="false"
-                />
-                <p>{upperCaseFirstLetter(type.name)}</p>
-                {type.quadrupleDamage ? <p>4X</p> : null}
+                <div className="typeTitleBox">
+                    <img
+                        className="typeImage"
+                        src={require(`../../img/types/${type.name}.png`)}
+                        alt={type.name}
+                        draggable="false"
+                    />
+                    <p>{upperCaseFirstLetter(type.name)}</p>
+                </div>
+                {type.quadrupleDamage ? (
+                    <div className="weaknessTag">
+                        <p className="weakNessTagText">4X</p>
+                    </div>
+                ) : null}
             </div>
         </div>
     );

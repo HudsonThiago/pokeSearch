@@ -31,7 +31,10 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faStar as regularStar } from "@fortawesome/free-regular-svg-icons";
 import { faStar as solidStar } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
+import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import Modal2 from "../../assets/components/Modal/Modal/Modal2";
+import Modal3 from "../../assets/components/Modal/Modal/Modal3";
 
 export default function PokemonProfile() {
     const [pokemon, setPokemon] = useState(null);
@@ -41,6 +44,7 @@ export default function PokemonProfile() {
     const [nextPokemonName, setNextPokemonName] = useState(null);
     const [pokemonImage, setPokemonImage] = useState("");
     const [favorite, setFavorite] = useState(false);
+    const [shiny, setShiny] = useState(false);
     let navigate = useNavigate();
 
     const { pokemonId } = useParams();
@@ -53,8 +57,6 @@ export default function PokemonProfile() {
                 let pokemonDto = response.data;
                 setPokemon(pokemonDto);
 
-                await getPrevPokemon(pokemonDto);
-                await getNextPokemon(pokemonDto);
                 await getSpecie(pokemonDto);
                 setFavorite(
                     localStorage.getItem(`favorite-${pokemonDto.id}`)
@@ -62,9 +64,17 @@ export default function PokemonProfile() {
                         : false
                 );
 
-                setPokemonImage(
-                    pokemonDto.sprites.other["official-artwork"].front_default
-                );
+                if (
+                    pokemonDto.sprites.other["official-artwork"].front_shiny ===
+                    null
+                ) {
+                    pokemonDto.sprites.other["official-artwork"].front_shiny =
+                        pokemonDto.sprites.other[
+                            "official-artwork"
+                        ].front_default;
+                }
+
+                setPokemonImage(pokemonDto.sprites.other["official-artwork"]);
                 if (pokemonDto.is_default === true) {
                     localStorage.setItem("id", pokemonDto.id);
                 }
@@ -76,15 +86,28 @@ export default function PokemonProfile() {
 
     const getSpecie = async (pokemon) => {
         try {
-            const response = await getPokemonSpecieById(pokemon.id);
+            let pokemonId = pokemon.species.url.split("/");
+            const response = await getPokemonSpecieById(pokemonId.at(-2));
+
             if (response.status === 200) {
                 const specie = response.data;
                 setSpecie(specie);
+                await getPrevPokemon(specie);
+                await getNextPokemon(specie);
 
-                const translatedAbilities = specie.flavor_text_entries.filter(
-                    (t) => t.language.name === "en"
-                );
-                setPokemonDescription(translatedAbilities.at(-1));
+                let translatedAbilities = {};
+
+                if (specie.flavor_text_entries.length) {
+                    translatedAbilities = specie.flavor_text_entries.findLast(
+                        (t) => t.language.name === "en"
+                    );
+                } else {
+                    translatedAbilities = {
+                        flavor_text: "Unknow data",
+                    };
+                }
+
+                setPokemonDescription(translatedAbilities.flavor_text);
             }
         } catch (error) {
             console.log("error");
@@ -106,7 +129,7 @@ export default function PokemonProfile() {
     };
 
     const getNextPokemon = async (pokemon) => {
-        if (pokemon.id + 1 <= 905) {
+        if (pokemon.id + 1 <= maxPokemonCount) {
             try {
                 const response = await getPokemonById(pokemon.id + 1);
 
@@ -127,6 +150,14 @@ export default function PokemonProfile() {
             localStorage.setItem(`favorite-${pokemon.id}`, pokemon.id);
             setFavorite(true);
             openModal(2);
+        }
+    };
+
+    const pokemonShiny = () => {
+        if (shiny == false) {
+            setShiny(true);
+        } else {
+            setShiny(false);
         }
     };
 
@@ -155,7 +186,7 @@ export default function PokemonProfile() {
         }
         setTimeout(() => {
             e.classList.add("animation");
-        }, 10);
+        }, 100);
     };
 
     return (
@@ -166,6 +197,14 @@ export default function PokemonProfile() {
                     <Modal id={2} title="Pokemon favorito">
                         <Modal2 id={2} pokemonName={pokemon.name} />
                     </Modal>
+                    {specie.varieties.length > 1 && (
+                        <Modal id={3} title="Variants">
+                            <Modal3
+                                varieties={specie.varieties}
+                                image={pokemonImage.front_default}
+                            />
+                        </Modal>
+                    )}
                     <div className="pokemonProfile">
                         <div className="gradient"></div>
                         <div className="profileInterface">
@@ -178,16 +217,26 @@ export default function PokemonProfile() {
                                     />
                                     <img
                                         className="pokemonImage"
-                                        src={pokemonImage}
+                                        id="pokemonImage"
+                                        src={
+                                            shiny === false
+                                                ? pokemonImage.front_default
+                                                : pokemonImage.front_shiny
+                                        }
                                         draggable="false"
                                         onLoad={(e) => imageAnimation(e.target)}
                                     />
                                     <p className="pokemonId">
-                                        #{convertNumber(pokemon.id)}
+                                        #{convertNumber(specie.id)}
                                     </p>
                                     <div className="additionsContainer">
                                         {specie.varieties.length > 1 ? (
-                                            <div className="additionsBox">
+                                            <div
+                                                className="additionsBox"
+                                                onClick={() => {
+                                                    openModal(3);
+                                                }}
+                                            >
                                                 <FontAwesomeIcon
                                                     icon={faPlus}
                                                 />
@@ -201,6 +250,23 @@ export default function PokemonProfile() {
                                         >
                                             {favorite ? (
                                                 <FontAwesomeIcon
+                                                    className="heart"
+                                                    icon={solidHeart}
+                                                />
+                                            ) : (
+                                                <FontAwesomeIcon
+                                                    icon={regularHeart}
+                                                />
+                                            )}
+                                        </div>
+                                        <div
+                                            className="additionsBox"
+                                            onClick={() => {
+                                                pokemonShiny();
+                                            }}
+                                        >
+                                            {shiny ? (
+                                                <FontAwesomeIcon
                                                     className="star"
                                                     icon={solidStar}
                                                 />
@@ -211,7 +277,7 @@ export default function PokemonProfile() {
                                             )}
                                         </div>
                                     </div>
-                                    {pokemon.id - 1 > minPokemonCount ? (
+                                    {specie.id - 1 > minPokemonCount ? (
                                         <Link
                                             to={`/pokemon/${prevPokemonName}`}
                                         >
@@ -222,7 +288,7 @@ export default function PokemonProfile() {
                                             </div>
                                         </Link>
                                     ) : null}
-                                    {pokemon.id + 1 <= maxPokemonCount ? (
+                                    {specie.id + 1 <= maxPokemonCount ? (
                                         <Link
                                             to={`/pokemon/${nextPokemonName}`}
                                         >
@@ -237,11 +303,7 @@ export default function PokemonProfile() {
                             </div>
                             <div className="c2">
                                 <h2>{convertName(pokemon.name, true)}</h2>
-                                <p>
-                                    {removeSpecialCharacters(
-                                        pokemonDescription.flavor_text
-                                    )}
-                                </p>
+                                <p>{pokemonDescription}</p>
                                 <ItemBody title="Type">
                                     <div className="grid3Columns">
                                         {pokemon.types.map((t, index) => {

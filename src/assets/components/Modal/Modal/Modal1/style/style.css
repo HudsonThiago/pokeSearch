@@ -1,10 +1,16 @@
+.mainC {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+}
+
 .modalColumns {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 55% 40%;
-      grid-template-columns: 55% 40%;
+  -ms-grid-columns: 60% 35%;
+      grid-template-columns: 60% 35%;
   gap: 5%;
   margin-top: 20px;
 }
@@ -27,10 +33,33 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
-  height: 240px;
+  /* Track */
+}
+
+.modalColumns .c2 ::-webkit-scrollbar-track {
+  margin-bottom: 10px;
+}
+
+.modalColumns .c2 .selectTypeContainer {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100%;
+  height: 180px;
   overflow-y: auto;
-  padding-right: 4px;
-  padding-bottom: 10px;
+  position: relative;
+}
+
+.modalColumns .c2 .selectTypeContainer .gradient {
+  background: -webkit-gradient(linear, left bottom, left top, from(#f2f2f2), color-stop(2%, #f2f2f299), color-stop(6%, #f2f2f200), color-stop(94%, #f2f2f200), color-stop(98%, #f2f2f299), to(#f2f2f2));
+  background: linear-gradient(0deg, #f2f2f2 0%, #f2f2f299 2%, #f2f2f200 6%, #f2f2f200 94%, #f2f2f299 98%, #f2f2f2 100%);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
 }
 
 @media only screen and (max-width: 800px) {

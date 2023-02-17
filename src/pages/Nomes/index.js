@@ -1,20 +1,19 @@
-import React, {useState, useEffect} from 'react';
-import Body from '../../assets/components/Body';
-import './style/style.css';
-import { getPokemonSpecieById } from '../../services/pokemon/pokemonService';
-import { getPokemonById } from '../../services/pokemon/pokemonService';
+import React, { useState, useEffect } from "react";
+import Body from "../../assets/components/Body";
+import "./style/style.css";
+import { getPokemonSpecieById } from "../../services/pokemon/pokemonService";
+import { getPokemonById } from "../../services/pokemon/pokemonService";
 
-export default function Nomes(){
-
+export default function Nomes() {
     const [pokemons, setPokemons] = useState([]);
 
     useEffect(() => {
-        const getPokemons = async ()=> {
+        const getPokemons = async () => {
             let pokemonList = [];
-            for(let i=1;i<=905;i++){
+            for (let i = 1; i <= 10; i++) {
                 try {
                     const response1 = await getPokemonSpecieById(i);
-                    const response2 = await getPokemonById(i)
+                    const response2 = await getPokemonById(i);
                     let pokemonSpecies = response1.data;
                     let pokemon = response2.data;
                     let pokemonObject = {};
@@ -35,23 +34,21 @@ export default function Nomes(){
             }
 
             setPokemons(JSON.stringify(pokemonList));
-        }
+        };
 
         getPokemons();
     }, []);
 
     return (
         <Body>
-            {pokemons &&
+            {pokemons && (
                 <>
-                    <div className='mainContent'>
-                        <div className='gradient'></div>
-                        <div className='mainFrame'>
-                            {pokemons}
-                        </div>
+                    <div className="mainContent">
+                        <div className="gradient"></div>
+                        <div className="mainFrame">{pokemons}</div>
                     </div>
                 </>
-            }
+            )}
         </Body>
-    )
+    );
 }
