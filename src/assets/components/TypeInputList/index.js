@@ -23,7 +23,7 @@ export default function TypeInputList() {
                     {types.map((type, index) => (
                         <label key={"typeInput-" + index} className="TypeRow">
                             <div className="checkTypeContent">
-                                <CheckBox type={type} />
+                                <CheckBox type={type.name} />
                             </div>
                             <TypeBox key={"type-" + index} type={type} />
                         </label>

@@ -83,6 +83,22 @@ export default function Modal1() {
                                     name="form"
                                 />
                             </div>
+                            <div>
+                                <Input
+                                    id="legendaryGroup"
+                                    title={"Legendary"}
+                                    icon={icon6}
+                                    name="form"
+                                />
+                            </div>
+                            <div>
+                                <Input
+                                    id="mythicalGroup"
+                                    title={"Mythical"}
+                                    icon={icon6}
+                                    name="form"
+                                />
+                            </div>
                         </div>
                     </ItemBody>
                 </div>

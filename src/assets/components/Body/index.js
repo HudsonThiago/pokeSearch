@@ -3,6 +3,7 @@ import {
     openModal,
     asyncGetAllTypes,
     selectPokemonGroup,
+    pokemonPerRequest,
 } from "../../../services/utils";
 import { useNavigate } from "react-router-dom";
 import { allPokemons } from "../../../services/data";
@@ -14,44 +15,27 @@ import Modal1 from "../Modal/Modal/Modal1";
 import MobileMagnifyingGlassIcon from "../../img/icons/mobileMagnifyingGlassIcon.svg";
 import MobilePokeballIcon from "../../img/icons/mobilePokeballIcon2.svg";
 import MobileHomeIcon from "../../img/icons/mobileHomeIcon.svg";
+import SearchBar from "../SearchBar";
 import "./style/style.css";
 
-export default function Body({
-    getPokemons = () => {},
-    setInitialAmout = () => {},
-    setFinalAmout = () => {},
-    pokemons,
-    children,
-}) {
+export default function Body({ getPokemons = () => {}, children }) {
     const navigate = useNavigate();
 
-    const modalAction = () => {
-        setInitialAmout(0);
+    const action = () => {
         getPokemons(true);
+        navigate("/");
     };
 
     return (
         <>
             <Nav />
-            <Modal
-                id={1}
-                action={modalAction}
-                title="Advanced Search"
-                footer={true}
-            >
+            <Modal id={1} action={action} title="Advanced Search" footer={true}>
                 <Modal1 />
             </Modal>
             <header>
                 <div className="headerContainer">
-                    <div>
-                        Search
-                        {/* <SearchBar
-                            pokemons={pokemons}
-                            pokemonNameField={pokemonNameField}
-                            setPokemonNameField={setPokemonNameField}
-                            filteredPokemons={filteredPokemons}
-                            setFilteredPokemons={setFilteredPokemons}
-                        /> */}
+                    <div className="searchContainer">
+                        <SearchBar id="bodySearch" action={action} />
                     </div>
                     <Button
                         onClick={() => {
@@ -68,7 +52,12 @@ export default function Body({
             <div className="mobileNav">
                 <div className="navCircleContainer"></div>
                 <div className="mobileIconContainer">
-                    <div className="mobileIconBox">
+                    <div
+                        className="mobileIconBox"
+                        onClick={() => {
+                            openModal(1);
+                        }}
+                    >
                         <img
                             src={MobileMagnifyingGlassIcon}
                             alt="MobileMagnifyingGlassIcon"

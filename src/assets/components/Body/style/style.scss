@@ -13,6 +13,11 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        .searchContainer {
+            width: 400px;
+            margin-right: 50px;
+        }
     }
 }
 

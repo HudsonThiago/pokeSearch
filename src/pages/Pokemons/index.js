@@ -5,7 +5,7 @@ import CardMobile from "../../assets/components/CardMobile";
 import Header from "../../assets/components/Header";
 import { getPokemonsByInterval } from "../../services/pokemon/pokemonService";
 import "./style/style.css";
-import { pokemonPerRequest } from "../../services/utils";
+import { pokemonPerRequest, convertName } from "../../services/utils";
 import Button from "../../assets/components/Button";
 import Pokeball from "../../assets/img/pokeball.svg";
 
@@ -14,19 +14,28 @@ let a = true;
 export default function Pokemons() {
     const [pokemons, setPokemons] = useState([]);
     const [initialAmout, setInitialAmout] = useState(1);
-    const [loadControl, setLoadControl] = useState(true);
     const [finalAmout, setFinalAmout] = useState(pokemonPerRequest);
+    const [loadControl, setLoadControl] = useState(true);
 
     const getPokemons = async (empty = null) => {
         setLoadControl(true);
-        let pokemonList = empty === true ? [] : pokemons;
+        let pokemonList = pokemons;
+        let initial = initialAmout;
+        let final = finalAmout;
 
-        let interval = await getPokemonsByInterval(initialAmout, finalAmout);
+        if (empty === true) {
+            pokemonList = [];
+            initial = 0;
+            final = pokemonPerRequest - 1;
+        }
+
+        let interval = await getPokemonsByInterval(initial, final);
         interval.forEach((p) => {
             pokemonList.push(p);
         });
-        setInitialAmout(initialAmout + pokemonPerRequest);
-        setFinalAmout(finalAmout + pokemonPerRequest);
+
+        setInitialAmout(initial + pokemonPerRequest);
+        setFinalAmout(final + pokemonPerRequest);
         setLoadControl(false);
         setPokemons(pokemonList);
     };
@@ -52,7 +61,7 @@ export default function Pokemons() {
                     key={"desktop-" + p.id}
                     id={p.id}
                     index={index}
-                    name={p.species.name}
+                    name={convertName(p.species.name, true)}
                     url={p.name}
                     image={image}
                     types={p.types}
@@ -69,7 +78,7 @@ export default function Pokemons() {
                     key={"mobile-" + p.id}
                     id={p.id}
                     index={index}
-                    name={p.species.name}
+                    name={convertName(p.species.name)}
                     url={p.name}
                     image={image}
                     types={p.types}
@@ -79,12 +88,7 @@ export default function Pokemons() {
     };
 
     return (
-        <Body
-            pokemons={pokemons}
-            getPokemons={getPokemons}
-            setInitialAmout={setInitialAmout}
-            setFinalAmout={setFinalAmout}
-        >
+        <Body getPokemons={getPokemons}>
             <Header title="Pokemons" />
             {pokemons && (
                 <>

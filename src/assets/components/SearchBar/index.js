@@ -4,7 +4,12 @@ import PokeballImage from "../../img/pokeball.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
-export default function SearchBar({ id, placeholder, button = true }) {
+export default function SearchBar({
+    id,
+    placeholder = "",
+    action = () => {},
+    button = true,
+}) {
     const searchPokemonName = (text = "") => {
         if (text !== "") {
             localStorage.setItem("searchPokemonName", text);
@@ -24,7 +29,11 @@ export default function SearchBar({ id, placeholder, button = true }) {
             <label className="searchBox" htmlFor={id}>
                 <div className="fieldDiv">
                     {button === true && (
-                        <button type="submit" className="searchButton">
+                        <button
+                            type="submit"
+                            className="searchButton"
+                            onClick={action}
+                        >
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </button>
                     )}
@@ -39,7 +48,7 @@ export default function SearchBar({ id, placeholder, button = true }) {
                     />
                 </div>
                 <div className="imgDiv">
-                    <img src={PokeballImage} alt="pokeball" />
+                    <img src={PokeballImage} alt="pokeball" draggable="false" />
                 </div>
             </label>
         </form>

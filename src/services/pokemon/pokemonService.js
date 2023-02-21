@@ -1,6 +1,14 @@
 import api from "../api";
 import { allPokemons } from "../data";
-import { pokemonPerRequest } from "../utils";
+import { pokemonPerRequest, maxPokemonCount } from "../utils";
+import {
+    tryGetPokemonsByInterval,
+    searchGeneration,
+    searchPokemonGroup,
+    searchPokemonName,
+    searchPokemonType,
+    checkFilter,
+} from "./utils";
 
 export async function getPokemonById(id) {
     return await api.get(`pokemon/${id}`);
@@ -12,125 +20,30 @@ export async function getPokemonsByInterval(initialAmout, finalAmout) {
     let pokemonList = [];
 
     if (filter) {
-        let filteredPokemon = searchGeneration();
-        console.log(filteredPokemon);
-        initialAmout = 0;
-        finalAmout = pokemonPerRequest;
+        let filteredPokemon = [];
+        filteredPokemon = searchGeneration();
+        filteredPokemon = searchPokemonGroup(filteredPokemon);
+        filteredPokemon = searchPokemonType(filteredPokemon);
+        filteredPokemon = searchPokemonName(filteredPokemon);
 
-        if (filteredPokemon.length < finalAmout) {
-            finalAmout = initialAmout + filteredPokemon.length - 1;
+        if (filteredPokemon.length <= finalAmout) {
+            finalAmout = filteredPokemon.length - 1;
         }
 
         for (let i = initialAmout; i <= finalAmout; i++) {
-            try {
-                const response = await getPokemonById(filteredPokemon[i].id);
-
-                if (response.status === 200) {
-                    pokemonList.push(response.data);
-                }
-            } catch (error) {
-                console.log(error);
-            }
+            await tryGetPokemonsByInterval(filteredPokemon[i].id, pokemonList);
         }
     } else {
-        for (let i = initialAmout; i <= finalAmout; i++) {
-            try {
-                const response = await getPokemonById(i);
+        if (maxPokemonCount < finalAmout) {
+            finalAmout = maxPokemonCount;
+        }
 
-                if (response.status === 200) {
-                    pokemonList.push(response.data);
-                }
-            } catch (error) {
-                console.log(error);
-            }
+        for (let i = initialAmout; i <= finalAmout; i++) {
+            await tryGetPokemonsByInterval(i, pokemonList);
         }
     }
     return pokemonList;
 }
-
-const searchPokemonName = () => {
-    let searchName = localStorage.getItem("searchPokemonName");
-    let filteredPokemon = [];
-    if (searchName) {
-        filteredPokemon = allPokemons.filter((p) =>
-            p.name.includes(searchName)
-        );
-    }
-    return filteredPokemon;
-};
-
-const searchGeneration = () => {
-    let filteredPokemon = [];
-    const generations = [
-        [0, 151],
-        [151, 251],
-        [251, 386],
-        [386, 493],
-        [493, 649],
-        [649, 721],
-        [721, 809],
-        [809, 890],
-        [905, 1008],
-    ];
-
-    generations.forEach((generation, index) => {
-        if (localStorage.getItem(`generation-${index + 1}`)) {
-            let generationFilteredPokemon = [];
-            generationFilteredPokemon = allPokemons.filter(
-                (p) =>
-                    p.id > generations[index][0] &&
-                    p.id <= generations[index][1]
-            );
-            generationFilteredPokemon.forEach((pokemon) => {
-                filteredPokemon.push(pokemon);
-            });
-        }
-    });
-
-    return filteredPokemon;
-};
-
-const checkFilter = () => {
-    const filters = [
-        "searchPokemonName",
-        "group",
-        "generation-1",
-        "generation-2",
-        "generation-3",
-        "generation-4",
-        "generation-5",
-        "generation-6",
-        "generation-7",
-        "generation-8",
-        "generation-9",
-        "bug",
-        "dark",
-        "dragon",
-        "electric",
-        "fairy",
-        "fighting",
-        "fire",
-        "flying",
-        "ghost",
-        "grass",
-        "ground",
-        "ice",
-        "normal",
-        "poison",
-        "psychic",
-        "rock",
-        "steel",
-        "water",
-    ];
-
-    let check = false;
-
-    filters.forEach((filter) => {
-        if (localStorage.getItem(filter)) check = true;
-    });
-
-    return check;
-};
 
 export async function getPokemonVarieties(varieties) {
     let pokemonList = [];

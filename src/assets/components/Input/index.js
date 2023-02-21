@@ -3,10 +3,17 @@ import "./style/style.css";
 
 export default function Input({ children, id, title, name, icon }) {
     const checkGroup = (e) => {
-        const value = e.target.value;
-
-        if (e.target.checked) {
-            localStorage.setItem("group", value);
+        const check = e.target;
+        const inputs = document.querySelectorAll("[data-input]");
+        inputs.forEach((i) => {
+            if (i.value != id) {
+                i.checked = false;
+            }
+        });
+        if (check.checked) {
+            localStorage.setItem("group", check.value);
+        } else {
+            localStorage.removeItem("group");
         }
     };
 
@@ -20,8 +27,9 @@ export default function Input({ children, id, title, name, icon }) {
                 name={name}
                 id={id}
                 value={id}
-                type="radio"
+                type="checkbox"
                 onChange={(e) => checkGroup(e)}
+                data-input={id}
             />
             <div className="inputLabel">
                 <p>{title}</p>
