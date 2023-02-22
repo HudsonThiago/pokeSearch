@@ -17,8 +17,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -ms-grid-rows: auto 100px;
-      grid-template-rows: auto 100px;
+  -ms-grid-rows: auto 140px;
+      grid-template-rows: auto 140px;
 }
 
 .pokemonsContent .mainFrameDesktopContainer .mainFrameDesktop {
@@ -71,13 +71,15 @@
 
 .pokemonsContent .mainFrameDesktopContainer .showMeMoreContainer .loadingContainer p {
   color: var(--text);
+  font-size: 1.2rem;
+  font-weight: 700;
   margin: 0px;
   margin-bottom: 5px;
 }
 
 .pokemonsContent .mainFrameDesktopContainer .showMeMoreContainer .loadingContainer .loadingPokeball {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
   -webkit-animation: loading 1s linear 0s infinite;
           animation: loading 1s linear 0s infinite;
 }

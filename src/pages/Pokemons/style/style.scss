@@ -12,7 +12,7 @@
         top: 0;
         left: 0;
         flex-direction: column;
-        grid-template-rows: auto 100px;
+        grid-template-rows: auto 140px;
 
         .mainFrameDesktop {
             box-sizing: border-box;
@@ -41,13 +41,15 @@
 
                 p {
                     color: var(--text);
+                    font-size: 1.2rem;
+                    font-weight: 700;
                     margin: 0px;
                     margin-bottom: 5px;
                 }
 
                 .loadingPokeball {
-                    width: 20px;
-                    height: 20px;
+                    width: 30px;
+                    height: 30px;
                     animation: loading 1s linear 0s infinite;
                 }
 

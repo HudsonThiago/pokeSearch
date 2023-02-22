@@ -1,6 +1,6 @@
 import api from "../api";
 import { allPokemons } from "../data";
-import { pokemonPerRequest, maxPokemonCount } from "../utils";
+import { maxPokemonCount } from "../utils";
 import {
     tryGetPokemonsByInterval,
     searchGeneration,
@@ -19,20 +19,30 @@ export async function getPokemonsByInterval(initialAmout, finalAmout) {
 
     let pokemonList = [];
 
+    let pokemonListObject = {
+        pokemonList: [],
+        length: 0,
+    };
+
     if (filter) {
         let filteredPokemon = [];
         filteredPokemon = searchGeneration();
-        filteredPokemon = searchPokemonGroup(filteredPokemon);
         filteredPokemon = searchPokemonType(filteredPokemon);
+        filteredPokemon = searchPokemonGroup(filteredPokemon);
         filteredPokemon = searchPokemonName(filteredPokemon);
 
         if (filteredPokemon.length <= finalAmout) {
             finalAmout = filteredPokemon.length - 1;
         }
 
-        for (let i = initialAmout; i <= finalAmout; i++) {
+        for (let i = initialAmout; i < finalAmout; i++) {
             await tryGetPokemonsByInterval(filteredPokemon[i].id, pokemonList);
         }
+
+        pokemonListObject = {
+            pokemonList: pokemonList,
+            length: filteredPokemon.length,
+        };
     } else {
         if (maxPokemonCount < finalAmout) {
             finalAmout = maxPokemonCount;
@@ -41,8 +51,13 @@ export async function getPokemonsByInterval(initialAmout, finalAmout) {
         for (let i = initialAmout; i <= finalAmout; i++) {
             await tryGetPokemonsByInterval(i, pokemonList);
         }
+
+        pokemonListObject = {
+            pokemonList: pokemonList,
+            length: allPokemons.length,
+        };
     }
-    return pokemonList;
+    return pokemonListObject;
 }
 
 export async function getPokemonVarieties(varieties) {

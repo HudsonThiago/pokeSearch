@@ -8,47 +8,65 @@ import "./style/style.css";
 import { pokemonPerRequest, convertName } from "../../services/utils";
 import Button from "../../assets/components/Button";
 import Pokeball from "../../assets/img/pokeball.svg";
-
-let a = true;
+import { pokemonListState } from "../../assets/store/reducers/pokemonList";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+import { allPokemons } from "../../services/data.js";
 
 export default function Pokemons() {
+    const dispatch = useDispatch();
+    const pokemonListObject = useSelector((list) => list.pokemonList);
     const [pokemons, setPokemons] = useState([]);
-    const [initialAmout, setInitialAmout] = useState(1);
-    const [finalAmout, setFinalAmout] = useState(pokemonPerRequest);
     const [loadControl, setLoadControl] = useState(true);
+    const [limit, setLimit] = useState(false);
 
     const getPokemons = async (empty = null) => {
         setLoadControl(true);
         let pokemonList = pokemons;
-        let initial = initialAmout;
-        let final = finalAmout;
+        let inicialAmout = pokemonListObject.inicialAmout;
+        let finalAmout = pokemonListObject.finalAmout;
 
         if (empty === true) {
+            setPokemons([]);
             pokemonList = [];
-            initial = 0;
-            final = pokemonPerRequest - 1;
+            inicialAmout = 0;
+            finalAmout = pokemonPerRequest;
         }
 
-        let interval = await getPokemonsByInterval(initial, final);
-        interval.forEach((p) => {
+        let interval = await getPokemonsByInterval(inicialAmout, finalAmout);
+
+        interval.pokemonList.forEach((p) => {
             pokemonList.push(p);
         });
 
-        setInitialAmout(initial + pokemonPerRequest);
-        setFinalAmout(final + pokemonPerRequest);
-        setLoadControl(false);
+        if (finalAmout + pokemonPerRequest >= interval.length) {
+            setLimit(true);
+        }
+
+        dispatch(
+            pokemonListState({
+                length: interval.length,
+                inicialAmout: inicialAmout + pokemonPerRequest,
+                finalAmout: finalAmout + pokemonPerRequest,
+            })
+        );
+
         setPokemons(pokemonList);
+        setLoadControl(false);
     };
 
     useEffect(() => {
         (async () => {
-            let pokemonList = await getPokemonsByInterval(
-                initialAmout,
-                finalAmout
+            let interval = await getPokemonsByInterval(1, pokemonPerRequest);
+
+            dispatch(
+                pokemonListState({
+                    length: allPokemons.length,
+                    inicialAmout: 1 + pokemonPerRequest,
+                    finalAmout: 2 * pokemonPerRequest,
+                })
             );
-            setInitialAmout(initialAmout + pokemonPerRequest);
-            setFinalAmout(finalAmout + pokemonPerRequest);
-            setPokemons(pokemonList);
+            setPokemons(interval.pokemonList);
             setLoadControl(false);
         })();
     }, []);
@@ -101,22 +119,26 @@ export default function Pokemons() {
                             <div className="mainFrameDesktop">
                                 {allPokemonListDesktop()}
                             </div>
-                            <div className="showMeMoreContainer">
-                                {loadControl ? (
-                                    <div className="loadingContainer">
-                                        <p>Loading...</p>
-                                        <img
-                                            className="loadingPokeball"
-                                            src={Pokeball}
-                                            alt="LoadingPokebal"
-                                        />
-                                    </div>
-                                ) : (
-                                    <Button onClick={getPokemons}>
-                                        Show me more
-                                    </Button>
-                                )}
-                            </div>
+                            {!limit && (
+                                <div className="showMeMoreContainer">
+                                    {loadControl ? (
+                                        <div className="loadingContainer">
+                                            <p>Loading...</p>
+                                            <img
+                                                className="loadingPokeball"
+                                                src={Pokeball}
+                                                alt="LoadingPokebal"
+                                            />
+                                        </div>
+                                    ) : (
+                                        !limit && (
+                                            <Button onClick={getPokemons}>
+                                                Show me more
+                                            </Button>
+                                        )
+                                    )}
+                                </div>
+                            )}
                         </div>
                         <div
                             id="mainFrameMobile"
@@ -125,22 +147,24 @@ export default function Pokemons() {
                             <div className="mainFrameMobile">
                                 {allPokemonListMobile()}
                             </div>
-                            <div className="showMeMoreContainer">
-                                {loadControl ? (
-                                    <div className="loadingContainer">
-                                        <p>Loading...</p>
-                                        <img
-                                            className="loadingPokeball"
-                                            src={Pokeball}
-                                            alt="LoadingPokebal"
-                                        />
-                                    </div>
-                                ) : (
-                                    <Button onClick={getPokemons}>
-                                        Show me more
-                                    </Button>
-                                )}
-                            </div>
+                            {!limit && (
+                                <div className="showMeMoreContainer">
+                                    {loadControl ? (
+                                        <div className="loadingContainer">
+                                            <p>Loading...</p>
+                                            <img
+                                                className="loadingPokeball"
+                                                src={Pokeball}
+                                                alt="LoadingPokebal"
+                                            />
+                                        </div>
+                                    ) : (
+                                        <Button onClick={getPokemons}>
+                                            Show me more
+                                        </Button>
+                                    )}
+                                </div>
+                            )}
                         </div>
                     </div>
                 </>
