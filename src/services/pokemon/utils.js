@@ -13,7 +13,7 @@ export const tryGetPokemonsByInterval = async (id, pokemonList = [{}]) => {
     }
 };
 
-export const searchGeneration = () => {
+export const searchGeneration = (pokemonList = []) => {
     let filteredPokemon = [];
 
     const generations = [
@@ -30,17 +30,31 @@ export const searchGeneration = () => {
 
     generations.forEach((generation, index) => {
         if (localStorage.getItem(`generation-${index + 1}`)) {
-            let generationFilteredPokemon = [];
-            generationFilteredPokemon = allPokemons.filter(
-                (p) => p.id > generation[0] && p.id <= generation[1]
-            );
-            generationFilteredPokemon.forEach((pokemon) => {
-                filteredPokemon.push(pokemon);
-            });
+            if (pokemonList.length === 0) {
+                let generationFilteredPokemon = [];
+                generationFilteredPokemon = allPokemons.filter(
+                    (p) => p.id > generation[0] && p.id <= generation[1]
+                );
+                generationFilteredPokemon.forEach((pokemon) => {
+                    filteredPokemon.push(pokemon);
+                });
+            } else {
+                let generationFilteredPokemon = [];
+                generationFilteredPokemon = pokemonList.filter(
+                    (p) => p.id > generation[0] && p.id <= generation[1]
+                );
+                generationFilteredPokemon.forEach((pokemon) => {
+                    filteredPokemon.push(pokemon);
+                });
+            }
         }
     });
 
-    return filteredPokemon;
+    if (filteredPokemon.length !== 0) {
+        return filteredPokemon;
+    }
+
+    return pokemonList;
 };
 
 export const searchPokemonGroup = (pokemonList = []) => {
@@ -49,18 +63,19 @@ export const searchPokemonGroup = (pokemonList = []) => {
 
     if (group) {
         if (pokemonList.length === 0) {
-            filteredPokemon = checkGroup(filteredPokemon, allPokemons, group);
+            filteredPokemon = checkGroup(allPokemons, group);
         } else {
-            filteredPokemon = checkGroup(filteredPokemon, pokemonList, group);
+            filteredPokemon = checkGroup(pokemonList, group);
         }
+        return filteredPokemon;
     }
 
-    return filteredPokemon;
+    return pokemonList;
 };
 
 export const searchPokemonName = (pokemonList = []) => {
     let searchName = localStorage.getItem("searchPokemonName");
-    let filteredPokemon = pokemonList;
+    let filteredPokemon = [];
 
     if (searchName) {
         if (pokemonList.length === 0) {
@@ -72,12 +87,13 @@ export const searchPokemonName = (pokemonList = []) => {
                 p.name.includes(searchName)
             );
         }
+        return filteredPokemon;
     }
-    return filteredPokemon;
+    return pokemonList;
 };
 
 export const searchPokemonType = (pokemonList = []) => {
-    let filteredPokemon = pokemonList;
+    let filteredPokemon = [];
 
     const types = [
         "bug",
@@ -102,51 +118,35 @@ export const searchPokemonType = (pokemonList = []) => {
 
     types.forEach((type) => {
         if (localStorage.getItem(type)) {
-            if (pokemonList.length === 0) {
-                let typeFilteredPokemon = [];
-                typeFilteredPokemon = allPokemons.filter((p) => {
-                    let isType = false;
-                    p.types.forEach((t) => {
-                        if (t.type.name.includes(type)) {
-                            isType = true;
-                        }
-                    });
-
-                    if (isType === true) {
-                        return true;
-                    } else {
-                        return false;
+            let typeFilteredPokemon = [];
+            typeFilteredPokemon = allPokemons.filter((p) => {
+                let isType = false;
+                p.types.forEach((t) => {
+                    if (t.type.name.includes(type)) {
+                        isType = true;
                     }
                 });
 
-                typeFilteredPokemon.forEach((pokemon) => {
-                    filteredPokemon.push(pokemon);
-                });
-            } else {
-                let typeFilteredPokemon = [];
-                typeFilteredPokemon = pokemonList.filter((p) => {
-                    let isType = false;
-                    p.types.forEach((t) => {
-                        if (t.type.name.includes(type)) {
-                            isType = true;
-                        }
-                    });
+                if (isType === true) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
 
-                    if (isType === true) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                });
-
-                typeFilteredPokemon.forEach((pokemon) => {
+            typeFilteredPokemon.forEach((pokemon) => {
+                if (!filteredPokemon.find((p) => p.id === pokemon.id)) {
                     filteredPokemon.push(pokemon);
-                });
-            }
+                }
+            });
         }
     });
 
-    return filteredPokemon;
+    if (filteredPokemon.length !== 0) {
+        return filteredPokemon;
+    }
+
+    return pokemonList;
 };
 
 export const checkFilter = () => {
@@ -197,6 +197,10 @@ const getGroup = (pokemonList = [], group) => {
         p.varieties.forEach((v) => {
             if (v.pokemon.name.includes(group)) {
                 isVarietie = true;
+
+                if (group === "-alola" && v.pokemon.name.includes("pikachu")) {
+                    isVarietie = false;
+                }
             }
         });
 
@@ -232,7 +236,7 @@ const getMythicalGroup = (pokemonList) => {
     return groupFilteredPokemon;
 };
 
-const checkGroup = (filteredPokemonList = [], pokemonList = [], group) => {
+const checkGroup = (pokemonList = [], group) => {
     let groupFilteredPokemon = [];
 
     if (group === "gigantamaxGroup") {
@@ -253,9 +257,5 @@ const checkGroup = (filteredPokemonList = [], pokemonList = [], group) => {
         groupFilteredPokemon = getMythicalGroup(pokemonList);
     }
 
-    groupFilteredPokemon.forEach((pokemon) => {
-        filteredPokemonList.push(pokemon);
-    });
-
-    return filteredPokemonList;
+    return groupFilteredPokemon;
 };

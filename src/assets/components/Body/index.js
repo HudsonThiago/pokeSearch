@@ -16,6 +16,7 @@ import MobileMagnifyingGlassIcon from "../../img/icons/mobileMagnifyingGlassIcon
 import MobilePokeballIcon from "../../img/icons/mobilePokeballIcon2.svg";
 import MobileHomeIcon from "../../img/icons/mobileHomeIcon.svg";
 import SearchBar from "../SearchBar";
+import { checkFilter } from "../../../services/pokemon/utils";
 import "./style/style.css";
 
 export default function Body({ getPokemons = () => {}, children }) {

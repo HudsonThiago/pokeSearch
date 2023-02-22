@@ -26,16 +26,18 @@ export async function getPokemonsByInterval(initialAmout, finalAmout) {
 
     if (filter) {
         let filteredPokemon = [];
-        filteredPokemon = searchGeneration();
         filteredPokemon = searchPokemonType(filteredPokemon);
         filteredPokemon = searchPokemonGroup(filteredPokemon);
         filteredPokemon = searchPokemonName(filteredPokemon);
+        filteredPokemon = searchGeneration(filteredPokemon);
+
+        filteredPokemon.sort((a, b) => Number(a.id) - Number(b.id));
 
         if (filteredPokemon.length <= finalAmout) {
             finalAmout = filteredPokemon.length - 1;
         }
 
-        for (let i = initialAmout; i < finalAmout; i++) {
+        for (let i = initialAmout; i <= finalAmout; i++) {
             await tryGetPokemonsByInterval(filteredPokemon[i].id, pokemonList);
         }
 
@@ -67,8 +69,8 @@ export async function getPokemonVarieties(varieties) {
             let splitUrl = varieties[i].pokemon.url.split("/");
             const response = await getPokemonById(splitUrl.at(-2));
             pokemonList.push(response.data);
-        } catch (e) {
-            console.log(e);
+        } catch (error) {
+            console.log(error);
         }
     }
     return pokemonList;

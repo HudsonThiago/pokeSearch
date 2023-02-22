@@ -12,7 +12,7 @@ import { pokemonListState } from "../../assets/store/reducers/pokemonList";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { allPokemons } from "../../services/data.js";
-
+import { checkFilter } from "../../services/pokemon/utils";
 export default function Pokemons() {
     const dispatch = useDispatch();
     const pokemonListObject = useSelector((list) => list.pokemonList);
@@ -22,15 +22,19 @@ export default function Pokemons() {
 
     const getPokemons = async (empty = null) => {
         setLoadControl(true);
+
         let pokemonList = pokemons;
         let inicialAmout = pokemonListObject.inicialAmout;
         let finalAmout = pokemonListObject.finalAmout;
 
         if (empty === true) {
             setPokemons([]);
+            setLimit(false);
             pokemonList = [];
-            inicialAmout = 0;
-            finalAmout = pokemonPerRequest;
+            inicialAmout = checkFilter() ? 0 : 1;
+            finalAmout = checkFilter()
+                ? pokemonPerRequest - 1
+                : pokemonPerRequest;
         }
 
         let interval = await getPokemonsByInterval(inicialAmout, finalAmout);
@@ -39,7 +43,7 @@ export default function Pokemons() {
             pokemonList.push(p);
         });
 
-        if (finalAmout + pokemonPerRequest >= interval.length) {
+        if (finalAmout >= interval.length) {
             setLimit(true);
         }
 

@@ -1073,7 +1073,7 @@ export const allPokemons = [
             {
                 is_default: true,
                 pokemon: {
-                    name: "nidoran-f",
+                    name: "nidoran",
                     url: "https://pokeapi.co/api/v2/pokemon/29/",
                 },
             },
@@ -1142,7 +1142,7 @@ export const allPokemons = [
     },
     {
         id: 32,
-        name: "nidoran-m",
+        name: "nidoran",
         height: 5,
         weight: 90,
         types: [
@@ -12374,7 +12374,7 @@ export const allPokemons = [
     },
     {
         id: 386,
-        name: "deoxys-normal",
+        name: "deoxys",
         height: 17,
         weight: 608,
         types: [
@@ -13199,7 +13199,7 @@ export const allPokemons = [
     },
     {
         id: 413,
-        name: "wormadam-plant",
+        name: "wormadam",
         height: 5,
         weight: 65,
         types: [
@@ -15557,7 +15557,7 @@ export const allPokemons = [
     },
     {
         id: 487,
-        name: "giratina-altered",
+        name: "giratina",
         height: 45,
         weight: 7500,
         types: [
@@ -15706,7 +15706,7 @@ export const allPokemons = [
     },
     {
         id: 492,
-        name: "shaymin-land",
+        name: "shaymin",
         height: 2,
         weight: 21,
         types: [
@@ -17415,7 +17415,7 @@ export const allPokemons = [
     },
     {
         id: 550,
-        name: "basculin-red-striped",
+        name: "basculin",
         height: 10,
         weight: 180,
         types: [
@@ -17592,7 +17592,7 @@ export const allPokemons = [
     },
     {
         id: 555,
-        name: "darmanitan-standard",
+        name: "darmanitan",
         height: 13,
         weight: 929,
         types: [
@@ -20252,7 +20252,7 @@ export const allPokemons = [
     },
     {
         id: 641,
-        name: "tornadus-incarnate",
+        name: "tornadus",
         height: 15,
         weight: 630,
         types: [
@@ -20286,7 +20286,7 @@ export const allPokemons = [
     },
     {
         id: 642,
-        name: "thundurus-incarnate",
+        name: "thundurus",
         height: 15,
         weight: 610,
         types: [
@@ -20395,7 +20395,7 @@ export const allPokemons = [
     },
     {
         id: 645,
-        name: "landorus-incarnate",
+        name: "landorus",
         height: 15,
         weight: 680,
         types: [
@@ -20484,7 +20484,7 @@ export const allPokemons = [
     },
     {
         id: 647,
-        name: "keldeo-ordinary",
+        name: "keldeo",
         height: 14,
         weight: 485,
         types: [
@@ -20525,7 +20525,7 @@ export const allPokemons = [
     },
     {
         id: 648,
-        name: "meloetta-aria",
+        name: "meloetta",
         height: 6,
         weight: 65,
         types: [
@@ -21442,7 +21442,7 @@ export const allPokemons = [
     },
     {
         id: 678,
-        name: "meowstic-male",
+        name: "meowstic",
         height: 6,
         weight: 85,
         types: [
@@ -21544,7 +21544,7 @@ export const allPokemons = [
     },
     {
         id: 681,
-        name: "aegislash-shield",
+        name: "aegislash",
         height: 17,
         weight: 530,
         types: [
@@ -22481,7 +22481,7 @@ export const allPokemons = [
     },
     {
         id: 710,
-        name: "pumpkaboo-average",
+        name: "pumpkaboo",
         height: 4,
         weight: 50,
         types: [
@@ -22536,7 +22536,7 @@ export const allPokemons = [
     },
     {
         id: 711,
-        name: "gourgeist-average",
+        name: "gourgeist",
         height: 9,
         weight: 125,
         types: [
@@ -22781,7 +22781,7 @@ export const allPokemons = [
     },
     {
         id: 718,
-        name: "zygarde-50",
+        name: "zygarde",
         height: 50,
         weight: 3050,
         types: [
@@ -23561,7 +23561,7 @@ export const allPokemons = [
     },
     {
         id: 741,
-        name: "oricorio-baile",
+        name: "oricorio",
         height: 6,
         weight: 34,
         types: [
@@ -23719,7 +23719,7 @@ export const allPokemons = [
     },
     {
         id: 745,
-        name: "lycanroc-midday",
+        name: "lycanroc",
         height: 8,
         weight: 250,
         types: [
@@ -23760,7 +23760,7 @@ export const allPokemons = [
     },
     {
         id: 746,
-        name: "wishiwashi-solo",
+        name: "wishiwashi",
         height: 2,
         weight: 3,
         types: [
@@ -24637,7 +24637,7 @@ export const allPokemons = [
     },
     {
         id: 774,
-        name: "minior-red-meteor",
+        name: "minior",
         height: 3,
         weight: 400,
         types: [
@@ -24864,7 +24864,7 @@ export const allPokemons = [
     },
     {
         id: 778,
-        name: "mimikyu-disguised",
+        name: "mimikyu",
         height: 2,
         weight: 7,
         types: [
@@ -27151,7 +27151,7 @@ export const allPokemons = [
     },
     {
         id: 849,
-        name: "toxtricity-amped",
+        name: "toxtricity",
         height: 16,
         weight: 400,
         types: [
@@ -27974,7 +27974,7 @@ export const allPokemons = [
     },
     {
         id: 875,
-        name: "eiscue-ice",
+        name: "eiscue",
         height: 14,
         weight: 890,
         types: [
@@ -28008,7 +28008,7 @@ export const allPokemons = [
     },
     {
         id: 876,
-        name: "indeedee-male",
+        name: "indeedee",
         height: 9,
         weight: 280,
         types: [
@@ -28049,7 +28049,7 @@ export const allPokemons = [
     },
     {
         id: 877,
-        name: "morpeko-full-belly",
+        name: "morpeko",
         height: 3,
         weight: 30,
         types: [
@@ -28566,7 +28566,7 @@ export const allPokemons = [
     },
     {
         id: 892,
-        name: "urshifu-single-strike",
+        name: "urshifu",
         height: 19,
         weight: 1050,
         types: [
@@ -28917,7 +28917,7 @@ export const allPokemons = [
     },
     {
         id: 902,
-        name: "basculegion-male",
+        name: "basculegion",
         height: 30,
         weight: 1100,
         types: [
@@ -29026,7 +29026,7 @@ export const allPokemons = [
     },
     {
         id: 905,
-        name: "enamorus-incarnate",
+        name: "enamorus",
         height: 16,
         weight: 480,
         types: [

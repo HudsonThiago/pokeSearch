@@ -12,7 +12,6 @@ export default function Modal3({ varieties, image }) {
         (async () => {
             let interval = await getPokemonVarieties(varieties);
             setVarietieList(interval);
-            console.log(varieties);
         })();
     }, []);
 
