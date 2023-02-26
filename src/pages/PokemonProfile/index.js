@@ -355,10 +355,10 @@ export default function PokemonProfile() {
                                     <WeaknessBox pokemon={pokemon} />
                                 </ItemBody>
                                 <ItemBody title="Base Stats">
-                                    {pokemon.stats.map((s, index) => (
+                                    {pokemon.stats.map((stat, index) => (
                                         <StatBox
-                                            key={`stat-${index}`}
-                                            stat={s}
+                                            key={`keyStat-${index}`}
+                                            stat={stat}
                                         />
                                     ))}
                                 </ItemBody>

@@ -15,6 +15,7 @@
 }
 
 .ItemBodyContent .ItemBodyHeaderContent h3 {
+  font-size: var(--titleFont);
   color: var(--primaryTitle);
   margin: 0px 0px 5px 0px;
 }

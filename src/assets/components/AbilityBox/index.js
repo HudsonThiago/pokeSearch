@@ -4,7 +4,7 @@ import QuestionImg from "../../img/icons/question.svg";
 import { getPokemonAbility } from "../../../services/pokemon/pokemonService";
 import { convertName } from "../../../services/utils";
 
-export default function AbilityBox({ ability, index }) {
+export default function AbilityBox({ index, ability }) {
     const [abilityObject, setAbilityObject] = useState(null);
     const [abilityText, setAbilityText] = useState("");
 

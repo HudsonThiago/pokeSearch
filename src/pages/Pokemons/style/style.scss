@@ -21,7 +21,7 @@
             padding-top: 10px;
             display: grid;
             grid-template-columns: repeat(auto-fill, 140px);
-            grid-template-rows: auto auto;
+            grid-template-rows: 200px auto;
             justify-content: space-between;
             grid-gap: 5px;
         }
@@ -97,6 +97,29 @@
         width: 100%;
         height: calc(100vh - 280px);
         overflow-y: scroll;
+
+        .mainFrameDesktopContainer {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            position: absolute;
+            top: 0;
+            left: 0;
+            flex-direction: column;
+            grid-template-rows: auto 140px;
+
+            .mainFrameDesktop {
+                box-sizing: border-box;
+                width: 98%;
+                padding: 0% 2%;
+                padding-top: 10px;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, 140px);
+                grid-template-rows: repeat(auto-fill, 200px);
+                justify-content: space-between;
+                grid-gap: 5px;
+            }
+        }
     }
 }
 
@@ -126,17 +149,20 @@
 
             .mainFrameMobile {
                 box-sizing: border-box;
-                width: 96%;
+                width: 98%;
                 padding: 0% 2%;
                 padding-top: 10px;
+                padding-right: 0%;
                 display: grid;
+                grid-template-rows: repeat(auto-fill, 100px);
                 flex-wrap: wrap;
                 grid-gap: 5px;
             }
 
             .showMeMoreContainer {
-                width: 92%;
+                width: 96%;
                 padding: 0% 2%;
+                padding-right: 0% 0%;
                 margin-right: 4%;
                 display: grid;
                 grid-template-columns: 100%;

@@ -12,11 +12,5 @@ export default function CheckBox({ type }) {
         }
     };
 
-    useEffect(() => {
-        if (localStorage.getItem(type)) {
-            localStorage.removeItem(type);
-        }
-    }, []);
-
     return <input type="checkbox" value={type} onClick={(e) => checkType(e)} />;
 }

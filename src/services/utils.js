@@ -7,6 +7,70 @@ export const minPokemonCount = 0;
 
 export const maxPokemonCount = 1008;
 
+export const typesList = [
+    "bug",
+    "dark",
+    "dragon",
+    "electric",
+    "fairy",
+    "fighting",
+    "fire",
+    "flying",
+    "ghost",
+    "grass",
+    "ground",
+    "ice",
+    "normal",
+    "poison",
+    "psychic",
+    "rock",
+    "steel",
+    "water",
+];
+
+export const generationsList = [
+    [0, 151],
+    [151, 251],
+    [251, 386],
+    [386, 493],
+    [493, 649],
+    [649, 721],
+    [721, 809],
+    [809, 898],
+    [905, 1008],
+];
+
+export const filterList = [
+    "searchPokemonName",
+    "group",
+    "generation-1",
+    "generation-2",
+    "generation-3",
+    "generation-4",
+    "generation-5",
+    "generation-6",
+    "generation-7",
+    "generation-8",
+    "generation-9",
+    "bug",
+    "dark",
+    "dragon",
+    "electric",
+    "fairy",
+    "fighting",
+    "fire",
+    "flying",
+    "ghost",
+    "grass",
+    "ground",
+    "ice",
+    "normal",
+    "poison",
+    "psychic",
+    "rock",
+    "steel",
+    "water",
+];
 export const upperCaseFirstLetter = (string) => {
     const upperString = string[0].toUpperCase() + string.substr(1);
     return upperString;
@@ -72,6 +136,26 @@ export const convertName = (string, split = true) => {
             //PIROUETTE MELOETTA
             let aux = splitString[0];
             splitString[0] = "Pirouette";
+            splitString[1] = aux;
+        } else if (name === "f") {
+            //FEMALE NIDORAN
+            let aux = splitString[0];
+            splitString[0] = "Female";
+            splitString[1] = aux;
+        } else if (name === "m") {
+            //MALE NIDORAN
+            let aux = splitString[0];
+            splitString[0] = "Male";
+            splitString[1] = aux;
+        } else if (name === "female") {
+            //FEMALE
+            let aux = splitString[0];
+            splitString[0] = "Female";
+            splitString[1] = aux;
+        } else if (name === "male") {
+            //MALE
+            let aux = splitString[0];
+            splitString[0] = "Male";
             splitString[1] = aux;
         }
     });
@@ -230,4 +314,10 @@ export const selectPokemonGroup = () => {
     }
 
     return filteredPokemons;
+};
+
+export const clearFilter = () => {
+    if (localStorage.getItem("searchPokemonName")) {
+        localStorage.removeItem("searchPokemonName");
+    }
 };

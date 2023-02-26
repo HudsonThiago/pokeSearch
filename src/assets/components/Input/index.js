@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./style/style.css";
 
 export default function Input({ children, id, title, name, icon }) {
@@ -16,10 +16,6 @@ export default function Input({ children, id, title, name, icon }) {
             localStorage.removeItem("group");
         }
     };
-
-    useEffect(() => {
-        localStorage.removeItem("group");
-    }, []);
 
     return (
         <label className="inputContainer" htmlFor={id}>

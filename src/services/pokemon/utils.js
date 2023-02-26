@@ -1,5 +1,8 @@
 import { getPokemonById } from "./pokemonService";
 import { allPokemons } from "../data";
+import { filterList } from "../utils";
+import { typesList } from "../utils";
+import { generationsList } from "../utils";
 
 export const tryGetPokemonsByInterval = async (id, pokemonList = [{}]) => {
     try {
@@ -16,19 +19,7 @@ export const tryGetPokemonsByInterval = async (id, pokemonList = [{}]) => {
 export const searchGeneration = (pokemonList = []) => {
     let filteredPokemon = [];
 
-    const generations = [
-        [0, 151],
-        [151, 251],
-        [251, 386],
-        [386, 493],
-        [493, 649],
-        [649, 721],
-        [721, 809],
-        [809, 890],
-        [905, 1008],
-    ];
-
-    generations.forEach((generation, index) => {
+    generationsList.forEach((generation, index) => {
         if (localStorage.getItem(`generation-${index + 1}`)) {
             if (pokemonList.length === 0) {
                 let generationFilteredPokemon = [];
@@ -95,28 +86,7 @@ export const searchPokemonName = (pokemonList = []) => {
 export const searchPokemonType = (pokemonList = []) => {
     let filteredPokemon = [];
 
-    const types = [
-        "bug",
-        "dark",
-        "dragon",
-        "electric",
-        "fairy",
-        "fighting",
-        "fire",
-        "flying",
-        "ghost",
-        "grass",
-        "ground",
-        "ice",
-        "normal",
-        "poison",
-        "psychic",
-        "rock",
-        "steel",
-        "water",
-    ];
-
-    types.forEach((type) => {
+    typesList.forEach((type) => {
         if (localStorage.getItem(type)) {
             let typeFilteredPokemon = [];
             typeFilteredPokemon = allPokemons.filter((p) => {
@@ -150,41 +120,9 @@ export const searchPokemonType = (pokemonList = []) => {
 };
 
 export const checkFilter = () => {
-    const filters = [
-        "searchPokemonName",
-        "group",
-        "generation-1",
-        "generation-2",
-        "generation-3",
-        "generation-4",
-        "generation-5",
-        "generation-6",
-        "generation-7",
-        "generation-8",
-        "generation-9",
-        "bug",
-        "dark",
-        "dragon",
-        "electric",
-        "fairy",
-        "fighting",
-        "fire",
-        "flying",
-        "ghost",
-        "grass",
-        "ground",
-        "ice",
-        "normal",
-        "poison",
-        "psychic",
-        "rock",
-        "steel",
-        "water",
-    ];
-
     let check = false;
 
-    filters.forEach((filter) => {
+    filterList.forEach((filter) => {
         if (localStorage.getItem(filter)) check = true;
     });
 
@@ -203,6 +141,10 @@ const getGroup = (pokemonList = [], group) => {
                 }
             }
         });
+
+        if (group === "-hisui" && p.id > 898 && p.id <= 905) {
+            isVarietie = true;
+        }
 
         if (isVarietie === true) {
             return true;

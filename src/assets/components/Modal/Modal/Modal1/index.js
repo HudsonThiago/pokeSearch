@@ -6,6 +6,8 @@ import icon3 from "../../../../img/icons/babiesIcon.svg";
 import icon4 from "../../../../img/icons/alolanIcon.svg";
 import icon5 from "../../../../img/icons/galarianIcon.svg";
 import icon6 from "../../../../img/icons/hisuianIcon.svg";
+import icon7 from "../../../../img/icons/myticaIcon.svg";
+import icon8 from "../../../../img/icons/legendaryIcon.svg";
 import Input from "../../../Input";
 import ItemBody from "../../../ItemBody";
 import SearchBar from "../../../SearchBar";
@@ -85,17 +87,17 @@ export default function Modal1() {
                             </div>
                             <div>
                                 <Input
-                                    id="legendaryGroup"
-                                    title={"Legendary"}
-                                    icon={icon6}
+                                    id="mythicalGroup"
+                                    title={"Mythical"}
+                                    icon={icon7}
                                     name="form"
                                 />
                             </div>
                             <div>
                                 <Input
-                                    id="mythicalGroup"
-                                    title={"Mythical"}
-                                    icon={icon6}
+                                    id="legendaryGroup"
+                                    title={"Legendary"}
+                                    icon={icon8}
                                     name="form"
                                 />
                             </div>

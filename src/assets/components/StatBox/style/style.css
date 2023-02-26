@@ -2,76 +2,240 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   width: 100%;
-  height: 60px;
-  padding: 10px;
+  height: 40px;
   margin-top: 10px;
-  background: -webkit-gradient(linear, left top, right top, from(var(--bw100)), to(var(--tertiary)));
-  background: linear-gradient(90deg, var(--bw100) 0%, var(--tertiary) 100%);
+  padding: 7px;
+  background: -webkit-gradient(linear, left top, right top, from(var(--bw100)), to(var(--secondary)));
+  background: linear-gradient(90deg, var(--bw100) 0%, var(--secondary) 100%);
   border-radius: 10px;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 60px auto;
-      grid-template-columns: 60px auto;
-  -ms-grid-rows: 40px;
-      grid-template-rows: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-shadow: 1px 1px 2px #00000099;
           box-shadow: 1px 1px 2px #00000099;
 }
 
-.statBox img {
-  height: 100%;
-  width: auto;
+.statBox .statIdBox {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.statBox .statIdBox .statValueCircle {
+  background-color: var(--secondary);
+  width: 26px;
+  height: 26px;
+  border-radius: 100%;
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.statBox .statIdBox .statValueCircle .statValue {
+  color: #ffffff !important;
+  font-size: 0.7rem;
+  padding: 0px;
+  margin: 0px;
+}
+
+.statBox .statIdBox h3 {
+  color: var(--secondaryTitle);
+  margin: 0px;
+  margin-left: 10px;
+  font-size: 1rem;
+  padding: 0px;
 }
 
 .statBox .statBoxMain {
-  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 5px;
 }
 
-.statBox .statBoxMain h3 {
-  margin: 0px;
-  color: var(--secondaryTitle);
-  font-size: 1rem;
-  font-weight: 700;
+.statBox .statBoxMain img {
+  height: 70%;
+  width: auto;
 }
 
-.statBox .statBoxMain .statBoxOutBar {
-  background-color: #324e6799;
-  width: 100%;
-  height: 15px;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 0 2px #000000;
-          box-shadow: inset 0 0 2px #000000;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.statBox .statBoxMain .statBoxOutBar .statBoxBar {
-  height: 100%;
-  border-radius: 4px;
-  -webkit-box-shadow: inset 0 0 2px #000000;
-          box-shadow: inset 0 0 2px #000000;
+.statBox .statBoxMain .coloredBar {
+  -webkit-filter: drop-shadow(1px 1px 0px #00000066);
+          filter: drop-shadow(1px 1px 0px #00000066);
 }
 
 .statBox:last-child {
   margin-bottom: 30px;
 }
 
+@media only screen and (max-width: 1200px) {
+  .statBox {
+    padding: 8px;
+  }
+  .statBox .statIdBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .statBox .statIdBox .statValueCircle {
+    width: 24px;
+    height: 24px;
+  }
+  .statBox .statIdBox .statValueCircle .statValue {
+    color: #ffffff !important;
+    font-size: 0.5rem;
+    padding: 0px;
+    margin: 0px;
+  }
+  .statBox .statIdBox h3 {
+    font-size: 0.8rem;
+  }
+  .statBox .statBoxMain {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .statBox .statBoxMain img {
+    height: 60%;
+    width: auto;
+  }
+  .statBox .statBoxMain .coloredBar {
+    -webkit-filter: drop-shadow(1px 1px 0px #00000066);
+            filter: drop-shadow(1px 1px 0px #00000066);
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .statBox:last-child {
     margin-bottom: 0px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .statBox .statBoxMain {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .statBox .statBoxMain img {
+    height: 50%;
+    width: auto;
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .statBox {
+    height: 30px;
+    padding: 5px;
+  }
+  .statBox .statIdBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .statBox .statIdBox .statValueCircle {
+    width: 20px;
+    height: 20px;
+  }
+  .statBox .statIdBox .statValueCircle .statValue {
+    color: #ffffff !important;
+    font-size: 0.5rem;
+    padding: 0px;
+    margin: 0px;
+  }
+  .statBox .statIdBox h3 {
+    margin-left: 5px;
+    font-size: 0.6rem;
+  }
+  .statBox .statBoxMain {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .statBox .statBoxMain img {
+    height: 40%;
+    width: auto;
+  }
+  .statBox .statBoxMain .coloredBar {
+    -webkit-filter: drop-shadow(1px 1px 0px #00000066);
+            filter: drop-shadow(1px 1px 0px #00000066);
+  }
+}
+
+@media only screen and (max-width: 240px) {
+  .statBox {
+    height: 30px;
+    padding: 6px;
+  }
+  .statBox .statIdBox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .statBox .statIdBox .statValueCircle {
+    width: 20px;
+    height: 20px;
+  }
+  .statBox .statIdBox .statValueCircle .statValue {
+    color: #ffffff !important;
+    font-size: 0.5rem;
+    padding: 0px;
+    margin: 0px;
+  }
+  .statBox .statIdBox h3 {
+    margin-left: 5px;
+    font-size: 0.6rem;
+  }
+  .statBox .statBoxMain {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .statBox .statBoxMain img {
+    height: 40%;
+    width: auto;
+  }
+  .statBox .statBoxMain .coloredBar {
+    -webkit-filter: drop-shadow(1px 1px 0px #00000066);
+            filter: drop-shadow(1px 1px 0px #00000066);
   }
 }
 /*# sourceMappingURL=style.css.map */

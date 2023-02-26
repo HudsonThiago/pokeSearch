@@ -272,14 +272,14 @@
     width: 100%;
     height: calc(100vh - 280px);
   }
+  .pokemonProfile .gradient {
+    display: none;
+  }
   .pokemonProfile .profileInterface {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
     width: 100%;
   }
   .pokemonProfile .profileInterface .c1 {
-    width: 30%;
+    width: 40%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -290,7 +290,7 @@
   }
   .pokemonProfile .profileInterface .c2 {
     margin-left: 5%;
-    width: 64%;
+    width: 54%;
     padding-right: 1%;
     height: calc(100vh - 280px);
     overflow-y: scroll;
@@ -366,6 +366,7 @@
   }
   .pokemonProfile .profileInterface .c2 p {
     text-align: justify;
+    font-size: var(--textFont);
     color: var(--text);
   }
   .pokemonProfile .profileInterface .c2 h2 {
@@ -413,6 +414,9 @@
     display: -ms-flexbox;
     display: flex;
     overflow-y: scroll;
+  }
+  .pokemonProfile .gradient {
+    display: block;
   }
   .pokemonProfile .profileInterface {
     width: 96%;
@@ -467,6 +471,35 @@
     font-size: 2rem;
     font-weight: 900;
     margin: 0px;
+  }
+  .pokemonProfile .profileInterface .c2 .measurementBox {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    background-color: white;
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    padding: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-shadow: 1px 1px 2px #00000099;
+            box-shadow: 1px 1px 2px #00000099;
+  }
+  .pokemonProfile .profileInterface .c2 .measurementBox img {
+    height: 80%;
+    width: auto;
+  }
+  .pokemonProfile .profileInterface .c2 .measurementBox h3 {
+    color: var(--secondaryTitle);
+    font-size: 1rem;
+    font-weight: 700;
   }
 }
 /*# sourceMappingURL=style.css.map */

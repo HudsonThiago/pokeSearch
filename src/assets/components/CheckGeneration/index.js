@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./style/style.css";
 
 export default function CheckGeneration({ id, title, value }) {
@@ -19,10 +19,6 @@ export default function CheckGeneration({ id, title, value }) {
                 localStorage.removeItem(`generation-${value}`);
         }
     };
-
-    useEffect(() => {
-        changeValue();
-    }, []);
 
     return (
         <>

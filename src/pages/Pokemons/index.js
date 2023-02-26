@@ -61,7 +61,10 @@ export default function Pokemons() {
 
     useEffect(() => {
         (async () => {
-            let interval = await getPokemonsByInterval(1, pokemonPerRequest);
+            let interval = await getPokemonsByInterval(
+                checkFilter() ? 0 : 1,
+                pokemonPerRequest
+            );
 
             dispatch(
                 pokemonListState({
@@ -70,6 +73,11 @@ export default function Pokemons() {
                     finalAmout: 2 * pokemonPerRequest,
                 })
             );
+
+            if (interval.length <= pokemonPerRequest) {
+                setLimit(true);
+            }
+
             setPokemons(interval.pokemonList);
             setLoadControl(false);
         })();

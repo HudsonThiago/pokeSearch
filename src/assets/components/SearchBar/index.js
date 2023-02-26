@@ -12,11 +12,7 @@ export default function SearchBar({
 }) {
     const searchPokemonName = (text = "") => {
         if (text !== "") {
-            localStorage.setItem("searchPokemonName", text);
-        } else {
-            if (localStorage.getItem("searchPokemonName")) {
-                localStorage.removeItem("searchPokemonName");
-            }
+            localStorage.setItem("searchPokemonName", text.toLowerCase());
         }
     };
 
