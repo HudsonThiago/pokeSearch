@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./style/style.css";
 import TypeBox from "../TypeBox";
-import { getTypes } from "../../../services/pokemon/pokemonService";
 import { asyncGetAllTypes } from "../../../services/utils";
 import CheckBox from "./CheckBox";
 

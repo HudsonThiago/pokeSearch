@@ -252,7 +252,7 @@ export const asyncGetAllTypes = async () => {
         const response = await getTypes();
         const types = response.data.results;
         const typeList = types.filter(
-            (t) => t.name !== "unknown" && t.name !== "shadow"
+            (t) => t.name !== "unknown" && t.name !== "shadow" && t.name !== "stellar" 
         );
         let sortTypeList = typeList.sort((a, b) =>
             a.name > b.name ? 1 : b.name > a.name ? -1 : 0
